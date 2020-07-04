@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311D0A7524B0ED05003F18DB /* StatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7424B0ED05003F18DB /* StatsItemView.swift */; };
+		311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
+		311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7824B0F405003F18DB /* UIConstants.swift */; };
+		311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7A24B0F613003F18DB /* StatsView.swift */; };
 		3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */; };
 		3175EB5E24AE597900E7B5FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB5D24AE597900E7B5FF /* ContentView.swift */; };
 		3175EB6024AE597A00E7B5FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175EB5F24AE597A00E7B5FF /* Assets.xcassets */; };
@@ -33,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		311D0A7424B0ED05003F18DB /* StatsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemView.swift; sourceTree = "<group>"; };
+		311D0A7624B0EFE3003F18DB /* StatsItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemType.swift; sourceTree = "<group>"; };
+		311D0A7824B0F405003F18DB /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		311D0A7A24B0F613003F18DB /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		3175EB5824AE597900E7B5FF /* PiStatsMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiStatsMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsMobileApp.swift; sourceTree = "<group>"; };
 		3175EB5D24AE597900E7B5FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +108,10 @@
 				3175EB5F24AE597A00E7B5FF /* Assets.xcassets */,
 				3175EB6424AE597A00E7B5FF /* Info.plist */,
 				3175EB6124AE597A00E7B5FF /* Preview Content */,
+				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
+				311D0A7A24B0F613003F18DB /* StatsView.swift */,
+				311D0A7824B0F405003F18DB /* UIConstants.swift */,
+				311D0A7624B0EFE3003F18DB /* StatsItemType.swift */,
 			);
 			path = PiStatsMobile;
 			sourceTree = "<group>";
@@ -259,7 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				311D0A7524B0ED05003F18DB /* StatsItemView.swift in Sources */,
 				3175EB5E24AE597900E7B5FF /* ContentView.swift in Sources */,
+				311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */,
+				311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */,
+				311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */,
 				3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
