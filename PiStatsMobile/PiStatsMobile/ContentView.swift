@@ -9,9 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            StatsView()
-                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+        
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                StatsView()
+                    .background(Color("CardColor"))
+                    .cornerRadius(UIConstants.defaultCornerRadius)
+                    .shadow(radius: 5)
+            }.padding()
         }
     }
 }

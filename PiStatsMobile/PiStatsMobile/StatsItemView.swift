@@ -11,24 +11,32 @@ struct StatsItemView: View {
     let type: StatsItemType
     
     var body: some View {
-        HStack {
+        
+        VStack (alignment: .leading){
+            Text(type.title)
             
-            VStack (alignment: .center){
-                Text(type.title)
+                .foregroundColor(.white)
+                .font(.subheadline)
+                .frame(maxWidth: .infinity, alignment: .leading)   // << here !!
+          
+            
+            HStack {
+                Image(systemName: type.imageName)
                     .foregroundColor(.white)
-                    .font(.headline)
+                    .font(.subheadline)
                 Text("32,212")
                     .foregroundColor(.white)
-                    .font(.title)
+                    .font(.body)
                     .fontWeight(.bold)
             }
-            .layoutPriority(1)
         }
-        .frame(minWidth: 0, maxWidth: .infinity)
+        
+        .frame(maxWidth: .infinity)
         .padding(.horizontal, UIConstants.defaultPadding)
         .padding(.vertical, UIConstants.defaultPadding)
         .background(Color(type.colorName))
         .cornerRadius(UIConstants.defaultCornerRadius)
+        
     }
     
 }

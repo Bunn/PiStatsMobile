@@ -22,7 +22,8 @@ struct StatsView: View {
                 StatsItemView(type: .percentBlocked)
                 StatsItemView(type: .domainsOnBlockList)
             }
-        }
+        }.padding()
+        
         
     }
 }

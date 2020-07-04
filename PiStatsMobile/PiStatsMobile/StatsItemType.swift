@@ -29,7 +29,7 @@ enum StatsItemType {
     var title: String {
         switch self {
         case .domainsOnBlockList:
-            return "Domains on Blocklist"
+            return "Blocklist"
         case .totalQueries:
             return "Total Queries"
         case .queriesBlocked:
