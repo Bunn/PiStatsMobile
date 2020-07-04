@@ -5,10 +5,17 @@
 //  Created by Fernando Bunn on 04/07/2020.
 //
 
-import CoreGraphics
+import SwiftUI
 
 struct UIConstants {
-    static let defaultCornerRadius: CGFloat = 15.0
-    static let defaultPadding: CGFloat = 10.0
+    struct Geometry {
+        static let defaultCornerRadius: CGFloat = 15.0
+        static let defaultPadding: CGFloat = 10.0
+    }
+    struct Colors {
+        static let background = Color("BackgroundColor")
+        static let cardColor = Color("CardColor")
 
+    }
+    
 }

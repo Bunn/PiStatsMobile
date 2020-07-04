@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct StatsView: View {
-    let layout = [
-        GridItem(.adaptive(minimum: 300))
-        ]
+    
     var body: some View {
-        
-        VStack(spacing: 10) {
+        VStack(spacing: UIConstants.Geometry.defaultPadding) {
             HStack {
                 StatsItemView(type: .totalQueries)
                 StatsItemView(type: .queriesBlocked)
@@ -23,8 +20,6 @@ struct StatsView: View {
                 StatsItemView(type: .domainsOnBlockList)
             }
         }.padding()
-        
-        
     }
 }
 

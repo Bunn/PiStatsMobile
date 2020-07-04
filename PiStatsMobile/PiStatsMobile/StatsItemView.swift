@@ -14,12 +14,9 @@ struct StatsItemView: View {
         
         VStack (alignment: .leading){
             Text(type.title)
-            
                 .foregroundColor(.white)
                 .font(.subheadline)
-                .frame(maxWidth: .infinity, alignment: .leading)   // << here !!
-          
-            
+                .frame(maxWidth: .infinity, alignment: .leading)
             HStack {
                 Image(systemName: type.imageName)
                     .foregroundColor(.white)
@@ -31,11 +28,11 @@ struct StatsItemView: View {
             }
         }
         
-        .frame(maxWidth: .infinity)
-        .padding(.horizontal, UIConstants.defaultPadding)
-        .padding(.vertical, UIConstants.defaultPadding)
+        
+        .padding(.horizontal, UIConstants.Geometry.defaultPadding)
+        .padding(.vertical, UIConstants.Geometry.defaultPadding)
         .background(Color(type.colorName))
-        .cornerRadius(UIConstants.defaultCornerRadius)
+        .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
         
     }
     

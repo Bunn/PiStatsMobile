@@ -11,13 +11,13 @@ struct ContentView: View {
     var body: some View {
         
         ZStack {
-            Color("BackgroundColor")
+            UIConstants.Colors.background
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
                 StatsView()
-                    .background(Color("CardColor"))
-                    .cornerRadius(UIConstants.defaultCornerRadius)
+                    .background(UIConstants.Colors.cardColor)
+                    .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
                     .shadow(radius: 5)
             }.padding()
         }
@@ -26,8 +26,12 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .preferredColorScheme(.light)
-            
+        Group {
+            ContentView()
+                .preferredColorScheme(.light)
+            ContentView()
+                .preferredColorScheme(.dark)
+        }
+        
     }
 }
