@@ -15,9 +15,19 @@ struct PiholeStatsList: View {
             
             ScrollView {
                 StatsView()
-                StatsView()
-                StatsView()
-                StatsView()
+                
+                Button(action: { }, label: {
+                    ZStack {
+                        Circle()
+                            .frame(width: UIConstants.Geometry.addPiholeButtonHeight, height: UIConstants.Geometry.addPiholeButtonHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                        
+                    }
+                })
+                .shadow(radius: UIConstants.Geometry.shadowRadius)
+                .padding()
                 
             }
         }.navigationTitle("Pi-holes")
