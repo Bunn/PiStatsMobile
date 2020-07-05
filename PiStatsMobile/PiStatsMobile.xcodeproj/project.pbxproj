@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31115BC724B29A1700C91212 /* PiholeSetupView.swift */; };
 		311D0A7524B0ED05003F18DB /* StatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7424B0ED05003F18DB /* StatsItemView.swift */; };
 		311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
 		311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7824B0F405003F18DB /* UIConstants.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31115BC724B29A1700C91212 /* PiholeSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeSetupView.swift; sourceTree = "<group>"; };
 		311D0A7424B0ED05003F18DB /* StatsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemView.swift; sourceTree = "<group>"; };
 		311D0A7624B0EFE3003F18DB /* StatsItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemType.swift; sourceTree = "<group>"; };
 		311D0A7824B0F405003F18DB /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
 				311D0A7A24B0F613003F18DB /* StatsView.swift */,
 				319F965C24B265D200B680D3 /* PiholeStatsList.swift */,
+				31115BC724B29A1700C91212 /* PiholeSetupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */,
 				311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */,
 				319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */,
+				31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */,
 				311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */,
 				3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */,
 			);

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PiholeStatsList: View {
+    @State var showingSetupView = false
+
     var body: some View {
         ZStack {
             UIConstants.Colors.background
@@ -16,16 +18,20 @@ struct PiholeStatsList: View {
             ScrollView {
                 StatsView()
                 
-                Button(action: { }, label: {
+                Button(action: {
+                    showingSetupView = true
+                }, label: {
                     ZStack {
                         Circle()
                             .frame(width: UIConstants.Geometry.addPiholeButtonHeight, height: UIConstants.Geometry.addPiholeButtonHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         Image(systemName: "plus")
                             .foregroundColor(.white)
                             .font(.largeTitle)
-                        
                     }
                 })
+                .sheet(isPresented: $showingSetupView) {
+                    PiholeSetupView()
+                }
                 .shadow(radius: UIConstants.Geometry.shadowRadius)
                 .padding()
                 

@@ -9,9 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
-        NavigationView {
-            PiholeStatsList()
+        TabView {
+            NavigationView {
+                PiholeStatsList()
+            }
+            .tabItem {
+                Image(systemName: "shield")
+                Text("Pi-holes")
+            }.tag(0)
+            
+            NavigationView {
+                Text("Settings")
+            }
+            .tabItem {
+                Image(systemName: "gear")
+                Text("Settings")
+            }.tag(1)
         }
     }
 }
