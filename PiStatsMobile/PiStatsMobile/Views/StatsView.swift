@@ -31,12 +31,13 @@ struct StatsView: View {
                 StatsItemView(type: .percentBlocked)
                 StatsItemView(type: .domainsOnBlockList)
             }
-            Divider()
+
         }.padding()
         .background(LinearGradient(gradient: Gradient(colors: [UIConstants.Colors.cardColorGradientTop, UIConstants.Colors.cardColorGradientBottom]), startPoint: .top, endPoint: .bottom))
-        
-        
-        
+        .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
+        .shadow(radius: 5)
+        .padding()
+      
     }
 }
 

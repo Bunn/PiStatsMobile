@@ -10,15 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        ZStack {
-            UIConstants.Colors.background
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                StatsView()
-                    .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
-                    .shadow(radius: 5)
-            }.padding()
+        NavigationView {
+            PiholeStatsList()
         }
     }
 }
@@ -34,3 +27,4 @@ struct ContentView_Previews: PreviewProvider {
         
     }
 }
+

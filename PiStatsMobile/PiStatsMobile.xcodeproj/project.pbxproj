@@ -17,6 +17,7 @@
 		3175EB6324AE597A00E7B5FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175EB6224AE597A00E7B5FF /* Preview Assets.xcassets */; };
 		3175EB6E24AE597A00E7B5FF /* PiStatsMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB6D24AE597A00E7B5FF /* PiStatsMobileTests.swift */; };
 		3175EB7924AE597A00E7B5FF /* PiStatsMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */; };
+		319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F965C24B265D200B680D3 /* PiholeStatsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		3175EB7424AE597A00E7B5FF /* PiStatsMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PiStatsMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsMobileUITests.swift; sourceTree = "<group>"; };
 		3175EB7A24AE597A00E7B5FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		319F965C24B265D200B680D3 /* PiholeStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeStatsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +110,7 @@
 				3175EB5F24AE597A00E7B5FF /* Assets.xcassets */,
 				3175EB6424AE597A00E7B5FF /* Info.plist */,
 				3175EB6124AE597A00E7B5FF /* Preview Content */,
-				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
-				311D0A7A24B0F613003F18DB /* StatsView.swift */,
+				319F965B24B2658300B680D3 /* Views */,
 				311D0A7824B0F405003F18DB /* UIConstants.swift */,
 				311D0A7624B0EFE3003F18DB /* StatsItemType.swift */,
 			);
@@ -140,6 +141,16 @@
 				3175EB7A24AE597A00E7B5FF /* Info.plist */,
 			);
 			path = PiStatsMobileUITests;
+			sourceTree = "<group>";
+		};
+		319F965B24B2658300B680D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
+				311D0A7A24B0F613003F18DB /* StatsView.swift */,
+				319F965C24B265D200B680D3 /* PiholeStatsList.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +286,7 @@
 				3175EB5E24AE597900E7B5FF /* ContentView.swift in Sources */,
 				311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */,
 				311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */,
+				319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */,
 				311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */,
 				3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */,
 			);
