@@ -15,7 +15,8 @@ struct UIConstants {
     struct Colors {
         static let background = Color("BackgroundColor")
         static let cardColor = Color("CardColor")
-
+        static let cardColorGradientTop = Color("CardColorGradientTop")
+        static let cardColorGradientBottom = Color("CardColorGradientBottom")
     }
     
 }

@@ -16,7 +16,6 @@ struct ContentView: View {
             
             VStack {
                 StatsView()
-                    .background(UIConstants.Colors.cardColor)
                     .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
                     .shadow(radius: 5)
             }.padding()

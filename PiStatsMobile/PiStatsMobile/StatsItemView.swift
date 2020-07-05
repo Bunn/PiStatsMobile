@@ -27,15 +27,12 @@ struct StatsItemView: View {
                     .fontWeight(.bold)
             }
         }
-        
-        
+ 
         .padding(.horizontal, UIConstants.Geometry.defaultPadding)
         .padding(.vertical, UIConstants.Geometry.defaultPadding)
         .background(Color(type.colorName))
         .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
-        
     }
-    
 }
 
 struct StatsItemView_Previews: PreviewProvider {
