@@ -9,11 +9,10 @@ import SwiftUI
 
 struct UIConstants {
     struct Geometry {
-        static let defaultCornerRadius: CGFloat = 15.0
+        static let defaultCornerRadius: CGFloat = 10.0
         static let defaultPadding: CGFloat = 10.0
-        static let shadowRadius: CGFloat = 3.0
+        static let shadowRadius: CGFloat = 0
         static let addPiholeButtonHeight: CGFloat = 55.0
-
     }
     
     struct Colors {
