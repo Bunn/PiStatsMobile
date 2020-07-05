@@ -14,8 +14,8 @@ struct StatsView: View {
             HStack {
                 Image(systemName: "checkmark.shield.fill")
                     .foregroundColor(Color("TotalQueries"))
-               // Image(systemName: "xmark.shield.fill")
-                 //   .foregroundColor(Color("DomainsOnBlockList"))
+                    // Image(systemName: "xmark.shield.fill")
+                    //   .foregroundColor(Color("DomainsOnBlockList"))
                     .font(.title2)
                 
                 Text("192.168.1.143")
@@ -31,13 +31,28 @@ struct StatsView: View {
                 StatsItemView(type: .percentBlocked)
                 StatsItemView(type: .domainsOnBlockList)
             }
-
-        }.padding()
+            Divider()
+            Button(action: { }, label: {
+                HStack (spacing: 0) {
+                    Image(systemName: "pause") //play
+                        .font(.headline)
+                        .foregroundColor(.white)
+                    
+                    Text(UIConstants.Strings.disableButton)
+                        .font(.headline)
+                        .padding()
+                        .foregroundColor(.white)
+                }
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
+            })
+        }
+        .padding()
         .background(LinearGradient(gradient: Gradient(colors: [UIConstants.Colors.cardColorGradientTop, UIConstants.Colors.cardColorGradientBottom]), startPoint: .top, endPoint: .bottom))
         .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
-        .shadow(radius: 5)
+        .shadow(radius: UIConstants.Geometry.shadowRadius)
         .padding()
-      
     }
 }
 
