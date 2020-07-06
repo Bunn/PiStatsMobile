@@ -9,13 +9,21 @@ import SwiftUI
 
 struct PiholeSetupView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-
+    @State private var host: String = ""
+    @State private var port: String = ""
+    @State private var token: String = ""
+    
     var body: some View {
         NavigationView {
-            Form {
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                
-            }
+            List {
+                Section(header: Text("Pi-hole")) {
+                    TextField("Host", text: $host)
+                    TextField("Port", text: $port)
+                    TextField("Token", text: $token)
+                }
+             
+            }.listStyle(InsetGroupedListStyle())
+            
             .navigationBarItems(leading:
                                     Button("Cancel") {
                                         self.mode.wrappedValue.dismiss() } )

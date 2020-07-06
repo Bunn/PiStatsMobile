@@ -12,7 +12,7 @@ struct PiholeStatsList: View {
 
     var body: some View {
         ZStack {
-            UIConstants.Colors.background
+            Color(.systemBackground)
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {

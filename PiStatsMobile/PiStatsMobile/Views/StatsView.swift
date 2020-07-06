@@ -49,7 +49,8 @@ struct StatsView: View {
             })
         }
         .padding()
-        .background(LinearGradient(gradient: Gradient(colors: [UIConstants.Colors.cardColorGradientTop, UIConstants.Colors.cardColorGradientBottom]), startPoint: .top, endPoint: .bottom))
+        
+        .background(Color(.secondarySystemBackground))
         .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
         .shadow(radius: UIConstants.Geometry.shadowRadius)
         .padding()
