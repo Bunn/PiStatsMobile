@@ -30,5 +30,19 @@ struct UIConstants {
         static let blocklist = LocalizedStringKey("Blocklist")
         static let queriesBlocked = LocalizedStringKey("Queries Blocked")
         static let settings = LocalizedStringKey("Settings")
+        static let piholeTokenFooterSection = LocalizedStringKey("Token is required for some functionalities like disable/enable your pi-hole.\n\nYou can find the API Token on /etc/pihole/setupVars.conf under WEBPASSWORD or you can open the web UI and go to Settings -> API -> Show API Token")
+        static let piholeSetupHostPlaceholder = LocalizedStringKey("Host")
+        static let piholeSetupPortPlaceholder = LocalizedStringKey("Port (Optional)")
+        static let piholeSetupTokenPlaceholder = LocalizedStringKey("Token (Optional)")
+        static let saveButton = LocalizedStringKey("Save")
+        static let cancelButton = LocalizedStringKey("Cancel")
+    }
+    
+    struct SystemImages {
+        static let piholeSetupHost = "server.rack"
+        static let piholeSetupPort = "globe"
+        static let piholeSetupToken = "key"
+        static let piholeSetupTokenQRCode = "qrcode"
+
     }
 }

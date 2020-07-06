@@ -34,7 +34,7 @@ struct StatsView: View {
             Divider()
             Button(action: { }, label: {
                 HStack (spacing: 0) {
-                    Image(systemName: "pause") //play
+                    Image(systemName: "stop.fill") //play
                         .font(.headline)
                         .foregroundColor(.white)
                     
