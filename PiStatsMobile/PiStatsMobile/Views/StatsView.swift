@@ -44,7 +44,7 @@ struct StatsView: View {
                         .foregroundColor(.white)
                 }
                 .frame(maxWidth: .infinity)
-                .background(Color.blue)
+                .background(Color(.systemBlue))
                 .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
             })
         }

@@ -20,6 +20,7 @@
 		3175EB7924AE597A00E7B5FF /* PiStatsMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */; };
 		317D481624B3ACB000897EA9 /* SwiftHole in Frameworks */ = {isa = PBXBuildFile; productRef = 317D481524B3ACB000897EA9 /* SwiftHole */; };
 		317D481D24B3ADE200897EA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317D481F24B3ADE200897EA9 /* Localizable.strings */; };
+		317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D482124B3D2F000897EA9 /* CodeScannerView.swift */; };
 		319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F965C24B265D200B680D3 /* PiholeStatsList.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		3175EB7A24AE597A00E7B5FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		317D481E24B3ADE200897EA9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		317D482024B3ADEA00897EA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		317D482124B3D2F000897EA9 /* CodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
 		319F965C24B265D200B680D3 /* PiholeStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeStatsList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 			children = (
 				311D0A7824B0F405003F18DB /* UIConstants.swift */,
 				311D0A7624B0EFE3003F18DB /* StatsItemType.swift */,
+				317D482124B3D2F000897EA9 /* CodeScannerView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				311D0A7524B0ED05003F18DB /* StatsItemView.swift in Sources */,
+				317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */,
 				3175EB5E24AE597900E7B5FF /* ContentView.swift in Sources */,
 				311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */,
 				311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */,

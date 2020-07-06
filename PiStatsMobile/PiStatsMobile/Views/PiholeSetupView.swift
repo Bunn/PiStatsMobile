@@ -12,7 +12,8 @@ struct PiholeSetupView: View {
     @State private var host: String = ""
     @State private var port: String = ""
     @State private var token: String = ""
-    
+    @State private var isShowingScanner = false
+
     var body: some View {
         NavigationView {
             List {
@@ -34,11 +35,18 @@ struct PiholeSetupView: View {
                         Image(systemName: UIConstants.SystemImages.piholeSetupToken)
                         SecureField(UIConstants.Strings.piholeSetupTokenPlaceholder, text: $token)
                         
-                        Button(action: {
-                            print("a")
-                        }, label: {
-                            Image(systemName: UIConstants.SystemImages.piholeSetupTokenQRCode)
-                        })
+                        Image(systemName: UIConstants.SystemImages.piholeSetupTokenQRCode)
+                            .foregroundColor(Color(.systemBlue))
+                            .onTapGesture {
+                                isShowingScanner = true
+                            }.sheet(isPresented: $isShowingScanner) {
+                                NavigationView {
+                                    CodeScannerView(codeTypes: [.qr], simulatedData: "abcd", completion: self.handleScan)
+                                        .navigationBarItems(leading:  Button(UIConstants.Strings.cancelButton) {
+                                            isShowingScanner = false
+                                        }).navigationBarTitle(Text("Scanner"), displayMode: .inline)
+                                }
+                            }
                     }
                 }
                 
@@ -46,16 +54,23 @@ struct PiholeSetupView: View {
             .onTapGesture {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
             }
-            
             .navigationBarItems(leading:
                                     Button(UIConstants.Strings.cancelButton) {
                                         self.mode.wrappedValue.dismiss()
-                                        
                                     }, trailing: Button(UIConstants.Strings.saveButton) {
                                         self.mode.wrappedValue.dismiss()
-                                        
-                                    } )
+                                    })
             .navigationTitle("Pi-hole Setup")
+        }
+    }
+    
+    private func handleScan(result: Result<String, CodeScannerView.ScanError>) {
+        self.isShowingScanner = false
+        switch result {
+        case .success(let data):
+            self.token = data
+        case .failure(let error):
+            print("Scanning failed \(error)")
         }
     }
 }
