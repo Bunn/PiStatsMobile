@@ -23,7 +23,7 @@ struct ContentView: View {
             }
             .tabItem {
                 Image(systemName: "gear")
-                Text("Settings")
+                Text(UIConstants.Strings.settings)
             }.tag(1)
         }
     }
@@ -34,6 +34,7 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
                 .preferredColorScheme(.light)
+                .environment(\.locale, .init(identifier: "pt_br"))
             ContentView()
                 .preferredColorScheme(.dark)
         }

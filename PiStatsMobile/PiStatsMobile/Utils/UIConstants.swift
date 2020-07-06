@@ -23,7 +23,12 @@ struct UIConstants {
     }
     
     struct Strings {
-        static let disableButton = NSLocalizedString("Disable", comment: "Pi-hole disable button")
-        static let enableButton = NSLocalizedString("Enable", comment: "Pi-hole enable button")
+        static let disableButton = LocalizedStringKey("Disable")
+        static let enableButton = "Enable"
+        static let totalQueries = LocalizedStringKey("Total Queries")
+        static let percentBlocked = LocalizedStringKey("Percent Blocked")
+        static let blocklist = LocalizedStringKey("Blocklist")
+        static let queriesBlocked = LocalizedStringKey("Queries Blocked")
+        static let settings = LocalizedStringKey("Settings")
     }
 }

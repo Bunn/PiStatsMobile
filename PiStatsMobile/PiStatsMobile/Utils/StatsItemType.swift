@@ -26,16 +26,16 @@ enum StatsItemType {
         }
     }
     
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .domainsOnBlockList:
-            return "Blocklist"
+            return UIConstants.Strings.blocklist
         case .totalQueries:
-            return "Total Queries"
+            return UIConstants.Strings.totalQueries
         case .queriesBlocked:
-            return "Queries Blocked"
+            return UIConstants.Strings.queriesBlocked
         case .percentBlocked:
-            return "Percent Blocked"
+            return UIConstants.Strings.percentBlocked
         }
     }
     

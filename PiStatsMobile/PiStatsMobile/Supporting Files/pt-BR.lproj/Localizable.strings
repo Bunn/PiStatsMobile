@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  PiStatsMobile
+
+  Created by Fernando Bunn on 06/07/2020.
+  
+*/
+
+"Disable" = "Desligar";
+"Enable" = "Ligar";
+"Settings" = "Ajustes";
+"Total Queries" = "Total de Consultas";
+"Percent Blocked" = "Percentual Bloqueado";
+"Blocklist" = "Blocklist";
+"Queries Blocked" = "Consultas Bloqueadas";
