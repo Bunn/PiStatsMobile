@@ -9,10 +9,10 @@ import SwiftUI
 
 struct PiholeStatsList: View {
     @State var showingSetupView = false
-
+    
     var body: some View {
         ZStack {
-            Color(.systemBackground)
+            Color(.systemGroupedBackground)
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {

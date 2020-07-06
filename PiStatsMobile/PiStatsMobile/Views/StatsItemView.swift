@@ -16,6 +16,8 @@ struct StatsItemView: View {
             Text(type.title)
                 .foregroundColor(.white)
                 .font(.subheadline)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
                 .frame(maxWidth: .infinity, alignment: .leading)
             HStack {
                 Image(systemName: type.imageName)

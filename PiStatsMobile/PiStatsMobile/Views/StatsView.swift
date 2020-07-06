@@ -50,7 +50,7 @@ struct StatsView: View {
         }
         .padding()
         
-        .background(Color(.secondarySystemBackground))
+        .background(Color(.secondarySystemGroupedBackground))
         .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
         .shadow(radius: UIConstants.Geometry.shadowRadius)
         .padding()
