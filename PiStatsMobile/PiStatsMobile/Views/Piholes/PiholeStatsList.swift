@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct PiholeStatsList: View {
-    @State var showingSetupView = false
-    
+    @State private var showingSetupView = false
+    @State private var hasAtLeastOnePihole = false
+
     var body: some View {
         ZStack {
             Color(.systemGroupedBackground)
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
-                StatsView()
                 
                 Button(action: {
                     showingSetupView = true
@@ -34,9 +34,14 @@ struct PiholeStatsList: View {
                 }
                 .shadow(radius: UIConstants.Geometry.shadowRadius)
                 .padding()
-                
+                if hasAtLeastOnePihole == false {
+                    Text("Tap here to add your first pi-hole")
+                }
             }
         }.navigationTitle("Pi-holes")
+        .onAppear {
+            showingSetupView = true
+        }
     }
 }
 
