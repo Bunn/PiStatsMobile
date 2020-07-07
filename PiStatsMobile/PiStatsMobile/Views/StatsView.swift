@@ -34,22 +34,16 @@ struct StatsView: View {
             Divider()
             Button(action: { }, label: {
                 HStack (spacing: 0) {
-                    Image(systemName: "stop.fill") //play
+                    Label(UIConstants.Strings.disableButton, systemImage: "stop.fill")
                         .font(.headline)
-                        .foregroundColor(.white)
-                    
-                    Text(UIConstants.Strings.disableButton)
-                        .font(.headline)
-                        .padding()
                         .foregroundColor(.white)
                 }
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, minHeight: 48)
                 .background(Color(.systemBlue))
                 .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
             })
         }
         .padding()
-        
         .background(Color(.secondarySystemGroupedBackground))
         .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
         .shadow(radius: UIConstants.Geometry.shadowRadius)

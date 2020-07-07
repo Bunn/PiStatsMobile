@@ -20,13 +20,9 @@ struct StatsItemView: View {
                 .minimumScaleFactor(0.8)
                 .frame(maxWidth: .infinity, alignment: .leading)
             HStack {
-                Image(systemName: type.imageName)
+                Label("32,12345", systemImage: type.imageName)
                     .foregroundColor(.white)
-                    .font(.subheadline)
-                Text("32,212")
-                    .foregroundColor(.white)
-                    .font(.body)
-                    .fontWeight(.bold)
+                    .font(.headline)
             }
         }
  
