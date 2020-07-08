@@ -40,17 +40,11 @@ struct StatsView: View {
             
             if dataProvider.canDisplayEnableDisableButton {
                 Divider()
-
-                Button(action: { }, label: {
-                    HStack (spacing: 0) {
-                        Label(UIConstants.Strings.disableButton, systemImage: "stop.fill")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                    }
-                    .frame(maxWidth: .infinity, minHeight: 48)
-                    .background(Color(.systemBlue))
-                    .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
-                })
+                if dataProvider.status == .allDisabled {
+                    enableButton()
+                } else {
+                    disableButton()
+                }
             }
         }
         .padding()
@@ -58,6 +52,36 @@ struct StatsView: View {
         .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
         .shadow(radius: UIConstants.Geometry.shadowRadius)
         .padding()
+    }
+    
+    private func disableButton() -> some View {
+        Button(action: {
+            dataProvider.disablePiHole()
+        }, label: {
+            HStack (spacing: 0) {
+                Label(UIConstants.Strings.disableButton, systemImage: "stop.fill")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity, minHeight: 48)
+            .background(Color(.systemBlue))
+            .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
+        })
+    }
+    
+    private func enableButton() -> some View {
+        Button(action: {
+            dataProvider.enablePiHole()
+        }, label: {
+            HStack (spacing: 0) {
+                Label(UIConstants.Strings.enableButton, systemImage: "play.fill")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity, minHeight: 48)
+            .background(Color(.systemBlue))
+            .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
+        })
     }
 }
 
