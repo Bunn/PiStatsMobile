@@ -9,7 +9,8 @@ import SwiftUI
 
 struct PiholeStatsList: View {
     @State private var showingSetupView = false
-    @State private var hasAtLeastOnePihole = false
+    
+    @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
 
     var body: some View {
         ZStack {
@@ -17,6 +18,12 @@ struct PiholeStatsList: View {
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
+                ForEach(piholeProviderListManager.providerList, id: \.id) { provider in
+                    StatsView(dataProvider: provider)
+                        .onTapGesture() {
+                            showingSetupView = true
+                        }
+                }
                 
                 Button(action: {
                     showingSetupView = true
@@ -31,16 +38,19 @@ struct PiholeStatsList: View {
                 })
                 .sheet(isPresented: $showingSetupView) {
                     PiholeSetupView()
+                        .environmentObject(piholeProviderListManager)
                 }
                 .shadow(radius: UIConstants.Geometry.shadowRadius)
                 .padding()
-                if hasAtLeastOnePihole == false {
+                if piholeProviderListManager.isEmpty {
                     Text("Tap here to add your first pi-hole")
                 }
             }
         }.navigationTitle("Pi-holes")
         .onAppear {
-            showingSetupView = true
+            if piholeProviderListManager.isEmpty {
+                showingSetupView = true
+            }
         }
     }
 }

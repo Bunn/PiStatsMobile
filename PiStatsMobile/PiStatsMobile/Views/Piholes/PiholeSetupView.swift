@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct PiholeSetupView: View {
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
+    init(pihole: Pihole? = nil) {
+        self.pihole = pihole
+        _host = State(initialValue: pihole?.host ?? "")
+        print("aa \(pihole?.host)")
+        _port = State(initialValue: pihole?.address ?? "")
+
+    }
+    
+    @Environment(\.presentationMode) private var mode: Binding<PresentationMode>
     @State private var host: String = ""
     @State private var port: String = ""
     @State private var token: String = ""
     @State private var isShowingScanner = false
-
+    @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
+    var pihole: Pihole?
+    
+    
+    
     var body: some View {
         NavigationView {
             List {
@@ -58,10 +71,16 @@ struct PiholeSetupView: View {
                                     Button(UIConstants.Strings.cancelButton) {
                                         self.mode.wrappedValue.dismiss()
                                     }, trailing: Button(UIConstants.Strings.saveButton) {
-                                        self.mode.wrappedValue.dismiss()
+                                        savePihole()
                                     })
             .navigationTitle("Pi-hole Setup")
         }
+    }
+    
+    private func savePihole() {
+        let pihole = Pihole(address: host)
+        pihole.save()
+        piholeProviderListManager.add(pihole)
     }
     
     private func handleScan(result: Result<String, CodeScannerView.ScanError>) {

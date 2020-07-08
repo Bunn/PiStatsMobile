@@ -26,7 +26,7 @@ enum StatsItemType {
         }
     }
     
-    var title: LocalizedStringKey {
+    var title: String {
         switch self {
         case .domainsOnBlockList:
             return UIConstants.Strings.blocklist
@@ -39,16 +39,16 @@ enum StatsItemType {
         }
     }
     
-    var colorName: String {
+    var color: Color {
         switch self {
         case .domainsOnBlockList:
-            return "DomainsOnBlockList"
+            return UIConstants.Colors.domainsOnBlocklist
         case .totalQueries:
-            return "TotalQueries"
+            return UIConstants.Colors.totalQueries
         case .queriesBlocked:
-            return "QueriesBlocked"
+            return UIConstants.Colors.queriesBlocked
         case .percentBlocked:
-            return "PercentBlocked"
+            return UIConstants.Colors.percentBlocked
         }
     }
 }

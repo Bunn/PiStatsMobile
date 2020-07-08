@@ -20,22 +20,44 @@ struct UIConstants {
         static let cardColor = Color("CardColor")
         static let cardColorGradientTop = Color("CardColorGradientTop")
         static let cardColorGradientBottom = Color("CardColorGradientBottom")
+        static let domainsOnBlocklist = Color("DomainsOnBlockList")
+        static let totalQueries = Color("TotalQueries")
+        static let queriesBlocked = Color("QueriesBlocked")
+        static let percentBlocked = Color("PercentBlocked")
+        static let disabled = Color("Disabled")
+        static let enabled = Color("Enabled")
+        static let enabledAndDisabled = Color("EnabledAndDisabled")
+
     }
     
     struct Strings {
-        static let disableButton = LocalizedStringKey("Disable")
+        static let disableButton = "Disable"
         static let enableButton = "Enable"
-        static let totalQueries = LocalizedStringKey("Total Queries")
-        static let percentBlocked = LocalizedStringKey("Percent Blocked")
-        static let blocklist = LocalizedStringKey("Blocklist")
-        static let queriesBlocked = LocalizedStringKey("Queries Blocked")
-        static let settings = LocalizedStringKey("Settings")
-        static let piholeTokenFooterSection = LocalizedStringKey("Token is required for some functionalities like disable/enable your pi-hole.\n\nYou can find the API Token on /etc/pihole/setupVars.conf under WEBPASSWORD or you can open the web UI and go to Settings -> API -> Show API Token")
-        static let piholeSetupHostPlaceholder = LocalizedStringKey("Host")
-        static let piholeSetupPortPlaceholder = LocalizedStringKey("Port (Optional)")
-        static let piholeSetupTokenPlaceholder = LocalizedStringKey("Token (Optional)")
-        static let saveButton = LocalizedStringKey("Save")
-        static let cancelButton = LocalizedStringKey("Cancel")
+        static let totalQueries = "Total Queries"
+        static let percentBlocked = "Percent Blocked"
+        static let blocklist = "Blocklist"
+        static let queriesBlocked = "Queries Blocked"
+        static let settings = "Settings"
+        static let piholeTokenFooterSection = "Token is required for some functionalities like disable/enable your pi-hole.\n\nYou can find the API Token on /etc/pihole/setupVars.conf under WEBPASSWORD or you can open the web UI and go to Settings -> API -> Show API Token"
+        static let piholeSetupHostPlaceholder = "Host"
+        static let piholeSetupPortPlaceholder = "Port (Optional)"
+        static let piholeSetupTokenPlaceholder = "Token (Optional)"
+        static let saveButton = "Save"
+        static let cancelButton = "Cancel"
+        static let statusEnabled = "Active"
+        static let statusDisabled = "Offline"
+        static let statusNeedsAttention = "Needs Attention"
+        static let statusEnabledAndDisabled = "Partially Active"
+
+        struct Error {
+            static let invalidAPIToken = "Invalid API Token"
+            static let invalidResponse = "Invalid Response"
+            static let invalidURL = "Invalid URL"
+            static let decodeResponseError = "Can't decode response"
+            static let noAPITokenProvided = "No API Token Provided"
+            static let sessionError = "Session Error"
+        }
+
     }
     
     struct SystemImages {

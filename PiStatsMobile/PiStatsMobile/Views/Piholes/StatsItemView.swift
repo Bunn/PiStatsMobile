@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatsItemView: View {
     let type: StatsItemType
+    let label: String
     
     var body: some View {
         
@@ -20,7 +21,7 @@ struct StatsItemView: View {
                 .minimumScaleFactor(0.8)
                 .frame(maxWidth: .infinity, alignment: .leading)
             HStack {
-                Label("32,12345", systemImage: type.imageName)
+                Label(label, systemImage: type.imageName)
                     .foregroundColor(.white)
                     .font(.headline)
             }
@@ -28,13 +29,13 @@ struct StatsItemView: View {
  
         .padding(.horizontal, UIConstants.Geometry.defaultPadding)
         .padding(.vertical, UIConstants.Geometry.defaultPadding)
-        .background(Color(type.colorName))
+        .background(type.color)
         .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
     }
 }
 
 struct StatsItemView_Previews: PreviewProvider {
     static var previews: some View {
-        StatsItemView(type: .domainsOnBlockList)
+        StatsItemView(type: .domainsOnBlockList, label: "1234")
     }
 }

@@ -21,7 +21,14 @@
 		317D481624B3ACB000897EA9 /* SwiftHole in Frameworks */ = {isa = PBXBuildFile; productRef = 317D481524B3ACB000897EA9 /* SwiftHole */; };
 		317D481D24B3ADE200897EA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317D481F24B3ADE200897EA9 /* Localizable.strings */; };
 		317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D482124B3D2F000897EA9 /* CodeScannerView.swift */; };
+		319B082824B5321C008B3C2F /* Pihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082624B5321C008B3C2F /* Pihole.swift */; };
+		319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082724B5321C008B3C2F /* PiholeDataProvider.swift */; };
+		319B082B24B53246008B3C2F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082A24B53246008B3C2F /* Logger.swift */; };
+		319B082D24B53255008B3C2F /* KeyChainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082C24B53255008B3C2F /* KeyChainPasswordItem.swift */; };
+		319B083024B53269008B3C2F /* APIToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082E24B53268008B3C2F /* APIToken.swift */; };
+		319B083124B53269008B3C2F /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082F24B53269008B3C2F /* UserPreferences.swift */; };
 		319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F965C24B265D200B680D3 /* PiholeStatsList.swift */; };
+		31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +69,14 @@
 		317D481E24B3ADE200897EA9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		317D482024B3ADEA00897EA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		317D482124B3D2F000897EA9 /* CodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
+		319B082624B5321C008B3C2F /* Pihole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pihole.swift; sourceTree = "<group>"; };
+		319B082724B5321C008B3C2F /* PiholeDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiholeDataProvider.swift; sourceTree = "<group>"; };
+		319B082A24B53246008B3C2F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		319B082C24B53255008B3C2F /* KeyChainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainPasswordItem.swift; sourceTree = "<group>"; };
+		319B082E24B53268008B3C2F /* APIToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIToken.swift; sourceTree = "<group>"; };
+		319B082F24B53269008B3C2F /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		319F965C24B265D200B680D3 /* PiholeStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeStatsList.swift; sourceTree = "<group>"; };
+		31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeDataProviderListManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +128,10 @@
 		3175EB5A24AE597900E7B5FF /* PiStatsMobile */ = {
 			isa = PBXGroup;
 			children = (
+				31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */,
 				3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */,
+				319B082624B5321C008B3C2F /* Pihole.swift */,
+				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,
 				319F965B24B2658300B680D3 /* Views */,
 				317D481724B3ACCE00897EA9 /* Utils */,
 				317D481824B3ACDD00897EA9 /* Supporting Files */,
@@ -151,6 +168,8 @@
 		317D481724B3ACCE00897EA9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				319B082A24B53246008B3C2F /* Logger.swift */,
+				319B082C24B53255008B3C2F /* KeyChainPasswordItem.swift */,
 				311D0A7824B0F405003F18DB /* UIConstants.swift */,
 				311D0A7624B0EFE3003F18DB /* StatsItemType.swift */,
 				317D482124B3D2F000897EA9 /* CodeScannerView.swift */,
@@ -193,6 +212,8 @@
 		31F3DFE324B50E8D001D4679 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				319B082E24B53268008B3C2F /* APIToken.swift */,
+				319B082F24B53269008B3C2F /* UserPreferences.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -336,11 +357,18 @@
 			files = (
 				311D0A7524B0ED05003F18DB /* StatsItemView.swift in Sources */,
 				317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */,
+				319B083024B53269008B3C2F /* APIToken.swift in Sources */,
+				31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */,
 				3175EB5E24AE597900E7B5FF /* ContentView.swift in Sources */,
 				311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */,
 				311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */,
 				319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */,
+				319B082D24B53255008B3C2F /* KeyChainPasswordItem.swift in Sources */,
+				319B082824B5321C008B3C2F /* Pihole.swift in Sources */,
+				319B082B24B53246008B3C2F /* Logger.swift in Sources */,
+				319B083124B53269008B3C2F /* UserPreferences.swift in Sources */,
 				31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */,
+				319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */,
 				311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */,
 				3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */,
 			);
