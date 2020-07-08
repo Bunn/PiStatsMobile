@@ -128,10 +128,8 @@
 		3175EB5A24AE597900E7B5FF /* PiStatsMobile */ = {
 			isa = PBXGroup;
 			children = (
-				31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */,
 				3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */,
-				319B082624B5321C008B3C2F /* Pihole.swift */,
-				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,
+				31FC1DAB24B669E100319E6F /* Core */,
 				319F965B24B2658300B680D3 /* Views */,
 				317D481724B3ACCE00897EA9 /* Utils */,
 				317D481824B3ACDD00897EA9 /* Supporting Files */,
@@ -202,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				319F965C24B265D200B680D3 /* PiholeStatsList.swift */,
-				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
 				311D0A7A24B0F613003F18DB /* StatsView.swift */,
+				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
 				31115BC724B29A1700C91212 /* PiholeSetupView.swift */,
 			);
 			path = Piholes;
@@ -216,6 +214,16 @@
 				319B082F24B53269008B3C2F /* UserPreferences.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		31FC1DAB24B669E100319E6F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */,
+				319B082624B5321C008B3C2F /* Pihole.swift */,
+				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

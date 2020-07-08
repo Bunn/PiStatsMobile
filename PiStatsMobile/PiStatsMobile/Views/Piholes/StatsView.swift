@@ -37,17 +37,21 @@ struct StatsView: View {
                 StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
                 StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
             }
-            Divider()
-            Button(action: { }, label: {
-                HStack (spacing: 0) {
-                    Label(UIConstants.Strings.disableButton, systemImage: "stop.fill")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                }
-                .frame(maxWidth: .infinity, minHeight: 48)
-                .background(Color(.systemBlue))
-                .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
-            })
+            
+            if dataProvider.canDisplayEnableDisableButton {
+                Divider()
+
+                Button(action: { }, label: {
+                    HStack (spacing: 0) {
+                        Label(UIConstants.Strings.disableButton, systemImage: "stop.fill")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 48)
+                    .background(Color(.systemBlue))
+                    .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
+                })
+            }
         }
         .padding()
         .background(Color(.secondarySystemGroupedBackground))

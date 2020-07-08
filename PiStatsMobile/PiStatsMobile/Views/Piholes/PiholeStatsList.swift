@@ -7,9 +7,19 @@
 
 import SwiftUI
 
-struct PiholeStatsList: View {
-    @State private var showingSetupView = false
+
+final class StatsListConfig: ObservableObject {
+    @Published var selectedPiHole: Pihole?
+    @Published var isSetupPresented = false
     
+    func openPiholeSetup(_ pihole: Pihole? = nil) {
+        selectedPiHole = pihole;
+        isSetupPresented = true
+    }
+}
+
+struct PiholeStatsList: View {
+    @StateObject private var viewModel = StatsListConfig()
     @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
 
     var body: some View {
@@ -21,12 +31,12 @@ struct PiholeStatsList: View {
                 ForEach(piholeProviderListManager.providerList, id: \.id) { provider in
                     StatsView(dataProvider: provider)
                         .onTapGesture() {
-                            showingSetupView = true
+                            viewModel.openPiholeSetup(provider.piholes.first)
                         }
                 }
                 
                 Button(action: {
-                    showingSetupView = true
+                    viewModel.openPiholeSetup()
                 }, label: {
                     ZStack {
                         Circle()
@@ -36,20 +46,20 @@ struct PiholeStatsList: View {
                             .font(.largeTitle)
                     }
                 })
-                .sheet(isPresented: $showingSetupView) {
-                    PiholeSetupView()
-                        .environmentObject(piholeProviderListManager)
-                }
                 .shadow(radius: UIConstants.Geometry.shadowRadius)
                 .padding()
                 if piholeProviderListManager.isEmpty {
                     Text("Tap here to add your first pi-hole")
                 }
             }
+            .sheet(isPresented: $viewModel.isSetupPresented) {
+                PiholeSetupView(pihole: viewModel.selectedPiHole)
+                    .environmentObject(piholeProviderListManager)
+            }
         }.navigationTitle("Pi-holes")
         .onAppear {
             if piholeProviderListManager.isEmpty {
-                showingSetupView = true
+                viewModel.openPiholeSetup()
             }
         }
     }

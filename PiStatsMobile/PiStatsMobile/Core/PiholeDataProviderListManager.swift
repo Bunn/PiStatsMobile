@@ -9,9 +9,8 @@ import Foundation
 
 class PiholeDataProviderListManager: ObservableObject {
     @Published var providerList = [PiholeDataProvider]()
-    
-    
     private var piholes = Pihole.restoreAll()
+    
     var isEmpty: Bool {
         return providerList.count == 0
     }
@@ -22,14 +21,24 @@ class PiholeDataProviderListManager: ObservableObject {
     
     private func setupProviders() {
         piholes.forEach { pihole in
-           add(pihole)
+            addPiholeToList(pihole)
         }
     }
     
-    func add(_ pihole: Pihole){
+    private func addPiholeToList(_ pihole: Pihole){
         let dataprovider = PiholeDataProvider(piholes: [pihole])
         dataprovider.startPolling()
         objectWillChange.send()
         providerList.append(dataprovider)
+    }
+    
+    func updateList(){
+        providerList.forEach {
+            $0.stopPolling()
+        }
+        providerList.removeAll()
+        piholes = Pihole.restoreAll()
+        objectWillChange.send()
+        setupProviders()
     }
 }

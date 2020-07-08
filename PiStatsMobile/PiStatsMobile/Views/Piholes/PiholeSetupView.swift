@@ -12,9 +12,6 @@ struct PiholeSetupView: View {
     init(pihole: Pihole? = nil) {
         self.pihole = pihole
         _host = State(initialValue: pihole?.host ?? "")
-        print("aa \(pihole?.host)")
-        _port = State(initialValue: pihole?.address ?? "")
-
     }
     
     @Environment(\.presentationMode) private var mode: Binding<PresentationMode>
@@ -23,8 +20,8 @@ struct PiholeSetupView: View {
     @State private var token: String = ""
     @State private var isShowingScanner = false
     @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
-    var pihole: Pihole?
     
+    var pihole: Pihole?
     
     
     var body: some View {
@@ -63,13 +60,17 @@ struct PiholeSetupView: View {
                     }
                 }
                 
+                if pihole != nil {
+                    Section(footer: deleteButton()) { }
+                }
+                
             }.listStyle(InsetGroupedListStyle())
             .onTapGesture {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
             }
             .navigationBarItems(leading:
                                     Button(UIConstants.Strings.cancelButton) {
-                                        self.mode.wrappedValue.dismiss()
+                                        dismissView()
                                     }, trailing: Button(UIConstants.Strings.saveButton) {
                                         savePihole()
                                     })
@@ -77,10 +78,45 @@ struct PiholeSetupView: View {
         }
     }
     
+    private func dismissView() {
+        self.mode.wrappedValue.dismiss()
+    }
+    
+    private func deleteButton() -> some View {
+        Button(action: {
+            deletePihole()
+        }, label: {
+            HStack (spacing: 0) {
+                Label("Delete", systemImage: "minus.circle.fill")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity, minHeight: 48)
+            .background(Color(.systemRed))
+            .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
+        })
+    }
+    
     private func savePihole() {
-        let pihole = Pihole(address: host)
-        pihole.save()
-        piholeProviderListManager.add(pihole)
+        var piholeToSave: Pihole
+        
+        if let pihole = pihole {
+            piholeToSave = pihole
+        } else {
+            piholeToSave = Pihole(address: host)
+        }
+        piholeToSave.apiToken = token
+        piholeToSave.save()
+        piholeProviderListManager.updateList()
+        dismissView()
+    }
+    
+    private func deletePihole() {
+        if let pihole = pihole {
+            pihole.delete()
+            piholeProviderListManager.updateList()
+        }
+        dismissView()
     }
     
     private func handleScan(result: Result<String, CodeScannerView.ScanError>) {
