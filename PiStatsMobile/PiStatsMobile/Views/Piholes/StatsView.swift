@@ -76,7 +76,7 @@ struct StatsView: View {
             
         }, label: {
             HStack (spacing: 0) {
-                Label(UIConstants.Strings.disableButton, systemImage: "stop.fill")
+                Label(UIConstants.Strings.disableButton, systemImage: UIConstants.SystemImages.disablePiholeButton)
                     .font(.headline)
                     .foregroundColor(.white)
             }
@@ -85,17 +85,17 @@ struct StatsView: View {
             .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
         })
         .actionSheet(isPresented: $isShowingDisableOptions) {
-            ActionSheet(title: Text("Disable Pi-hole"), buttons: [
-                .default(Text("30 seconds")) {
+            ActionSheet(title: Text(UIConstants.Strings.disablePiholeOptionsTitle), buttons: [
+                .default(Text(UIConstants.Strings.disablePiholeOptions30Seconds)) {
                     dataProvider.disablePiHole(seconds: 30)
                 },
-                .default(Text("1 minute")) {
+                .default(Text(UIConstants.Strings.disablePiholeOptions1Minute)) {
                     dataProvider.disablePiHole(seconds: 60)
                 },
-                .default(Text("5 minutes")) {
+                .default(Text(UIConstants.Strings.disablePiholeOptions5Minutes)) {
                     dataProvider.disablePiHole(seconds: 300)
                 },
-                .default(Text("Permanently")) {
+                .default(Text(UIConstants.Strings.disablePiholeOptionsPermanently)) {
                     dataProvider.disablePiHole()
                 },
                 .cancel()
@@ -108,7 +108,7 @@ struct StatsView: View {
             dataProvider.enablePiHole()
         }, label: {
             HStack (spacing: 0) {
-                Label(UIConstants.Strings.enableButton, systemImage: "play.fill")
+                Label(UIConstants.Strings.enableButton, systemImage: UIConstants.SystemImages.enablePiholeButton)
                     .font(.headline)
                     .foregroundColor(.white)
             }

@@ -15,7 +15,7 @@ struct ContentView: View {
             }
             .tabItem {
                 Image(systemName: "shield")
-                Text("Pi-holes")
+                Text(UIConstants.Strings.piholesNavigationTitle)
             }.tag(0)
             
             NavigationView {
@@ -23,7 +23,7 @@ struct ContentView: View {
             }
             .tabItem {
                 Image(systemName: "gear")
-                Text(UIConstants.Strings.settings)
+                Text(UIConstants.Strings.settingsNavigationTitle)
             }.tag(1)
         }
     }

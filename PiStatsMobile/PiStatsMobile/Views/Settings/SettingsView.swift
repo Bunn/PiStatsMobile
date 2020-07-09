@@ -26,7 +26,7 @@ struct SettingsView: View {
                 }
             }
         }.listStyle(InsetGroupedListStyle())
-        .navigationTitle(UIConstants.Strings.settings)
+        .navigationTitle(UIConstants.Strings.settingsNavigationTitle)
     }
 }
 

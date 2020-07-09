@@ -31,7 +31,7 @@ fileprivate struct ListStatView: View {
         HStack {
             Label {
                 Text(type.title)
-                    .foregroundColor(.white)
+                    .foregroundColor(.primary)
                     .font(.subheadline)
             } icon: {
                 Group {

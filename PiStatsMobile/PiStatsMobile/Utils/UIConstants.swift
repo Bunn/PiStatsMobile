@@ -37,7 +37,6 @@ struct UIConstants {
         static let percentBlocked = "Percent Blocked"
         static let blocklist = "Blocklist"
         static let queriesBlocked = "Queries Blocked"
-        static let settings = "Settings"
         static let piholeTokenFooterSection = "Token is required for some functionalities like disable/enable your pi-hole.\n\nYou can find the API Token on /etc/pihole/setupVars.conf under WEBPASSWORD or you can open the web UI and go to Settings -> API -> Show API Token"
         static let piholeSetupHostPlaceholder = "Host"
         static let piholeSetupPortPlaceholder = "80"
@@ -54,7 +53,15 @@ struct UIConstants {
         static let settingsDisplayIcons = "Display Pi-hole stats icons"
         static let settingsSectionActions = "Actions"
         static let settingsAlwaysDisablePermanently = "Aways disable Pi-hole permanently"
+        static let addFirstPiholeCaption = "Tap here to add your first pi-hole"
 
+        static let piholesNavigationTitle = "Pi-holes"
+        static let settingsNavigationTitle = "Settings"
+        static let disablePiholeOptionsTitle = "Disable Pi-hole"
+        static let disablePiholeOptions30Seconds = "30 seconds"
+        static let disablePiholeOptions1Minute = "1 minute"
+        static let disablePiholeOptions5Minutes = "5 minutes"
+        static let disablePiholeOptionsPermanently = "Permanently"
         struct Error {
             static let invalidAPIToken = "Invalid API Token"
             static let invalidResponse = "Invalid Response"
@@ -77,5 +84,8 @@ struct UIConstants {
         static let settingsDisablePermanently = "xmark.shield.fill"
         static let settingsDisplayIcons = "globe"
         static let settingsDisplayAsList = "list.bullet"
+        static let addPiholeButton = "plus"
+        static let disablePiholeButton = "stop.fill"
+        static let enablePiholeButton = "play.fill"
     }
 }

@@ -107,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3102D30C24B7CE5900EC8120 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				319B082E24B53268008B3C2F /* APIToken.swift */,
+				319B082F24B53269008B3C2F /* UserPreferences.swift */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
 		3175EB4F24AE597900E7B5FF = {
 			isa = PBXGroup;
 			children = (
@@ -212,8 +221,6 @@
 		31F3DFE324B50E8D001D4679 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				319B082E24B53268008B3C2F /* APIToken.swift */,
-				319B082F24B53269008B3C2F /* UserPreferences.swift */,
 				3102D30A24B7BC7900EC8120 /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -222,6 +229,7 @@
 		31FC1DAB24B669E100319E6F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3102D30C24B7CE5900EC8120 /* UserData */,
 				31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */,
 				319B082624B5321C008B3C2F /* Pihole.swift */,
 				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,

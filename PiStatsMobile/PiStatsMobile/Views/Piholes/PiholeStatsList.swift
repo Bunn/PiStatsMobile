@@ -41,7 +41,7 @@ struct PiholeStatsList: View {
                     ZStack {
                         Circle()
                             .frame(width: UIConstants.Geometry.addPiholeButtonHeight, height: UIConstants.Geometry.addPiholeButtonHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        Image(systemName: "plus")
+                        Image(systemName: UIConstants.SystemImages.addPiholeButton)
                             .foregroundColor(.white)
                             .font(.largeTitle)
                     }
@@ -49,14 +49,14 @@ struct PiholeStatsList: View {
                 .shadow(radius: UIConstants.Geometry.shadowRadius)
                 .padding()
                 if piholeProviderListManager.isEmpty {
-                    Text("Tap here to add your first pi-hole")
+                    Text(UIConstants.Strings.addFirstPiholeCaption)
                 }
             }
             .sheet(isPresented: $viewModel.isSetupPresented) {
                 PiholeSetupView(pihole: viewModel.selectedPiHole)
                     .environmentObject(piholeProviderListManager)
             }
-        }.navigationTitle("Pi-holes")
+        }.navigationTitle(UIConstants.Strings.piholesNavigationTitle)
         .onAppear {
             if piholeProviderListManager.isEmpty {
                 viewModel.openPiholeSetup()
