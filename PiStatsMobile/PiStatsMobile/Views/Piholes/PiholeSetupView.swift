@@ -12,6 +12,11 @@ struct PiholeSetupView: View {
     init(pihole: Pihole? = nil) {
         self.pihole = pihole
         _host = State(initialValue: pihole?.host ?? "")
+        _token = State(initialValue: pihole?.apiToken ?? "")
+        if pihole?.port != nil {
+            _port = State(initialValue: String(pihole!.port!))
+        }
+        
     }
     
     @Environment(\.presentationMode) private var mode: Binding<PresentationMode>
@@ -99,12 +104,15 @@ struct PiholeSetupView: View {
     
     private func savePihole() {
         var piholeToSave: Pihole
+        let address = port.isEmpty ? host : "\(host):\(port)"
         
         if let pihole = pihole {
             piholeToSave = pihole
+            piholeToSave.address = address
         } else {
-            piholeToSave = Pihole(address: host)
+            piholeToSave = Pihole(address: address)
         }
+        
         piholeToSave.apiToken = token
         piholeToSave.save()
         piholeProviderListManager.updateList()

@@ -13,22 +13,36 @@ struct StatsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: UIConstants.Geometry.defaultPadding) {
             HStack {
-                if dataProvider.status == .allEnabled {
-                    Image(systemName: "checkmark.shield.fill")
-                        .foregroundColor(Color("TotalQueries"))
+                if dataProvider.hasErrorMessages {
+                    Image(systemName: UIConstants.SystemImages.piholeStatusWarning)
+                        .foregroundColor(UIConstants.Colors.statusWarning)
                         .font(.title2)
+                } else if dataProvider.status == .allEnabled {
+                    Image(systemName: UIConstants.SystemImages.piholeStatusOnline)
+                        .foregroundColor(UIConstants.Colors.statusOnline)                        .font(.title2)
                 } else {
-                    Image(systemName: "xmark.shield.fill")
-                        .foregroundColor(Color("DomainsOnBlockList"))
-                        .font(.title2)
+                    Image(systemName: UIConstants.SystemImages.piholeStatusOffline)
+                        .foregroundColor(UIConstants.Colors.statusOffline)                        .font(.title2)
                 }
-
                 
                 Text(dataProvider.name)
                     .foregroundColor(.primary)
                     .font(.title2)
                     .fontWeight(.bold)
             }
+            VStack {
+                ForEach(dataProvider.pollingErrors, id: \.self) { error in
+                    Label {
+                        Text(error)
+                            .fixedSize(horizontal: false, vertical: true)
+                    } icon: {
+                        Image(systemName: UIConstants.SystemImages.errorMessageWarning)
+                            .foregroundColor(UIConstants.Colors.errorMessage)
+                    }
+                    .font(.subheadline)
+                }
+            }
+            
             HStack {
                 StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
                 StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)

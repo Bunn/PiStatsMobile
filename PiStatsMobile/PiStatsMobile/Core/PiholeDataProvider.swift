@@ -47,7 +47,9 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     @Published private(set) var hasErrorMessages = false
     @Published private(set) var status: PiholeStatus = .allDisabled
     @Published private(set) var name = ""
-    
+    @Published private(set) var pollingErrors = [String]()
+    @Published private(set) var actionErrors = [String]()
+
      var canDisplayEnableDisableButton: Bool {
         return !piholes.allSatisfy {
             return $0.apiToken.isEmpty == true
@@ -64,15 +66,15 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     
     var statusColor: Color {
         if hasErrorMessages {
-            return UIConstants.Colors.enabledAndDisabled
+            return UIConstants.Colors.statusWarning
         }
         switch status {
         case .allDisabled:
-            return UIConstants.Colors.disabled
+            return UIConstants.Colors.statusOffline
         case .allEnabled:
-            return UIConstants.Colors.enabled
+            return UIConstants.Colors.statusOnline
         case .enabledAndDisabled:
-            return UIConstants.Colors.enabledAndDisabled
+            return UIConstants.Colors.statusWarning
         }
     }
     
@@ -163,12 +165,14 @@ class PiholeDataProvider: ObservableObject, Identifiable {
                 DispatchQueue.main.async {
                     switch result {
                     case .success:
-                        self.updateStatus()
                         pihole.actionError = nil
+                        self.updateStatus()
                     case .failure(let error):
                         pihole.actionError = self.errorMessage(error)
                     }
                 }
+                self.updateErrorMessageStatus()
+
             }
         }
     }
@@ -179,11 +183,12 @@ class PiholeDataProvider: ObservableObject, Identifiable {
                 DispatchQueue.main.async {
                     switch result {
                     case .success:
-                        self.updateStatus()
                         pihole.actionError = nil
+                        self.updateStatus()
                     case .failure(let error):
                         pihole.actionError = self.errorMessage(error)
                     }
+                    self.updateErrorMessageStatus()
                 }
             }
         }
@@ -215,9 +220,10 @@ class PiholeDataProvider: ObservableObject, Identifiable {
                     if let error = error {
                         pihole.pollingError = self.errorMessage(error)
                     } else {
-                        self.updateData()
                         pihole.pollingError = nil
+                        self.updateData()
                     }
+                    self.updateErrorMessageStatus()
                 }
             }
         }
@@ -252,6 +258,8 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     }
     
     private func updateErrorMessageStatus() {
-        hasErrorMessages =  !piholes.allSatisfy { $0.pollingError == nil && $0.actionError == nil}
+        pollingErrors = piholes.compactMap{ $0.pollingError}
+        actionErrors = piholes.compactMap{ $0.actionError}
+        hasErrorMessages =  pollingErrors.count != 0 || actionErrors.count != 0
     }
 }

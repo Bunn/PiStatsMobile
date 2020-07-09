@@ -24,9 +24,10 @@ struct UIConstants {
         static let totalQueries = Color("TotalQueries")
         static let queriesBlocked = Color("QueriesBlocked")
         static let percentBlocked = Color("PercentBlocked")
-        static let disabled = Color("Disabled")
-        static let enabled = Color("Enabled")
-        static let enabledAndDisabled = Color("EnabledAndDisabled")
+        static let statusOffline = Color("StatusOffline")
+        static let statusOnline = Color("StatusOnline")
+        static let statusWarning = Color("StatusWarning")
+        static let errorMessage = Color("StatusOffline")
 
     }
     
@@ -65,6 +66,10 @@ struct UIConstants {
         static let piholeSetupPort = "globe"
         static let piholeSetupToken = "key"
         static let piholeSetupTokenQRCode = "qrcode"
+        static let piholeStatusWarning = "exclamationmark.shield.fill"
+        static let piholeStatusOffline = "xmark.shield.fill"
+        static let piholeStatusOnline = "checkmark.shield.fill"
+        static let errorMessageWarning = "exclamationmark.triangle.fill"
 
     }
 }
