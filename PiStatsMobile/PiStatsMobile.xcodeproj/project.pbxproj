@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3102D30B24B7BC7900EC8120 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102D30A24B7BC7900EC8120 /* SettingsView.swift */; };
 		31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31115BC724B29A1700C91212 /* PiholeSetupView.swift */; };
 		311D0A7524B0ED05003F18DB /* StatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7424B0ED05003F18DB /* StatsItemView.swift */; };
 		311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3102D30A24B7BC7900EC8120 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		31115BC724B29A1700C91212 /* PiholeSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeSetupView.swift; sourceTree = "<group>"; };
 		311D0A7424B0ED05003F18DB /* StatsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemView.swift; sourceTree = "<group>"; };
 		311D0A7624B0EFE3003F18DB /* StatsItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemType.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				319B082E24B53268008B3C2F /* APIToken.swift */,
 				319B082F24B53269008B3C2F /* UserPreferences.swift */,
+				3102D30A24B7BC7900EC8120 /* SettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				319B083024B53269008B3C2F /* APIToken.swift in Sources */,
 				31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */,
 				3175EB5E24AE597900E7B5FF /* ContentView.swift in Sources */,
+				3102D30B24B7BC7900EC8120 /* SettingsView.swift in Sources */,
 				311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */,
 				311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */,
 				319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */,

@@ -7,51 +7,30 @@
 //
 
 import Foundation
-import Combine
+import SwiftUI
 
-private enum PreferencesKey: String {
-    case keepPopoverPanelOpen = "SettingsKeyKeepPopoverPanelOpen"
-    case displayDisableTimeOptions = "SettingsDisplayDisableTimeOptions"
-    case displayStatusColorWhenPiholeIsOffline = "SettingsDisplayStatusColorWhenPiholeIsOffline"
-
+private enum Keys: String {
+    case disablePermanently
+    case displayStatsAsList
+    case displayStatsIcons
 }
 
 class UserPreferences: ObservableObject {
-    var keychainToken = APIToken(accountName: "PiHoleStatsAccount")
-    private var appURL: URL { Bundle.main.bundleURL }
-    static let didChangeNotification = Notification.Name("dev.bunn.holestats.PrefsChanged")
-    @Published private var _launchAtLoginEnabled: Bool = false
-    
-    init() {
-        apiToken = keychainToken.token
-    }
-    
-    @Published var keepPopoverPanelOpen: Bool = UserDefaults.standard.object(forKey: PreferencesKey.keepPopoverPanelOpen.rawValue) as? Bool ?? false {
-        didSet {
-            UserDefaults.standard.set(keepPopoverPanelOpen, forKey: PreferencesKey.keepPopoverPanelOpen.rawValue)
+    @AppStorage(Keys.disablePermanently.rawValue) var disablePermanently: Bool = false {
+        willSet {
+            objectWillChange.send()
         }
     }
     
-    @Published var displayDisableTimeOptions: Bool = UserDefaults.standard.object(forKey: PreferencesKey.displayDisableTimeOptions.rawValue) as? Bool ?? false {
-        didSet {
-            UserDefaults.standard.set(displayDisableTimeOptions, forKey: PreferencesKey.displayDisableTimeOptions.rawValue)
+    @AppStorage(Keys.displayStatsAsList.rawValue) var displayStatsAsList: Bool = false {
+        willSet {
+            objectWillChange.send()
         }
     }
     
-    @Published var displayStatusColorWhenPiholeIsOffline: Bool = UserDefaults.standard.object(forKey: PreferencesKey.displayStatusColorWhenPiholeIsOffline.rawValue) as? Bool ?? false {
-        didSet {
-            UserDefaults.standard.set(displayStatusColorWhenPiholeIsOffline, forKey: PreferencesKey.displayStatusColorWhenPiholeIsOffline.rawValue)
+    @AppStorage(Keys.displayStatsIcons.rawValue) var displayStatsIcons: Bool = true {
+        willSet {
+            objectWillChange.send()
         }
-    }
-    
-    @Published var apiToken: String {
-        didSet {
-            keychainToken.token = apiToken
-        }
-    }
-    
-    
-    private func didChange() {
-        NotificationCenter.default.post(name: Self.didChangeNotification, object: self)
     }
 }

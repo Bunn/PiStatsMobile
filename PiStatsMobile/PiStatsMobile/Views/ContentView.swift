@@ -19,7 +19,7 @@ struct ContentView: View {
             }.tag(0)
             
             NavigationView {
-                Text("Settings")
+                SettingsView()
             }
             .tabItem {
                 Image(systemName: "gear")

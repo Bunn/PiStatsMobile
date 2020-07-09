@@ -7,6 +7,119 @@
 
 import SwiftUI
 
+struct StatsView: View {
+    @ObservedObject var dataProvider: PiholeDataProvider
+    @EnvironmentObject private var userPreferences: UserPreferences
+    @State private var isShowingDisableOptions = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: UIConstants.Geometry.defaultPadding) {
+            StatusHeaderView(dataProvider: dataProvider)
+            
+            VStack {
+                ForEach(dataProvider.pollingErrors, id: \.self) { error in
+                    Label {
+                        Text(error)
+                            .fixedSize(horizontal: false, vertical: true)
+                    } icon: {
+                        Image(systemName: UIConstants.SystemImages.errorMessageWarning)
+                            .foregroundColor(UIConstants.Colors.errorMessage)
+                    }
+                    .font(.headline)
+                }
+            }
+            
+            if userPreferences.displayStatsAsList {
+                VStack (alignment: .leading){
+                    StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
+                    StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)
+                    StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
+                    StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
+                }
+            } else {
+                HStack {
+                    StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
+                    StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)
+                }
+                HStack {
+                    StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
+                    StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
+                }
+            }
+            
+            
+            if dataProvider.canDisplayEnableDisableButton {
+                Divider()
+                if dataProvider.status == .allDisabled {
+                    enableButton()
+                } else {
+                    disableButton()
+                }
+            }
+        }
+        .padding()
+        .background(Color(.secondarySystemGroupedBackground))
+        .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
+        .shadow(radius: UIConstants.Geometry.shadowRadius)
+        .padding()
+        
+    }
+    
+    private func disableButton() -> some View {
+        Button(action: {
+            if userPreferences.disablePermanently {
+                dataProvider.disablePiHole()
+            } else {
+                isShowingDisableOptions = true
+                
+            }
+            
+        }, label: {
+            HStack (spacing: 0) {
+                Label(UIConstants.Strings.disableButton, systemImage: "stop.fill")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity, minHeight: 48)
+            .background(Color(.systemBlue))
+            .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
+        })
+        .actionSheet(isPresented: $isShowingDisableOptions) {
+            ActionSheet(title: Text("Disable Pi-hole"), buttons: [
+                .default(Text("30 seconds")) {
+                    dataProvider.disablePiHole(seconds: 30)
+                },
+                .default(Text("1 minute")) {
+                    dataProvider.disablePiHole(seconds: 60)
+                },
+                .default(Text("5 minutes")) {
+                    dataProvider.disablePiHole(seconds: 300)
+                },
+                .default(Text("Permanently")) {
+                    dataProvider.disablePiHole()
+                },
+                .cancel()
+            ])
+        }
+    }
+    
+    private func enableButton() -> some View {
+        Button(action: {
+            dataProvider.enablePiHole()
+        }, label: {
+            HStack (spacing: 0) {
+                Label(UIConstants.Strings.enableButton, systemImage: "play.fill")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity, minHeight: 48)
+            .background(Color(.systemBlue))
+            .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
+        })
+    }
+}
+
+
 fileprivate struct StatusHeaderView: View {
     @ObservedObject var dataProvider: PiholeDataProvider
     
@@ -30,82 +143,6 @@ fileprivate struct StatusHeaderView: View {
             }
             .font(.title2)
         }
-    }
-}
-
-struct StatsView: View {
-    @ObservedObject var dataProvider: PiholeDataProvider
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: UIConstants.Geometry.defaultPadding) {
-            StatusHeaderView(dataProvider: dataProvider)
-            
-            VStack {
-                ForEach(dataProvider.pollingErrors, id: \.self) { error in
-                    Label {
-                        Text(error)
-                            .fixedSize(horizontal: false, vertical: true)
-                    } icon: {
-                        Image(systemName: UIConstants.SystemImages.errorMessageWarning)
-                            .foregroundColor(UIConstants.Colors.errorMessage)
-                    }
-                    .font(.headline)
-                }
-            }
-            
-            HStack {
-                StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
-                StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)
-            }
-            HStack {
-                StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
-                StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
-            }
-            
-            if dataProvider.canDisplayEnableDisableButton {
-                Divider()
-                if dataProvider.status == .allDisabled {
-                    enableButton()
-                } else {
-                    disableButton()
-                }
-            }
-        }
-        .padding()
-        .background(Color(.secondarySystemGroupedBackground))
-        .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
-        .shadow(radius: UIConstants.Geometry.shadowRadius)
-        .padding()
-    }
-    
-    private func disableButton() -> some View {
-        Button(action: {
-            dataProvider.disablePiHole()
-        }, label: {
-            HStack (spacing: 0) {
-                Label(UIConstants.Strings.disableButton, systemImage: "stop.fill")
-                    .font(.headline)
-                    .foregroundColor(.white)
-            }
-            .frame(maxWidth: .infinity, minHeight: 48)
-            .background(Color(.systemBlue))
-            .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
-        })
-    }
-    
-    private func enableButton() -> some View {
-        Button(action: {
-            dataProvider.enablePiHole()
-        }, label: {
-            HStack (spacing: 0) {
-                Label(UIConstants.Strings.enableButton, systemImage: "play.fill")
-                    .font(.headline)
-                    .foregroundColor(.white)
-            }
-            .frame(maxWidth: .infinity, minHeight: 48)
-            .background(Color(.systemBlue))
-            .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
-        })
     }
 }
 

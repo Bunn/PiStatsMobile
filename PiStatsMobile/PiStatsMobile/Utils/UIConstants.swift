@@ -28,7 +28,6 @@ struct UIConstants {
         static let statusOnline = Color("StatusOnline")
         static let statusWarning = Color("StatusWarning")
         static let errorMessage = Color("StatusOffline")
-
     }
     
     struct Strings {
@@ -50,6 +49,12 @@ struct UIConstants {
         static let statusNeedsAttention = "Needs Attention"
         static let statusEnabledAndDisabled = "Partially Active"
 
+        static let settingsSectionDisplay = "Display"
+        static let settingsDisplayAsList = "Display Pi-hole stats as list"
+        static let settingsDisplayIcons = "Display Pi-hole stats icons"
+        static let settingsSectionActions = "Actions"
+        static let settingsAlwaysDisablePermanently = "Aways disable Pi-hole permanently"
+
         struct Error {
             static let invalidAPIToken = "Invalid API Token"
             static let invalidResponse = "Invalid Response"
@@ -58,7 +63,6 @@ struct UIConstants {
             static let noAPITokenProvided = "No API Token Provided"
             static let sessionError = "Session Error"
         }
-
     }
     
     struct SystemImages {
@@ -70,6 +74,8 @@ struct UIConstants {
         static let piholeStatusOffline = "xmark.shield.fill"
         static let piholeStatusOnline = "checkmark.shield.fill"
         static let errorMessageWarning = "exclamationmark.triangle.fill"
-
+        static let settingsDisablePermanently = "xmark.shield.fill"
+        static let settingsDisplayIcons = "globe"
+        static let settingsDisplayAsList = "list.bullet"
     }
 }
