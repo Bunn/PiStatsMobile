@@ -52,7 +52,7 @@ struct UIConstants {
         static let settingsDisplayAsList = "Display Pi-hole stats as list"
         static let settingsDisplayIcons = "Display Pi-hole stats icons"
         static let settingsSectionActions = "Actions"
-        static let settingsAlwaysDisablePermanently = "Aways disable Pi-hole permanently"
+        static let settingsAlwaysDisablePermanently = "Always disable Pi-hole permanently"
         static let addFirstPiholeCaption = "Tap here to add your first pi-hole"
 
         static let piholesNavigationTitle = "Pi-holes"
