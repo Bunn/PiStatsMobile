@@ -7,29 +7,39 @@
 
 import SwiftUI
 
+fileprivate struct StatusHeaderView: View {
+    @ObservedObject var dataProvider: PiholeDataProvider
+    
+    var body: some View {
+        HStack {
+            Label {
+                Text(dataProvider.name)
+                    .foregroundColor(.primary)
+                    .fontWeight(.bold)
+            } icon: {
+                if dataProvider.hasErrorMessages {
+                    Image(systemName: UIConstants.SystemImages.piholeStatusWarning)
+                        .foregroundColor(UIConstants.Colors.statusWarning)
+                } else if dataProvider.status == .allEnabled {
+                    Image(systemName: UIConstants.SystemImages.piholeStatusOnline)
+                        .foregroundColor(UIConstants.Colors.statusOnline)
+                } else {
+                    Image(systemName: UIConstants.SystemImages.piholeStatusOffline)
+                        .foregroundColor(UIConstants.Colors.statusOffline)
+                }
+            }
+            .font(.title2)
+        }
+    }
+}
+
 struct StatsView: View {
     @ObservedObject var dataProvider: PiholeDataProvider
     
     var body: some View {
         VStack(alignment: .leading, spacing: UIConstants.Geometry.defaultPadding) {
-            HStack {
-                if dataProvider.hasErrorMessages {
-                    Image(systemName: UIConstants.SystemImages.piholeStatusWarning)
-                        .foregroundColor(UIConstants.Colors.statusWarning)
-                        .font(.title2)
-                } else if dataProvider.status == .allEnabled {
-                    Image(systemName: UIConstants.SystemImages.piholeStatusOnline)
-                        .foregroundColor(UIConstants.Colors.statusOnline)                        .font(.title2)
-                } else {
-                    Image(systemName: UIConstants.SystemImages.piholeStatusOffline)
-                        .foregroundColor(UIConstants.Colors.statusOffline)                        .font(.title2)
-                }
-                
-                Text(dataProvider.name)
-                    .foregroundColor(.primary)
-                    .font(.title2)
-                    .fontWeight(.bold)
-            }
+            StatusHeaderView(dataProvider: dataProvider)
+            
             VStack {
                 ForEach(dataProvider.pollingErrors, id: \.self) { error in
                     Label {
@@ -39,7 +49,7 @@ struct StatsView: View {
                         Image(systemName: UIConstants.SystemImages.errorMessageWarning)
                             .foregroundColor(UIConstants.Colors.errorMessage)
                     }
-                    .font(.subheadline)
+                    .font(.headline)
                 }
             }
             

@@ -56,42 +56,6 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         }
     }
     
-    var changeStatusButtonTitle: String {
-        if status != .allDisabled {
-            return UIConstants.Strings.disableButton
-        } else {
-            return UIConstants.Strings.enableButton
-        }
-    }
-    
-    var statusColor: Color {
-        if hasErrorMessages {
-            return UIConstants.Colors.statusWarning
-        }
-        switch status {
-        case .allDisabled:
-            return UIConstants.Colors.statusOffline
-        case .allEnabled:
-            return UIConstants.Colors.statusOnline
-        case .enabledAndDisabled:
-            return UIConstants.Colors.statusWarning
-        }
-    }
-    
-    var statusText: String {
-        if hasErrorMessages {
-            return UIConstants.Strings.statusNeedsAttention
-        }
-          switch status {
-          case .allDisabled:
-            return UIConstants.Strings.statusDisabled
-          case .allEnabled:
-            return UIConstants.Strings.statusEnabled
-          case .enabledAndDisabled:
-              return UIConstants.Strings.statusEnabledAndDisabled
-          }
-      }
-    
     private lazy var percentageFormatter: NumberFormatter = {
           let n = NumberFormatter()
           n.numberStyle = .percent

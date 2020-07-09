@@ -41,7 +41,7 @@ struct UIConstants {
         static let settings = "Settings"
         static let piholeTokenFooterSection = "Token is required for some functionalities like disable/enable your pi-hole.\n\nYou can find the API Token on /etc/pihole/setupVars.conf under WEBPASSWORD or you can open the web UI and go to Settings -> API -> Show API Token"
         static let piholeSetupHostPlaceholder = "Host"
-        static let piholeSetupPortPlaceholder = "Port (Optional)"
+        static let piholeSetupPortPlaceholder = "80"
         static let piholeSetupTokenPlaceholder = "Token (Optional)"
         static let saveButton = "Save"
         static let cancelButton = "Cancel"
