@@ -30,23 +30,10 @@ struct StatsView: View {
             }
             
             if userPreferences.displayStatsAsList {
-                VStack (alignment: .leading){
-                    StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
-                    StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)
-                    StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
-                    StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
-                }
+                statsList()
             } else {
-                HStack {
-                    StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
-                    StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)
-                }
-                HStack {
-                    StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
-                    StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
-                }
+                statsGrid()
             }
-            
             
             if dataProvider.canDisplayEnableDisableButton {
                 Divider()
@@ -65,13 +52,35 @@ struct StatsView: View {
         
     }
     
+    private func statsList() -> some View {
+        return VStack (alignment: .leading){
+            StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
+            StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)
+            StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
+            StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
+        }
+    }
+    
+    private func statsGrid() -> some View {
+        return Group {
+            HStack {
+                StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
+                StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)
+            }
+            HStack {
+                StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
+                StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
+            }
+        }
+    }
+    
+    
     private func disableButton() -> some View {
         Button(action: {
             if userPreferences.disablePermanently {
                 dataProvider.disablePiHole()
             } else {
                 isShowingDisableOptions = true
-                
             }
             
         }, label: {
