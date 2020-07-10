@@ -17,7 +17,8 @@ struct ContentView: View {
                 Image(systemName: "shield")
                 Text(UIConstants.Strings.piholesNavigationTitle)
             }.tag(0)
-            
+            .navigationViewStyle(StackNavigationViewStyle())
+
             NavigationView {
                 SettingsView()
             }
@@ -25,6 +26,8 @@ struct ContentView: View {
                 Image(systemName: "gear")
                 Text(UIConstants.Strings.settingsNavigationTitle)
             }.tag(1)
+            .navigationViewStyle(StackNavigationViewStyle())
+
         }
     }
 }
