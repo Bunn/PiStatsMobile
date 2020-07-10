@@ -13,6 +13,7 @@ private enum Keys: String {
     case disablePermanently
     case displayStatsAsList
     case displayStatsIcons
+    case displayIconBadgeForOfflinePiholes
 }
 
 class UserPreferences: ObservableObject {
@@ -29,6 +30,11 @@ class UserPreferences: ObservableObject {
     }
     
     @AppStorage(Keys.displayStatsIcons.rawValue) var displayStatsIcons: Bool = true {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    @AppStorage(Keys.displayIconBadgeForOfflinePiholes.rawValue) var displayIconBadgeForOfflinePiholes: Bool = true {
         willSet {
             objectWillChange.send()
         }

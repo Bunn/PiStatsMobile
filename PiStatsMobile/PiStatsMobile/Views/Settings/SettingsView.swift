@@ -12,18 +12,17 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-            Section(header: Text(UIConstants.Strings.settingsSectionDisplay)) {
-                Toggle(isOn: $userPreferences.displayStatsAsList) {
-                    Label(UIConstants.Strings.settingsDisplayAsList, systemImage: UIConstants.SystemImages.settingsDisplayAsList)
-                }
-                Toggle(isOn: $userPreferences.displayStatsIcons) {
-                    Label(UIConstants.Strings.settingsDisplayIcons, systemImage: UIConstants.SystemImages.settingsDisplayIcons)
-                }
+            Toggle(isOn: $userPreferences.displayStatsAsList) {
+                Label(UIConstants.Strings.settingsDisplayAsList, systemImage: UIConstants.SystemImages.settingsDisplayAsList)
             }
-            Section(header: Text(UIConstants.Strings.settingsSectionActions)) {
-                Toggle(isOn: $userPreferences.disablePermanently) {
-                    Label(UIConstants.Strings.settingsAlwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
-                }
+            Toggle(isOn: $userPreferences.displayStatsIcons) {
+                Label(UIConstants.Strings.settingsDisplayIcons, systemImage: UIConstants.SystemImages.settingsDisplayIcons)
+            }
+            Toggle(isOn: $userPreferences.disablePermanently) {
+                Label(UIConstants.Strings.settingsAlwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
+            }
+            Toggle(isOn: $userPreferences.displayIconBadgeForOfflinePiholes) {
+                Label(UIConstants.Strings.displayIconBadgeForOfflinePiholes, systemImage: UIConstants.SystemImages.settingsDisplayIconBadgeForOffline)                
             }
         }.listStyle(InsetGroupedListStyle())
         .navigationTitle(UIConstants.Strings.settingsNavigationTitle)
