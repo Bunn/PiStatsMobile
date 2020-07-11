@@ -20,6 +20,7 @@ struct StatsItemView: View {
     var body: some View {
         if layoutType == .list {
             ListStatView(displayStatsIcons: displayIcons, contentType: contentType, value: value)
+            
         } else {
             RoundedStatView(displayStatsIcons: displayIcons, contentType: contentType, label: value)
         }
@@ -92,6 +93,9 @@ fileprivate struct RoundedStatView: View {
 
 struct StatsItemView_Previews: PreviewProvider {
     static var previews: some View {
-        StatsItemView(layoutType: .list, contentType: .domainsOnBlockList, value: "1234")
+        Group {
+            StatsItemView(layoutType: .list, contentType: .domainsOnBlockList, value: "1234")
+            StatsItemView(layoutType: .rounded, contentType: .domainsOnBlockList, value: "1234")
+        }
     }
 }

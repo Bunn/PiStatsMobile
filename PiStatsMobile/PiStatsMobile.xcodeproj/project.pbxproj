@@ -13,6 +13,14 @@
 		311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
 		311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7824B0F405003F18DB /* UIConstants.swift */; };
 		311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7A24B0F613003F18DB /* StatsView.swift */; };
+		315F5EC024BA162600FED38F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315F5EBF24BA162600FED38F /* WidgetKit.framework */; };
+		315F5EC224BA162600FED38F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315F5EC124BA162600FED38F /* SwiftUI.framework */; };
+		315F5EC524BA162600FED38F /* PiStatsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315F5EC424BA162600FED38F /* PiStatsWidget.swift */; };
+		315F5EC724BA162800FED38F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315F5EC624BA162800FED38F /* Assets.xcassets */; };
+		315F5ECB24BA162800FED38F /* PiStatsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 315F5EBD24BA162600FED38F /* PiStatsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		315F5ED124BA1DF800FED38F /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
+		315F5ED324BA1E0800FED38F /* StatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7424B0ED05003F18DB /* StatsItemView.swift */; };
+		315F5ED424BA1E1500FED38F /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7824B0F405003F18DB /* UIConstants.swift */; };
 		3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */; };
 		3175EB5E24AE597900E7B5FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB5D24AE597900E7B5FF /* ContentView.swift */; };
 		3175EB6024AE597A00E7B5FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175EB5F24AE597A00E7B5FF /* Assets.xcassets */; };
@@ -34,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		315F5EC924BA162800FED38F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3175EB5024AE597900E7B5FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 315F5EBC24BA162600FED38F;
+			remoteInfo = PiStatsWidgetExtension;
+		};
 		3175EB6A24AE597A00E7B5FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3175EB5024AE597900E7B5FF /* Project object */;
@@ -50,6 +65,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		315F5ECC24BA162800FED38F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				315F5ECB24BA162800FED38F /* PiStatsWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3102D30A24B7BC7900EC8120 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		31115BC724B29A1700C91212 /* PiholeSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeSetupView.swift; sourceTree = "<group>"; };
@@ -57,6 +86,12 @@
 		311D0A7624B0EFE3003F18DB /* StatsItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemType.swift; sourceTree = "<group>"; };
 		311D0A7824B0F405003F18DB /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		311D0A7A24B0F613003F18DB /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		315F5EBD24BA162600FED38F /* PiStatsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PiStatsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		315F5EBF24BA162600FED38F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		315F5EC124BA162600FED38F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		315F5EC424BA162600FED38F /* PiStatsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsWidget.swift; sourceTree = "<group>"; };
+		315F5EC624BA162800FED38F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		315F5EC824BA162800FED38F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3175EB5824AE597900E7B5FF /* PiStatsMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiStatsMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsMobileApp.swift; sourceTree = "<group>"; };
 		3175EB5D24AE597900E7B5FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +119,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		315F5EBA24BA162600FED38F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				315F5EC224BA162600FED38F /* SwiftUI.framework in Frameworks */,
+				315F5EC024BA162600FED38F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3175EB5524AE597900E7B5FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -118,12 +162,44 @@
 			path = UserData;
 			sourceTree = "<group>";
 		};
+		315F5EBE24BA162600FED38F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				315F5EBF24BA162600FED38F /* WidgetKit.framework */,
+				315F5EC124BA162600FED38F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		315F5EC324BA162600FED38F /* PiStatsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				315F5EC424BA162600FED38F /* PiStatsWidget.swift */,
+				315F5EC624BA162800FED38F /* Assets.xcassets */,
+				315F5EC824BA162800FED38F /* Info.plist */,
+			);
+			path = PiStatsWidget;
+			sourceTree = "<group>";
+		};
+		315F5ED024BA1DC400FED38F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				311D0A7824B0F405003F18DB /* UIConstants.swift */,
+				311D0A7624B0EFE3003F18DB /* StatsItemType.swift */,
+				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		3175EB4F24AE597900E7B5FF = {
 			isa = PBXGroup;
 			children = (
+				315F5ED024BA1DC400FED38F /* Shared */,
 				3175EB5A24AE597900E7B5FF /* PiStatsMobile */,
 				3175EB6C24AE597A00E7B5FF /* PiStatsMobileTests */,
 				3175EB7724AE597A00E7B5FF /* PiStatsMobileUITests */,
+				315F5EC324BA162600FED38F /* PiStatsWidget */,
+				315F5EBE24BA162600FED38F /* Frameworks */,
 				3175EB5924AE597900E7B5FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,6 +210,7 @@
 				3175EB5824AE597900E7B5FF /* PiStatsMobile.app */,
 				3175EB6924AE597A00E7B5FF /* PiStatsMobileTests.xctest */,
 				3175EB7424AE597A00E7B5FF /* PiStatsMobileUITests.xctest */,
+				315F5EBD24BA162600FED38F /* PiStatsWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,8 +259,6 @@
 			children = (
 				319B082A24B53246008B3C2F /* Logger.swift */,
 				319B082C24B53255008B3C2F /* KeyChainPasswordItem.swift */,
-				311D0A7824B0F405003F18DB /* UIConstants.swift */,
-				311D0A7624B0EFE3003F18DB /* StatsItemType.swift */,
 				317D482124B3D2F000897EA9 /* CodeScannerView.swift */,
 			);
 			path = Utils;
@@ -215,7 +290,6 @@
 			children = (
 				319F965C24B265D200B680D3 /* PiholeStatsList.swift */,
 				311D0A7A24B0F613003F18DB /* StatsView.swift */,
-				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
 				31115BC724B29A1700C91212 /* PiholeSetupView.swift */,
 			);
 			path = Piholes;
@@ -243,6 +317,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		315F5EBC24BA162600FED38F /* PiStatsWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 315F5ECF24BA162800FED38F /* Build configuration list for PBXNativeTarget "PiStatsWidgetExtension" */;
+			buildPhases = (
+				315F5EB924BA162600FED38F /* Sources */,
+				315F5EBA24BA162600FED38F /* Frameworks */,
+				315F5EBB24BA162600FED38F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PiStatsWidgetExtension;
+			productName = PiStatsWidgetExtension;
+			productReference = 315F5EBD24BA162600FED38F /* PiStatsWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		3175EB5724AE597900E7B5FF /* PiStatsMobile */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3175EB7D24AE597A00E7B5FF /* Build configuration list for PBXNativeTarget "PiStatsMobile" */;
@@ -250,10 +341,12 @@
 				3175EB5424AE597900E7B5FF /* Sources */,
 				3175EB5524AE597900E7B5FF /* Frameworks */,
 				3175EB5624AE597900E7B5FF /* Resources */,
+				315F5ECC24BA162800FED38F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				315F5ECA24BA162800FED38F /* PBXTargetDependency */,
 			);
 			name = PiStatsMobile;
 			packageProductDependencies = (
@@ -308,6 +401,9 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					315F5EBC24BA162600FED38F = {
+						CreatedOnToolsVersion = 12.0;
+					};
 					3175EB5724AE597900E7B5FF = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -341,11 +437,20 @@
 				3175EB5724AE597900E7B5FF /* PiStatsMobile */,
 				3175EB6824AE597A00E7B5FF /* PiStatsMobileTests */,
 				3175EB7324AE597A00E7B5FF /* PiStatsMobileUITests */,
+				315F5EBC24BA162600FED38F /* PiStatsWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		315F5EBB24BA162600FED38F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				315F5EC724BA162800FED38F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3175EB5624AE597900E7B5FF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,6 +478,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		315F5EB924BA162600FED38F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				315F5ED324BA1E0800FED38F /* StatsItemView.swift in Sources */,
+				315F5ED124BA1DF800FED38F /* StatsItemType.swift in Sources */,
+				315F5EC524BA162600FED38F /* PiStatsWidget.swift in Sources */,
+				315F5ED424BA1E1500FED38F /* UIConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3175EB5424AE597900E7B5FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -417,6 +533,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		315F5ECA24BA162800FED38F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 315F5EBC24BA162600FED38F /* PiStatsWidgetExtension */;
+			targetProxy = 315F5EC924BA162800FED38F /* PBXContainerItemProxy */;
+		};
 		3175EB6B24AE597A00E7B5FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3175EB5724AE597900E7B5FF /* PiStatsMobile */;
@@ -442,6 +563,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		315F5ECD24BA162800FED38F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2RUA6XMHC;
+				INFOPLIST_FILE = PiStatsWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.PiStatsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		315F5ECE24BA162800FED38F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2RUA6XMHC;
+				INFOPLIST_FILE = PiStatsWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.PiStatsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		3175EB7B24AE597A00E7B5FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -561,6 +724,7 @@
 		3175EB7E24AE597A00E7B5FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -584,6 +748,7 @@
 		3175EB7F24AE597A00E7B5FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -691,6 +856,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		315F5ECF24BA162800FED38F /* Build configuration list for PBXNativeTarget "PiStatsWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				315F5ECD24BA162800FED38F /* Debug */,
+				315F5ECE24BA162800FED38F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3175EB5324AE597900E7B5FF /* Build configuration list for PBXProject "PiStatsMobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
