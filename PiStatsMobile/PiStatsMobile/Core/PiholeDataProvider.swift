@@ -49,6 +49,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     @Published private(set) var name = ""
     @Published private(set) var pollingErrors = [String]()
     @Published private(set) var actionErrors = [String]()
+    @Published private(set) var offlinePiholesCount = 0
 
      var canDisplayEnableDisableButton: Bool {
         return !piholes.allSatisfy {
@@ -119,6 +120,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         if let index = piholes.firstIndex(of: pihole) {
             piholes.remove(at: index)
         }
+        
         updateStatus()
         updateErrorMessageStatus()
     }
@@ -211,6 +213,13 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     }
     
     private func updateStatus() {
+        offlinePiholesCount = piholes.reduce(0) { counter, item in
+            if item.active != false {
+                return counter + 1
+            }
+            return counter
+        }
+        
         let allStatus = Set(piholes.map { $0.active })
         if allStatus.count > 1 {
             status = .enabledAndDisabled

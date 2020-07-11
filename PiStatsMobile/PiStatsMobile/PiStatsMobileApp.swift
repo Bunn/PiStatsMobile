@@ -6,17 +6,34 @@
 //
 
 import SwiftUI
+import Combine
+
+final class DataModel: ObservableObject {
+    let piholeProviderListManager = PiholeDataProviderListManager()
+    let userPreferences = UserPreferences()
+    private var offlineBadgeCancellable: AnyCancellable?
+    
+    init() {
+        setupCancellables()
+    }
+    
+    private func setupCancellables() {
+        offlineBadgeCancellable = userPreferences.$displayIconBadgeForOfflinePiholes.receive(on: DispatchQueue.main).sink { [weak self] value in
+            self?.piholeProviderListManager.shouldUpdateIconBadgeWithOfflinePiholes = value
+        }
+    }
+}
 
 @main
 struct PiStatsMobileApp: App {
-    @StateObject private var piholeProviderListManager = PiholeDataProviderListManager()
-    @StateObject private var userPreferences = UserPreferences()
-
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var dataModel = DataModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(piholeProviderListManager)
-                .environmentObject(userPreferences)
+                .environmentObject(dataModel.piholeProviderListManager)
+                .environmentObject(dataModel.userPreferences)
         }
     }
 }

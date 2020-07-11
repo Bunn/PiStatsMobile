@@ -29,6 +29,7 @@
 		319B083024B53269008B3C2F /* APIToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082E24B53268008B3C2F /* APIToken.swift */; };
 		319B083124B53269008B3C2F /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082F24B53269008B3C2F /* UserPreferences.swift */; };
 		319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F965C24B265D200B680D3 /* PiholeStatsList.swift */; };
+		31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4D54124B92D220033EF53 /* AppDelegate.swift */; };
 		31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		319B082E24B53268008B3C2F /* APIToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIToken.swift; sourceTree = "<group>"; };
 		319B082F24B53269008B3C2F /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		319F965C24B265D200B680D3 /* PiholeStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeStatsList.swift; sourceTree = "<group>"; };
+		31A4D54124B92D220033EF53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeDataProviderListManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */,
+				31A4D54124B92D220033EF53 /* AppDelegate.swift */,
 				31FC1DAB24B669E100319E6F /* Core */,
 				319F965B24B2658300B680D3 /* Views */,
 				317D481724B3ACCE00897EA9 /* Utils */,
@@ -386,6 +389,7 @@
 				319B082D24B53255008B3C2F /* KeyChainPasswordItem.swift in Sources */,
 				319B082824B5321C008B3C2F /* Pihole.swift in Sources */,
 				319B082B24B53246008B3C2F /* Logger.swift in Sources */,
+				31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */,
 				319B083124B53269008B3C2F /* UserPreferences.swift in Sources */,
 				31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */,
 				319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */,

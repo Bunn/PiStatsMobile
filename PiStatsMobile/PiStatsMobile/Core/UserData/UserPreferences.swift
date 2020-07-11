@@ -34,9 +34,28 @@ class UserPreferences: ObservableObject {
             objectWillChange.send()
         }
     }
-    @AppStorage(Keys.displayIconBadgeForOfflinePiholes.rawValue) var displayIconBadgeForOfflinePiholes: Bool = true {
+    
+    /*
+     TODO: Improve this:
+     I'm not sure how to have an AppStorage + Published, so I used standard UserDefaults
+     Also, the handling of the requestAuthorization and badge reset should be done by the caller since this
+     class should only be responsible for data storage and not business logic
+     */
+    @Published var displayIconBadgeForOfflinePiholes: Bool =  UserDefaults.standard.object(forKey: Keys.displayIconBadgeForOfflinePiholes.rawValue) as? Bool ?? false {
         willSet {
-            objectWillChange.send()
+            if newValue {
+                UNUserNotificationCenter.current().requestAuthorization(options: .badge) { (granted, error) in
+                    if granted == false {
+                        DispatchQueue.main.async {
+                            self.displayIconBadgeForOfflinePiholes = false
+                        }
+                    }
+                }
+            } else {
+                UIApplication.shared.applicationIconBadgeNumber = 0
+            }
+        } didSet {
+            UserDefaults.standard.set(displayIconBadgeForOfflinePiholes, forKey: Keys.displayIconBadgeForOfflinePiholes.rawValue)
         }
     }
 }
