@@ -27,14 +27,6 @@ final class DataModel: ObservableObject {
 @main
 struct PiStatsMobileApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
-    var body: some Scene {
-        MainAppScene()
- 
-    }
-}
-
-struct MainAppScene: Scene {
     @Environment(\.scenePhase) private var phase
     @StateObject var dataModel = DataModel()
 
