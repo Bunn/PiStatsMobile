@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct StatsItemView: View {
-    @EnvironmentObject private var userPreferences: UserPreferences
     enum StatsItemViewLayoutType {
         case list
         case rounded
     }
-    
-    let layoutType: StatsItemViewLayoutType
+    var displayIcons: Bool = true
+    var layoutType: StatsItemViewLayoutType = .rounded
     let contentType: StatsItemType
     let value: String
     
     var body: some View {
         if layoutType == .list {
-            ListStatView(displayStatsIcons: userPreferences.displayStatsIcons, contentType: contentType, value: value)
+            ListStatView(displayStatsIcons: displayIcons, contentType: contentType, value: value)
         } else {
-            RoundedStatView(displayStatsIcons: userPreferences.displayStatsIcons, contentType: contentType, label: value)
+            RoundedStatView(displayStatsIcons: displayIcons, contentType: contentType, label: value)
         }
     }
 }
