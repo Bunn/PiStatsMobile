@@ -214,7 +214,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     
     private func updateStatus() {
         offlinePiholesCount = piholes.reduce(0) { counter, item in
-            if item.active != false {
+            if item.active == false {
                 return counter + 1
             }
             return counter
