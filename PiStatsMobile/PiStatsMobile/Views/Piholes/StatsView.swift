@@ -54,22 +54,22 @@ struct StatsView: View {
     
     private func statsList() -> some View {
         return VStack (alignment: .leading){
-            StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
-            StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)
-            StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
-            StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
+            StatsItemView(layoutType: .list, contentType: .totalQueries, value: dataProvider.totalQueries)
+            StatsItemView(layoutType: .list, contentType: .queriesBlocked, value: dataProvider.queriesBlocked)
+            StatsItemView(layoutType: .list, contentType: .percentBlocked, value: dataProvider.percentBlocked)
+            StatsItemView(layoutType: .list, contentType: .domainsOnBlockList, value: dataProvider.domainsOnBlocklist)
         }
     }
     
     private func statsGrid() -> some View {
         return Group {
             HStack {
-                StatsItemView(type: .totalQueries, label: dataProvider.totalQueries)
-                StatsItemView(type: .queriesBlocked, label: dataProvider.queriesBlocked)
+                StatsItemView(layoutType: .rounded, contentType: .totalQueries, value: dataProvider.totalQueries)
+                StatsItemView(layoutType: .rounded, contentType: .queriesBlocked, value: dataProvider.queriesBlocked)
             }
             HStack {
-                StatsItemView(type: .percentBlocked, label: dataProvider.percentBlocked)
-                StatsItemView(type: .domainsOnBlockList, label: dataProvider.domainsOnBlocklist)
+                StatsItemView(layoutType: .rounded, contentType: .percentBlocked, value: dataProvider.percentBlocked)
+                StatsItemView(layoutType: .rounded, contentType: .domainsOnBlockList, value: dataProvider.domainsOnBlocklist)
             }
         }
     }

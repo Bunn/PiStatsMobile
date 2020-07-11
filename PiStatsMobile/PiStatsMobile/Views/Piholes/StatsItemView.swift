@@ -7,67 +7,72 @@
 
 import SwiftUI
 
-
 struct StatsItemView: View {
     @EnvironmentObject private var userPreferences: UserPreferences
-    let type: StatsItemType
-    let label: String
+    enum StatsItemViewLayoutType {
+        case list
+        case rounded
+    }
+    
+    let layoutType: StatsItemViewLayoutType
+    let contentType: StatsItemType
+    let value: String
     
     var body: some View {
-        if userPreferences.displayStatsAsList {
-            ListStatView(type: type, label: label)
+        if layoutType == .list {
+            ListStatView(displayStatsIcons: userPreferences.displayStatsIcons, contentType: contentType, value: value)
         } else {
-            RoundedStatView(type: type, label: label)
+            RoundedStatView(displayStatsIcons: userPreferences.displayStatsIcons, contentType: contentType, label: value)
         }
     }
 }
 
 fileprivate struct ListStatView: View {
-    @EnvironmentObject private var userPreferences: UserPreferences
-    let type: StatsItemType
-    let label: String
+    let displayStatsIcons: Bool
+    let contentType: StatsItemType
+    let value: String
     
     var body: some View {
         HStack {
             Label {
-                Text(type.title)
+                Text(contentType.title)
                     .foregroundColor(.primary)
                     .font(.subheadline)
             } icon: {
                 Group {
-                    if userPreferences.displayStatsIcons {
-                        Image(systemName: type.imageName)
+                    if displayStatsIcons {
+                        Image(systemName: contentType.imageName)
                     } else {
                         Image(systemName: "circle.fill")
                     }
                 }
-                .foregroundColor(type.color)
+                .foregroundColor(contentType.color)
                 .font(.subheadline)
                 
             }
             Spacer()
-            Text(label)
+            Text(value)
         }
     }
 }
 
 
 fileprivate struct RoundedStatView: View {
-    @EnvironmentObject private var userPreferences: UserPreferences
-    let type: StatsItemType
+    let displayStatsIcons: Bool
+    let contentType: StatsItemType
     let label: String
     
     var body: some View {
         VStack (alignment: .leading) {
-            Text(type.title)
+            Text(contentType.title)
                 .foregroundColor(.white)
                 .font(.subheadline)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
                 .frame(maxWidth: .infinity, alignment: .leading)
             HStack {
-                if userPreferences.displayStatsIcons {
-                    Label(label, systemImage: type.imageName)
+                if displayStatsIcons {
+                    Label(label, systemImage: contentType.imageName)
                         .foregroundColor(.white)
                         .font(.headline)
                 } else {
@@ -80,7 +85,7 @@ fileprivate struct RoundedStatView: View {
         }
         .padding(.horizontal, UIConstants.Geometry.defaultPadding)
         .padding(.vertical, UIConstants.Geometry.defaultPadding)
-        .background(type.color)
+        .background(contentType.color)
         .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
     }
 }
@@ -88,6 +93,6 @@ fileprivate struct RoundedStatView: View {
 
 struct StatsItemView_Previews: PreviewProvider {
     static var previews: some View {
-        StatsItemView(type: .domainsOnBlockList, label: "1234")
+        StatsItemView(layoutType: .list, contentType: .domainsOnBlockList, value: "1234")
     }
 }
