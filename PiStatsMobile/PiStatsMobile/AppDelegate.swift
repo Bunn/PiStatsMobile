@@ -7,6 +7,7 @@
 
 import UIKit
 import BackgroundTasks
+import WidgetKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
 
@@ -15,7 +16,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 //        BGTaskScheduler.shared.register(forTaskWithIdentifier: "dev.bunn.PiStatsMobile.updatePiholes", using: nil) { task in
 //            self.handleAppRefresh(task: task as! BGAppRefreshTask)
 //        }
-        
+        WidgetCenter.shared.reloadAllTimelines()
+
         return true
     }
     

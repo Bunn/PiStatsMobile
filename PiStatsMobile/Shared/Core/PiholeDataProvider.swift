@@ -179,8 +179,11 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         }
     }
     
-    private func fetchSummaryData() {
+    func fetchSummaryData(completion: (() -> ())? = nil) {
+        let dispatchGroup = DispatchGroup()
+
         piholes.forEach { pihole in
+            dispatchGroup.enter()
             pihole.updateSummary { error in
                 DispatchQueue.main.async {
                     if let error = error {
@@ -190,8 +193,12 @@ class PiholeDataProvider: ObservableObject, Identifiable {
                         self.updateData()
                     }
                     self.updateErrorMessageStatus()
+                    dispatchGroup.leave()
                 }
             }
+        }
+        dispatchGroup.notify(queue: DispatchQueue.main) {
+          completion?()
         }
     }
     

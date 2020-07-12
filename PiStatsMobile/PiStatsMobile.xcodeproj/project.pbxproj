@@ -21,15 +21,24 @@
 		315F5ED124BA1DF800FED38F /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
 		315F5ED324BA1E0800FED38F /* StatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7424B0ED05003F18DB /* StatsItemView.swift */; };
 		315F5ED424BA1E1500FED38F /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7824B0F405003F18DB /* UIConstants.swift */; };
+		315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082624B5321C008B3C2F /* Pihole.swift */; };
+		315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082724B5321C008B3C2F /* PiholeDataProvider.swift */; };
+		315F5ED924BA2D0C00FED38F /* APIToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082E24B53268008B3C2F /* APIToken.swift */; };
+		315F5EDA24BA2D0C00FED38F /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082F24B53269008B3C2F /* UserPreferences.swift */; };
+		315F5EDB24BA2D2700FED38F /* KeyChainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082C24B53255008B3C2F /* KeyChainPasswordItem.swift */; };
+		315F5EDC24BA2D3200FED38F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082A24B53246008B3C2F /* Logger.swift */; };
+		315F5EDF24BA2E3900FED38F /* SwiftHole in Frameworks */ = {isa = PBXBuildFile; productRef = 315F5EDE24BA2E3900FED38F /* SwiftHole */; };
+		315F5EE124BA2E4600FED38F /* SwiftHole in Frameworks */ = {isa = PBXBuildFile; productRef = 315F5EE024BA2E4600FED38F /* SwiftHole */; };
 		3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */; };
 		3175EB5E24AE597900E7B5FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB5D24AE597900E7B5FF /* ContentView.swift */; };
 		3175EB6024AE597A00E7B5FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175EB5F24AE597A00E7B5FF /* Assets.xcassets */; };
 		3175EB6324AE597A00E7B5FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175EB6224AE597A00E7B5FF /* Preview Assets.xcassets */; };
 		3175EB6E24AE597A00E7B5FF /* PiStatsMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB6D24AE597A00E7B5FF /* PiStatsMobileTests.swift */; };
 		3175EB7924AE597A00E7B5FF /* PiStatsMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */; };
-		317D481624B3ACB000897EA9 /* SwiftHole in Frameworks */ = {isa = PBXBuildFile; productRef = 317D481524B3ACB000897EA9 /* SwiftHole */; };
 		317D481D24B3ADE200897EA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317D481F24B3ADE200897EA9 /* Localizable.strings */; };
 		317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D482124B3D2F000897EA9 /* CodeScannerView.swift */; };
+		3182E29024BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */; };
+		3182E29124BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */; };
 		319B082824B5321C008B3C2F /* Pihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082624B5321C008B3C2F /* Pihole.swift */; };
 		319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082724B5321C008B3C2F /* PiholeDataProvider.swift */; };
 		319B082B24B53246008B3C2F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082A24B53246008B3C2F /* Logger.swift */; };
@@ -107,6 +116,9 @@
 		317D481E24B3ADE200897EA9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		317D482024B3ADEA00897EA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		317D482124B3D2F000897EA9 /* CodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
+		3182E28A24BB69BD00BF53D9 /* PiStatsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiStatsWidgetExtension.entitlements; sourceTree = "<group>"; };
+		3182E28B24BB6A2300BF53D9 /* PiStatsMobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiStatsMobile.entitlements; sourceTree = "<group>"; };
+		3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtensions.swift; sourceTree = "<group>"; };
 		319B082624B5321C008B3C2F /* Pihole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pihole.swift; sourceTree = "<group>"; };
 		319B082724B5321C008B3C2F /* PiholeDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiholeDataProvider.swift; sourceTree = "<group>"; };
 		319B082A24B53246008B3C2F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -125,6 +137,7 @@
 			files = (
 				315F5EC224BA162600FED38F /* SwiftUI.framework in Frameworks */,
 				315F5EC024BA162600FED38F /* WidgetKit.framework in Frameworks */,
+				315F5EE124BA2E4600FED38F /* SwiftHole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				317D481624B3ACB000897EA9 /* SwiftHole in Frameworks */,
+				315F5EDF24BA2E3900FED38F /* SwiftHole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +169,7 @@
 		3102D30C24B7CE5900EC8120 /* UserData */ = {
 			isa = PBXGroup;
 			children = (
+				319B082C24B53255008B3C2F /* KeyChainPasswordItem.swift */,
 				319B082E24B53268008B3C2F /* APIToken.swift */,
 				319B082F24B53269008B3C2F /* UserPreferences.swift */,
 			);
@@ -184,6 +198,7 @@
 		315F5ED024BA1DC400FED38F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				31FC1DAB24B669E100319E6F /* Core */,
 				311D0A7824B0F405003F18DB /* UIConstants.swift */,
 				311D0A7624B0EFE3003F18DB /* StatsItemType.swift */,
 				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
@@ -194,6 +209,7 @@
 		3175EB4F24AE597900E7B5FF = {
 			isa = PBXGroup;
 			children = (
+				3182E28A24BB69BD00BF53D9 /* PiStatsWidgetExtension.entitlements */,
 				315F5ED024BA1DC400FED38F /* Shared */,
 				3175EB5A24AE597900E7B5FF /* PiStatsMobile */,
 				3175EB6C24AE597A00E7B5FF /* PiStatsMobileTests */,
@@ -218,9 +234,10 @@
 		3175EB5A24AE597900E7B5FF /* PiStatsMobile */ = {
 			isa = PBXGroup;
 			children = (
+				3182E28B24BB6A2300BF53D9 /* PiStatsMobile.entitlements */,
 				3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */,
+				31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */,
 				31A4D54124B92D220033EF53 /* AppDelegate.swift */,
-				31FC1DAB24B669E100319E6F /* Core */,
 				319F965B24B2658300B680D3 /* Views */,
 				317D481724B3ACCE00897EA9 /* Utils */,
 				317D481824B3ACDD00897EA9 /* Supporting Files */,
@@ -257,9 +274,8 @@
 		317D481724B3ACCE00897EA9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				319B082A24B53246008B3C2F /* Logger.swift */,
-				319B082C24B53255008B3C2F /* KeyChainPasswordItem.swift */,
 				317D482124B3D2F000897EA9 /* CodeScannerView.swift */,
+				3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -306,8 +322,8 @@
 		31FC1DAB24B669E100319E6F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				319B082A24B53246008B3C2F /* Logger.swift */,
 				3102D30C24B7CE5900EC8120 /* UserData */,
-				31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */,
 				319B082624B5321C008B3C2F /* Pihole.swift */,
 				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,
 			);
@@ -330,6 +346,9 @@
 			dependencies = (
 			);
 			name = PiStatsWidgetExtension;
+			packageProductDependencies = (
+				315F5EE024BA2E4600FED38F /* SwiftHole */,
+			);
 			productName = PiStatsWidgetExtension;
 			productReference = 315F5EBD24BA162600FED38F /* PiStatsWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -350,7 +369,7 @@
 			);
 			name = PiStatsMobile;
 			packageProductDependencies = (
-				317D481524B3ACB000897EA9 /* SwiftHole */,
+				315F5EDE24BA2E3900FED38F /* SwiftHole */,
 			);
 			productName = PiStatsMobile;
 			productReference = 3175EB5824AE597900E7B5FF /* PiStatsMobile.app */;
@@ -428,7 +447,7 @@
 			);
 			mainGroup = 3175EB4F24AE597900E7B5FF;
 			packageReferences = (
-				317D481424B3ACAF00897EA9 /* XCRemoteSwiftPackageReference "SwiftHole" */,
+				315F5EDD24BA2E3900FED38F /* XCRemoteSwiftPackageReference "SwiftHole" */,
 			);
 			productRefGroup = 3175EB5924AE597900E7B5FF /* Products */;
 			projectDirPath = "";
@@ -483,6 +502,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				315F5ED324BA1E0800FED38F /* StatsItemView.swift in Sources */,
+				315F5EDC24BA2D3200FED38F /* Logger.swift in Sources */,
+				315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */,
+				315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */,
+				315F5EDA24BA2D0C00FED38F /* UserPreferences.swift in Sources */,
+				315F5EDB24BA2D2700FED38F /* KeyChainPasswordItem.swift in Sources */,
+				3182E29124BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */,
+				315F5ED924BA2D0C00FED38F /* APIToken.swift in Sources */,
 				315F5ED124BA1DF800FED38F /* StatsItemType.swift in Sources */,
 				315F5EC524BA162600FED38F /* PiStatsWidget.swift in Sources */,
 				315F5ED424BA1E1500FED38F /* UIConstants.swift in Sources */,
@@ -510,6 +536,7 @@
 				31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */,
 				319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */,
 				311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */,
+				3182E29024BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */,
 				3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PiStatsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
@@ -589,6 +617,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PiStatsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
@@ -727,6 +756,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
@@ -751,6 +781,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
@@ -904,7 +935,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		317D481424B3ACAF00897EA9 /* XCRemoteSwiftPackageReference "SwiftHole" */ = {
+		315F5EDD24BA2E3900FED38F /* XCRemoteSwiftPackageReference "SwiftHole" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Bunn/SwiftHole";
 			requirement = {
@@ -915,9 +946,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		317D481524B3ACB000897EA9 /* SwiftHole */ = {
+		315F5EDE24BA2E3900FED38F /* SwiftHole */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 317D481424B3ACAF00897EA9 /* XCRemoteSwiftPackageReference "SwiftHole" */;
+			package = 315F5EDD24BA2E3900FED38F /* XCRemoteSwiftPackageReference "SwiftHole" */;
+			productName = SwiftHole;
+		};
+		315F5EE024BA2E4600FED38F /* SwiftHole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 315F5EDD24BA2E3900FED38F /* XCRemoteSwiftPackageReference "SwiftHole" */;
 			productName = SwiftHole;
 		};
 /* End XCSwiftPackageProductDependency section */

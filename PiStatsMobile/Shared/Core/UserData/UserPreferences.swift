@@ -52,7 +52,7 @@ class UserPreferences: ObservableObject {
                     }
                 }
             } else {
-                UIApplication.shared.applicationIconBadgeNumber = 0
+               // UIApplication.shared.applicationIconBadgeNumber = 0
             }
         } didSet {
             UserDefaults.standard.set(displayIconBadgeForOfflinePiholes, forKey: Keys.displayIconBadgeForOfflinePiholes.rawValue)

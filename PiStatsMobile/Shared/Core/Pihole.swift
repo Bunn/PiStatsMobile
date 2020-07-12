@@ -166,13 +166,12 @@ extension Pihole {
     private func save(_ list: [Pihole]) {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(list) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: Pihole.piHoleListKey)
+            UserDefaults.shared().set(encoded, forKey: Pihole.piHoleListKey)
         }
     }
     
     static func restoreAll() -> [Pihole] {
-        if let piHoleList = UserDefaults.standard.object(forKey: Pihole.piHoleListKey) as? Data {
+        if let piHoleList = UserDefaults.shared().object(forKey: Pihole.piHoleListKey) as? Data {
             let decoder = JSONDecoder()
             
             if let list = try? decoder.decode([Pihole].self, from: piHoleList) {

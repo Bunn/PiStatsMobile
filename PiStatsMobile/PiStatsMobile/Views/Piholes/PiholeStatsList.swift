@@ -57,11 +57,7 @@ struct PiholeStatsList: View {
                     .environmentObject(piholeProviderListManager)
             }
         }.navigationTitle(UIConstants.Strings.piholesNavigationTitle)
-        .onAppear {
-            if piholeProviderListManager.isEmpty {
-                viewModel.openPiholeSetup()
-            }
-        }
+
     }
 }
 
