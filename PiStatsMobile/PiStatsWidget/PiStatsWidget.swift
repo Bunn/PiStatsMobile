@@ -16,7 +16,7 @@ struct PiholeEntry: TimelineEntry {
 struct PiholeTimelineProvider: TimelineProvider {
     typealias Entry = PiholeEntry
     private static let fakePihole = PiholeDataProvider.previewData()
-
+    
     func snapshot(with context: Context, completion: @escaping (PiholeEntry) -> ()) {
         let entry = PiholeEntry(piholeDataProvider: PiholeTimelineProvider.fakePihole, date: Date())
         completion(entry)
@@ -30,13 +30,13 @@ struct PiholeTimelineProvider: TimelineProvider {
         print("Pihole count \(piholes.count)")
         let provider = PiholeDataProvider(piholes: piholes)
         provider.fetchSummaryData {
-
+            
             let entry = PiholeEntry(piholeDataProvider: provider, date: Date())
             let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
             completion(timeline)
-
+            
         }
-
+        
     }
 }
 struct PlaceholderView : View {
@@ -58,27 +58,57 @@ struct PiStatsWidgetEntryView : View {
     var entry: PiholeEntry
     
     var body: some View {
-        VStack (spacing:0) {
-            HStack(spacing:0) {
-                ZStack {
-                    StatsItemType.totalQueries.color
-                    StatsItemView(contentType: .totalQueries, value: entry.piholeDataProvider.totalQueries)
+        ZStack {
+            VStack (alignment:.leading, spacing:0) {
+                HStack(spacing:0) {
+                    ZStack {
+                        StatsItemType.totalQueries.color
+                        StatsItemView(contentType: .totalQueries, value: entry.piholeDataProvider.totalQueries)
+                            .padding(.leading, UIConstants.Geometry.widgetDefaultPaddingOffset)
+                    }
+                    ZStack {
+                        StatsItemType.queriesBlocked.color
+                        StatsItemView(contentType: .queriesBlocked, value: entry.piholeDataProvider.queriesBlocked)
+                            .padding(.leading, UIConstants.Geometry.widgetDefaultPaddingOffset)
+                    }
                 }
-                ZStack {
-                    StatsItemType.queriesBlocked.color
-                    StatsItemView(contentType: .queriesBlocked, value: entry.piholeDataProvider.queriesBlocked)
+                HStack(spacing:0) {
+                    ZStack {
+                        StatsItemType.percentBlocked.color
+                        StatsItemView(contentType: .percentBlocked, value: entry.piholeDataProvider.percentBlocked)
+                            .padding(.leading, UIConstants.Geometry.widgetDefaultPaddingOffset)
+                        
+                    }
+                    ZStack {
+                        StatsItemType.domainsOnBlockList.color
+                        StatsItemView(contentType: .domainsOnBlockList, value: entry.piholeDataProvider.domainsOnBlocklist)
+                            .padding(.leading, UIConstants.Geometry.widgetDefaultPaddingOffset)
+                        
+                    }
                 }
             }
-            HStack(spacing:0) {
-                ZStack {
-                    StatsItemType.percentBlocked.color
-                    StatsItemView(contentType: .percentBlocked, value: entry.piholeDataProvider.percentBlocked)
-                }
-                ZStack {
-                    StatsItemType.domainsOnBlockList.color
-                    StatsItemView(contentType: .domainsOnBlockList, value: entry.piholeDataProvider.domainsOnBlocklist)
-                }
+            
+            Group {
+                Circle()
+                    .foregroundColor(.white)
+                    .frame(width: 30, height: 30)
+                imageForDataProvider(entry.piholeDataProvider)
+                    .font(.title2)
             }
+        }
+    }
+    
+    func imageForDataProvider(_ dataProvider: PiholeDataProvider) -> some View {
+        if entry.piholeDataProvider.hasErrorMessages {
+            return Image(systemName: UIConstants.SystemImages.piholeStatusWarning)
+                .foregroundColor(UIConstants.Colors.statusWarning)
+        } else if entry.piholeDataProvider.status == .allEnabled {
+            return Image(systemName: UIConstants.SystemImages.piholeStatusOnline)
+                .foregroundColor(UIConstants.Colors.statusOnline)
+        } else {
+            return Image(systemName: UIConstants.SystemImages.piholeStatusOffline)
+                .foregroundColor(UIConstants.Colors.statusOffline)
+            
         }
     }
 }
@@ -86,7 +116,7 @@ struct PiStatsWidgetEntryView : View {
 @main
 struct PiStatsWidget: Widget {
     private let kind: String = "PiStatsWidget"
-
+    
     public var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: PiholeTimelineProvider(), placeholder: PlaceholderView()) { entry in
             PiStatsWidgetEntryView(entry: entry)
@@ -107,7 +137,7 @@ struct PiStatsWidget_Previews: PreviewProvider {
             
             PlaceholderView()
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
-
+            
         }
     }
 }

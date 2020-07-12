@@ -57,7 +57,6 @@ struct PiholeStatsList: View {
                     .environmentObject(piholeProviderListManager)
             }
         }.navigationTitle(UIConstants.Strings.piholesNavigationTitle)
-
     }
 }
 

@@ -47,6 +47,8 @@
 		319B083124B53269008B3C2F /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082F24B53269008B3C2F /* UserPreferences.swift */; };
 		319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F965C24B265D200B680D3 /* PiholeStatsList.swift */; };
 		31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4D54124B92D220033EF53 /* AppDelegate.swift */; };
+		31D1F58B24BB7F8500D50FDB /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */; };
+		31D1F58C24BB7F8500D50FDB /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */; };
 		31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +129,7 @@
 		319B082F24B53269008B3C2F /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		319F965C24B265D200B680D3 /* PiholeStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeStatsList.swift; sourceTree = "<group>"; };
 		31A4D54124B92D220033EF53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHeaderView.swift; sourceTree = "<group>"; };
 		31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeDataProviderListManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -325,6 +328,7 @@
 				319B082A24B53246008B3C2F /* Logger.swift */,
 				3102D30C24B7CE5900EC8120 /* UserData */,
 				319B082624B5321C008B3C2F /* Pihole.swift */,
+				31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */,
 				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,
 			);
 			path = Core;
@@ -502,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				315F5ED324BA1E0800FED38F /* StatsItemView.swift in Sources */,
+				31D1F58C24BB7F8500D50FDB /* StatusHeaderView.swift in Sources */,
 				315F5EDC24BA2D3200FED38F /* Logger.swift in Sources */,
 				315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */,
 				315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */,
@@ -532,6 +537,7 @@
 				319B082824B5321C008B3C2F /* Pihole.swift in Sources */,
 				319B082B24B53246008B3C2F /* Logger.swift in Sources */,
 				31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */,
+				31D1F58B24BB7F8500D50FDB /* StatusHeaderView.swift in Sources */,
 				319B083124B53269008B3C2F /* UserPreferences.swift in Sources */,
 				31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */,
 				319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */,
