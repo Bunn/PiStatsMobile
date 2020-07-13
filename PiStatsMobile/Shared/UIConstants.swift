@@ -13,8 +13,7 @@ struct UIConstants {
         static let defaultPadding: CGFloat = 10.0
         static let shadowRadius: CGFloat = 0
         static let addPiholeButtonHeight: CGFloat = 55.0
-        static let widgetDefaultPaddingOffset: CGFloat = 6.0
-
+        static let widgetDefaultPadding: CGFloat = 16.0
     }
     
     struct Colors {

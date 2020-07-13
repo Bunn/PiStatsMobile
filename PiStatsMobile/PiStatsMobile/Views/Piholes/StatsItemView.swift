@@ -56,7 +56,6 @@ fileprivate struct ListStatView: View {
     }
 }
 
-
 fileprivate struct RoundedStatView: View {
     let displayStatsIcons: Bool
     let contentType: StatsItemType

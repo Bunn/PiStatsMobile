@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3102D30B24B7BC7900EC8120 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102D30A24B7BC7900EC8120 /* SettingsView.swift */; };
+		310647CC24BD10E900E2DA90 /* CircleBadgeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310647CB24BD10E900E2DA90 /* CircleBadgeStatus.swift */; };
+		310647CE24BD115F00E2DA90 /* SmallStatsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310647CD24BD115F00E2DA90 /* SmallStatsItem.swift */; };
+		310647D024BD120600E2DA90 /* PiStatsDisplayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310647CF24BD120600E2DA90 /* PiStatsDisplayWidgetView.swift */; };
+		310647D224BD13D700E2DA90 /* MediumStatsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310647D124BD13D700E2DA90 /* MediumStatsItem.swift */; };
 		31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31115BC724B29A1700C91212 /* PiholeSetupView.swift */; };
 		311D0A7524B0ED05003F18DB /* StatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7424B0ED05003F18DB /* StatsItemView.swift */; };
 		311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
@@ -19,7 +23,6 @@
 		315F5EC724BA162800FED38F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315F5EC624BA162800FED38F /* Assets.xcassets */; };
 		315F5ECB24BA162800FED38F /* PiStatsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 315F5EBD24BA162600FED38F /* PiStatsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		315F5ED124BA1DF800FED38F /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
-		315F5ED324BA1E0800FED38F /* StatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7424B0ED05003F18DB /* StatsItemView.swift */; };
 		315F5ED424BA1E1500FED38F /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7824B0F405003F18DB /* UIConstants.swift */; };
 		315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082624B5321C008B3C2F /* Pihole.swift */; };
 		315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082724B5321C008B3C2F /* PiholeDataProvider.swift */; };
@@ -92,6 +95,10 @@
 
 /* Begin PBXFileReference section */
 		3102D30A24B7BC7900EC8120 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		310647CB24BD10E900E2DA90 /* CircleBadgeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBadgeStatus.swift; sourceTree = "<group>"; };
+		310647CD24BD115F00E2DA90 /* SmallStatsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallStatsItem.swift; sourceTree = "<group>"; };
+		310647CF24BD120600E2DA90 /* PiStatsDisplayWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsDisplayWidgetView.swift; sourceTree = "<group>"; };
+		310647D124BD13D700E2DA90 /* MediumStatsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumStatsItem.swift; sourceTree = "<group>"; };
 		31115BC724B29A1700C91212 /* PiholeSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeSetupView.swift; sourceTree = "<group>"; };
 		311D0A7424B0ED05003F18DB /* StatsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemView.swift; sourceTree = "<group>"; };
 		311D0A7624B0EFE3003F18DB /* StatsItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemType.swift; sourceTree = "<group>"; };
@@ -179,6 +186,17 @@
 			path = UserData;
 			sourceTree = "<group>";
 		};
+		310647CA24BD10D600E2DA90 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				310647CB24BD10E900E2DA90 /* CircleBadgeStatus.swift */,
+				310647CD24BD115F00E2DA90 /* SmallStatsItem.swift */,
+				310647D124BD13D700E2DA90 /* MediumStatsItem.swift */,
+				310647CF24BD120600E2DA90 /* PiStatsDisplayWidgetView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		315F5EBE24BA162600FED38F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +209,7 @@
 		315F5EC324BA162600FED38F /* PiStatsWidget */ = {
 			isa = PBXGroup;
 			children = (
+				310647CA24BD10D600E2DA90 /* Views */,
 				315F5EC424BA162600FED38F /* PiStatsWidget.swift */,
 				315F5EC624BA162800FED38F /* Assets.xcassets */,
 				315F5EC824BA162800FED38F /* Info.plist */,
@@ -204,7 +223,6 @@
 				31FC1DAB24B669E100319E6F /* Core */,
 				311D0A7824B0F405003F18DB /* UIConstants.swift */,
 				311D0A7624B0EFE3003F18DB /* StatsItemType.swift */,
-				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -308,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				319F965C24B265D200B680D3 /* PiholeStatsList.swift */,
+				311D0A7424B0ED05003F18DB /* StatsItemView.swift */,
 				311D0A7A24B0F613003F18DB /* StatsView.swift */,
 				31115BC724B29A1700C91212 /* PiholeSetupView.swift */,
 			);
@@ -325,8 +344,8 @@
 		31FC1DAB24B669E100319E6F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				319B082A24B53246008B3C2F /* Logger.swift */,
 				3102D30C24B7CE5900EC8120 /* UserData */,
+				319B082A24B53246008B3C2F /* Logger.swift */,
 				319B082624B5321C008B3C2F /* Pihole.swift */,
 				31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */,
 				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,
@@ -505,18 +524,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				315F5ED324BA1E0800FED38F /* StatsItemView.swift in Sources */,
 				31D1F58C24BB7F8500D50FDB /* StatusHeaderView.swift in Sources */,
 				315F5EDC24BA2D3200FED38F /* Logger.swift in Sources */,
 				315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */,
 				315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */,
 				315F5EDA24BA2D0C00FED38F /* UserPreferences.swift in Sources */,
 				315F5EDB24BA2D2700FED38F /* KeyChainPasswordItem.swift in Sources */,
+				310647CC24BD10E900E2DA90 /* CircleBadgeStatus.swift in Sources */,
 				3182E29124BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */,
 				315F5ED924BA2D0C00FED38F /* APIToken.swift in Sources */,
+				310647D024BD120600E2DA90 /* PiStatsDisplayWidgetView.swift in Sources */,
 				315F5ED124BA1DF800FED38F /* StatsItemType.swift in Sources */,
 				315F5EC524BA162600FED38F /* PiStatsWidget.swift in Sources */,
+				310647CE24BD115F00E2DA90 /* SmallStatsItem.swift in Sources */,
 				315F5ED424BA1E1500FED38F /* UIConstants.swift in Sources */,
+				310647D224BD13D700E2DA90 /* MediumStatsItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
