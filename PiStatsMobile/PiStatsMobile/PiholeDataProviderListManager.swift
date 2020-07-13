@@ -36,7 +36,7 @@ class PiholeDataProviderListManager: ObservableObject {
         if shouldUpdateIconBadgeWithOfflinePiholes == false {
             return
         }
-        UIApplication.shared.applicationIconBadgeNumber = badgeCount
+        //UIApplication.shared.applicationIconBadgeNumber = badgeCount
     }
     
     private func setupProviders() {
