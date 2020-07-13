@@ -27,7 +27,6 @@ struct MediumStatsItem: View {
                     Label(value, systemImage: contentType.imageName)
                         .foregroundColor(.white)
                         .font(.headline)
-
                 }
             }
             .padding(.horizontal, UIConstants.Geometry.widgetDefaultPadding)

@@ -21,9 +21,9 @@ struct SettingsView: View {
             Toggle(isOn: $userPreferences.disablePermanently) {
                 Label(UIConstants.Strings.settingsAlwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
             }
-            Toggle(isOn: $userPreferences.displayIconBadgeForOfflinePiholes) {
-                Label(UIConstants.Strings.displayIconBadgeForOfflinePiholes, systemImage: UIConstants.SystemImages.settingsDisplayIconBadgeForOffline)                
-            }
+//            Toggle(isOn: $userPreferences.displayIconBadgeForOfflinePiholes) {
+//                Label(UIConstants.Strings.displayIconBadgeForOfflinePiholes, systemImage: UIConstants.SystemImages.settingsDisplayIconBadgeForOffline)                
+//            }
         }.listStyle(InsetGroupedListStyle())
         .navigationTitle(UIConstants.Strings.settingsNavigationTitle)
     }

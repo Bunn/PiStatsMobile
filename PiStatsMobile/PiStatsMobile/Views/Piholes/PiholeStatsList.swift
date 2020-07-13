@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import WidgetKit
 
 final class StatsListConfig: ObservableObject {
     @Published var selectedPiHole: Pihole?
@@ -21,6 +21,11 @@ final class StatsListConfig: ObservableObject {
 struct PiholeStatsList: View {
     @StateObject private var viewModel = StatsListConfig()
     @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
+    @Environment(\.scenePhase) private var phase
+    /*
+     I want to make this logic on the @App but it seems there's a bug on Beta2
+     More info here: https://twitter.com/fcbunn/status/1281905574695886848?s=21
+     */
 
     var body: some View {
         ZStack {
@@ -57,6 +62,18 @@ struct PiholeStatsList: View {
                     .environmentObject(piholeProviderListManager)
             }
         }.navigationTitle(UIConstants.Strings.piholesNavigationTitle)
+        .onChange(of: phase) { newPhase in
+            switch newPhase {
+            case .active:
+                print("active")
+            case .inactive:
+                print("inactive")
+            case .background:
+                WidgetCenter.shared.reloadAllTimelines()
+            @unknown default: break
+                // Fallback for future cases
+            }
+        }
     }
 }
 

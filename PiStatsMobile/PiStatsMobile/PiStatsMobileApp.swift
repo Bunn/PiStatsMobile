@@ -27,7 +27,6 @@ final class DataModel: ObservableObject {
 @main
 struct PiStatsMobileApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @Environment(\.scenePhase) private var phase
     @StateObject var dataModel = DataModel()
 
     var body: some Scene {
@@ -35,19 +34,7 @@ struct PiStatsMobileApp: App {
          ContentView()
             .environmentObject(dataModel.piholeProviderListManager)
             .environmentObject(dataModel.userPreferences)
-
         }
-        .onChange(of: phase) { newPhase in
-            switch newPhase {
-            case .active:
-                print("a")
-            case .inactive:
-                print("ab")
-            case .background:
-                print("ac")
-            @unknown default: break
-                // Fallback for future cases
-            }
-        }
+  
     }
 }

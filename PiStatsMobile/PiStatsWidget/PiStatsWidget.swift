@@ -34,11 +34,10 @@ struct PiholeTimelineProvider: TimelineProvider {
             let entry = PiholeEntry(piholeDataProvider: provider, date: Date(), widgetFamily: context.family)
             let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
             completion(timeline)
-            
         }
-        
     }
 }
+
 struct PlaceholderView : View {
     var body: some View {
         VStack (spacing:0) {
