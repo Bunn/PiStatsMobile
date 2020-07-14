@@ -40,6 +40,7 @@
 		3175EB7924AE597A00E7B5FF /* PiStatsMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */; };
 		317D481D24B3ADE200897EA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317D481F24B3ADE200897EA9 /* Localizable.strings */; };
 		317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D482124B3D2F000897EA9 /* CodeScannerView.swift */; };
+		318087FE24BDB11F00EF5159 /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */; };
 		3182E29024BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */; };
 		3182E29124BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */; };
 		319B082824B5321C008B3C2F /* Pihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082624B5321C008B3C2F /* Pihole.swift */; };
@@ -50,8 +51,6 @@
 		319B083124B53269008B3C2F /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082F24B53269008B3C2F /* UserPreferences.swift */; };
 		319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F965C24B265D200B680D3 /* PiholeStatsList.swift */; };
 		31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4D54124B92D220033EF53 /* AppDelegate.swift */; };
-		31D1F58B24BB7F8500D50FDB /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */; };
-		31D1F58C24BB7F8500D50FDB /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */; };
 		31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +188,7 @@
 		310647CA24BD10D600E2DA90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */,
 				310647CB24BD10E900E2DA90 /* CircleBadgeStatus.swift */,
 				310647CD24BD115F00E2DA90 /* SmallStatsItem.swift */,
 				310647D124BD13D700E2DA90 /* MediumStatsItem.swift */,
@@ -347,7 +347,6 @@
 				3102D30C24B7CE5900EC8120 /* UserData */,
 				319B082A24B53246008B3C2F /* Logger.swift */,
 				319B082624B5321C008B3C2F /* Pihole.swift */,
-				31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */,
 				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,
 			);
 			path = Core;
@@ -524,7 +523,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31D1F58C24BB7F8500D50FDB /* StatusHeaderView.swift in Sources */,
 				315F5EDC24BA2D3200FED38F /* Logger.swift in Sources */,
 				315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */,
 				315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */,
@@ -559,7 +557,7 @@
 				319B082824B5321C008B3C2F /* Pihole.swift in Sources */,
 				319B082B24B53246008B3C2F /* Logger.swift in Sources */,
 				31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */,
-				31D1F58B24BB7F8500D50FDB /* StatusHeaderView.swift in Sources */,
+				318087FE24BDB11F00EF5159 /* StatusHeaderView.swift in Sources */,
 				319B083124B53269008B3C2F /* UserPreferences.swift in Sources */,
 				31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */,
 				319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */,
