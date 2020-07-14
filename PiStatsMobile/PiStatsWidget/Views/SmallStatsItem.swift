@@ -22,7 +22,8 @@ struct SmallStatsItem: View {
                 
                 Text(value)
                     .foregroundColor(.white)
-                    .font(.body)
+                    .font(.subheadline)
+                    .bold()
             }
         }
     }
