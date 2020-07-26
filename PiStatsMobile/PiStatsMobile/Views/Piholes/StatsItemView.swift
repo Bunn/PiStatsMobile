@@ -62,7 +62,7 @@ fileprivate struct RoundedStatView: View {
     let label: String
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack (alignment: .leading, spacing: 5) {
             Text(contentType.title)
                 .foregroundColor(.white)
                 .font(.subheadline)
