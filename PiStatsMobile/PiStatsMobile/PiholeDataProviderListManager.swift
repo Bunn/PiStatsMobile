@@ -10,6 +10,14 @@ import UIKit
 import Combine
 
 class PiholeDataProviderListManager: ObservableObject {
+    
+    static func previewData() -> PiholeDataProviderListManager {
+        let provider =  PiholeDataProvider.init(piholes: [Pihole.previewData()])
+        let manager = PiholeDataProviderListManager()
+        manager.providerList = [provider]
+        return manager
+    }
+
     @Published var providerList = [PiholeDataProvider]()
     private var piholes = Pihole.restoreAll()
     private var offlineBadgeCancellable: AnyCancellable?

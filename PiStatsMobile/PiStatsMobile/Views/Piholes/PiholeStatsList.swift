@@ -81,5 +81,7 @@ struct PiholeStatsList: View {
 struct PiholeStatsList_Previews: PreviewProvider {
     static var previews: some View {
         PiholeStatsList()
+            .environmentObject(UserPreferences())
+            .environmentObject(PiholeDataProviderListManager.previewData())
     }
 }

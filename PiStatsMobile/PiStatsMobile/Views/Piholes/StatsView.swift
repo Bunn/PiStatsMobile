@@ -132,5 +132,6 @@ struct StatsView: View {
 struct StatsView_Previews: PreviewProvider {
     static var previews: some View {
         StatsView(dataProvider: PiholeDataProvider.previewData())
+            .environmentObject(UserPreferences())
     }
 }
