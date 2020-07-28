@@ -35,9 +35,9 @@ struct StatsView: View {
                 statsGrid()
             }
             
-            Divider()
-            MetricsView()
-                .padding(.horizontal, 11)
+            //Divider()
+            //MetricsView()
+              //  .padding(.horizontal, 11)
             if dataProvider.canDisplayEnableDisableButton {
                 Divider()
                 if dataProvider.status == .allDisabled {
@@ -56,7 +56,7 @@ struct StatsView: View {
     }
     
     private func statsList() -> some View {
-        return VStack (alignment: .leading){
+        return VStack (alignment: .leading, spacing: 5){
             StatsItemView(displayIcons: userPreferences.displayStatsIcons, layoutType: .list, contentType: .totalQueries, value: dataProvider.totalQueries)
             StatsItemView(displayIcons: userPreferences.displayStatsIcons, layoutType: .list, contentType: .queriesBlocked, value: dataProvider.queriesBlocked)
             StatsItemView(displayIcons: userPreferences.displayStatsIcons, layoutType: .list, contentType: .percentBlocked, value: dataProvider.percentBlocked)
