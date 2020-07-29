@@ -40,7 +40,8 @@ struct UIConstants {
         static let queriesBlocked = "Queries Blocked"
         static let piholeTokenFooterSection = "Token is required for some functionalities like disable/enable your pi-hole.\n\nYou can find the API Token on /etc/pihole/setupVars.conf under WEBPASSWORD or you can open the web UI and go to Settings -> API -> Show API Token"
         static let piholeSetupHostPlaceholder = "Host"
-        static let piholeSetupPortPlaceholder = "80"
+        static let piholeSetupPortPlaceholder = "Port (80)"
+        static let piMonitorSetupPortPlaceholder = "Port (8088)"
         static let piholeSetupTokenPlaceholder = "Token (Optional)"
         static let saveButton = "Save"
         static let cancelButton = "Cancel"
@@ -48,6 +49,7 @@ struct UIConstants {
         static let statusDisabled = "Offline"
         static let statusNeedsAttention = "Needs Attention"
         static let statusEnabledAndDisabled = "Partially Active"
+        static let piMonitorExplanation = "Pi Monitor is a service that helps you to monitor your Raspberry Pi.\n\nPi Monitor shows information like temperature, memory usage, pi-hole version and more!\n\nIn order to use it you'll need to install it in your Raspberry Pi."
 
         static let settingsSectionDisplay = "Display"
         static let settingsDisplayAsList = "Display Pi-hole stats as list"

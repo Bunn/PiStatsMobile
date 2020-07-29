@@ -25,9 +25,13 @@ struct PiholeSetupView: View {
     @State private var token: String = ""
     @State private var isShowingScanner = false
     @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
+    @Environment(\.openURL) var openURL
+
+    @State private var toggleTest = false
+    @State private var displayPiMonitorAlert = false
+    private let piMonitorURL = URL(string: "https://github.com/Bunn/pi_monitor")!
     
     var pihole: Pihole?
-    
     
     var body: some View {
         NavigationView {
@@ -62,6 +66,35 @@ struct PiholeSetupView: View {
                                         }).navigationBarTitle(Text("Scanner"), displayMode: .inline)
                                 }
                             }
+                    }
+                }
+                
+                Section(header: Text("Pi Monitor")) {
+                    HStack {
+                        Image(systemName: "binoculars")
+                        Text("Enable Pi Monitor")
+                        
+                        Image(systemName: "info.circle")
+                            .foregroundColor(Color(.systemBlue))
+                            .onTapGesture {
+                                displayPiMonitorAlert.toggle()
+                            }.alert(isPresented: $displayPiMonitorAlert) {
+                                Alert(title: Text("Pi Monitor"), message: Text(UIConstants.Strings.piMonitorExplanation), primaryButton: .default(Text("Learn More")) {
+                                    openURL(piMonitorURL)
+                                }, secondaryButton: .cancel(Text("OK")))
+                            }
+                        
+                        Toggle("", isOn: $toggleTest.animation())
+                    }
+                    
+                    if toggleTest {
+                        HStack {
+                            Image(systemName: UIConstants.SystemImages.piholeSetupPort)
+                            TextField(UIConstants.Strings.piMonitorSetupPortPlaceholder, text: $port)
+                                .keyboardType(.numberPad)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                        }
                     }
                 }
                 
