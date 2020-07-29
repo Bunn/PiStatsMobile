@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "PiMonitor",
+        "repositoryURL": "https://github.com/Bunn/PiMonitor",
+        "state": {
+          "branch": null,
+          "revision": "e2bc1d42b16e068a832b95d02a36957b1d8e38ac",
+          "version": "0.0.2"
+        }
+      },
+      {
         "package": "SwiftHole",
         "repositoryURL": "https://github.com/Bunn/SwiftHole",
         "state": {

@@ -17,6 +17,7 @@
 		311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
 		311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7824B0F405003F18DB /* UIConstants.swift */; };
 		311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7A24B0F613003F18DB /* StatsView.swift */; };
+		3137D20D24D217CD0021ACD3 /* PiMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 3137D20C24D217CD0021ACD3 /* PiMonitor */; };
 		3142B27A24CDE2EE00484AB2 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3142B27924CDE2EE00484AB2 /* MetricsView.swift */; };
 		315F5EC024BA162600FED38F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315F5EBF24BA162600FED38F /* WidgetKit.framework */; };
 		315F5EC224BA162600FED38F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315F5EC124BA162600FED38F /* SwiftUI.framework */; };
@@ -56,6 +57,7 @@
 		31AECCC724C7A27100E381E0 /* ToggleStatusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCC624C7A27100E381E0 /* ToggleStatusWidget.swift */; };
 		31AECCFC24C7A55A00E381E0 /* PiholeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */; };
 		31AECCFE24C7A57300E381E0 /* PiholeTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */; };
+		31BCBE6324D2197B0077B6AE /* PiMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 31BCBE6224D2197B0077B6AE /* PiMonitor */; };
 		31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +158,7 @@
 			files = (
 				315F5EC224BA162600FED38F /* SwiftUI.framework in Frameworks */,
 				315F5EC024BA162600FED38F /* WidgetKit.framework in Frameworks */,
+				31BCBE6324D2197B0077B6AE /* PiMonitor in Frameworks */,
 				315F5EE124BA2E4600FED38F /* SwiftHole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3137D20D24D217CD0021ACD3 /* PiMonitor in Frameworks */,
 				315F5EDF24BA2E3900FED38F /* SwiftHole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +397,7 @@
 			name = PiStatsWidgetExtension;
 			packageProductDependencies = (
 				315F5EE024BA2E4600FED38F /* SwiftHole */,
+				31BCBE6224D2197B0077B6AE /* PiMonitor */,
 			);
 			productName = PiStatsWidgetExtension;
 			productReference = 315F5EBD24BA162600FED38F /* PiStatsWidgetExtension.appex */;
@@ -415,6 +420,7 @@
 			name = PiStatsMobile;
 			packageProductDependencies = (
 				315F5EDE24BA2E3900FED38F /* SwiftHole */,
+				3137D20C24D217CD0021ACD3 /* PiMonitor */,
 			);
 			productName = PiStatsMobile;
 			productReference = 3175EB5824AE597900E7B5FF /* PiStatsMobile.app */;
@@ -493,6 +499,7 @@
 			mainGroup = 3175EB4F24AE597900E7B5FF;
 			packageReferences = (
 				315F5EDD24BA2E3900FED38F /* XCRemoteSwiftPackageReference "SwiftHole" */,
+				3137D20B24D217CD0021ACD3 /* XCRemoteSwiftPackageReference "PiMonitor" */,
 			);
 			productRefGroup = 3175EB5924AE597900E7B5FF /* Products */;
 			projectDirPath = "";
@@ -991,6 +998,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3137D20B24D217CD0021ACD3 /* XCRemoteSwiftPackageReference "PiMonitor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Bunn/PiMonitor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
 		315F5EDD24BA2E3900FED38F /* XCRemoteSwiftPackageReference "SwiftHole" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Bunn/SwiftHole";
@@ -1002,6 +1017,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3137D20C24D217CD0021ACD3 /* PiMonitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3137D20B24D217CD0021ACD3 /* XCRemoteSwiftPackageReference "PiMonitor" */;
+			productName = PiMonitor;
+		};
 		315F5EDE24BA2E3900FED38F /* SwiftHole */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 315F5EDD24BA2E3900FED38F /* XCRemoteSwiftPackageReference "SwiftHole" */;
@@ -1011,6 +1031,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 315F5EDD24BA2E3900FED38F /* XCRemoteSwiftPackageReference "SwiftHole" */;
 			productName = SwiftHole;
+		};
+		31BCBE6224D2197B0077B6AE /* PiMonitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3137D20B24D217CD0021ACD3 /* XCRemoteSwiftPackageReference "PiMonitor" */;
+			productName = PiMonitor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

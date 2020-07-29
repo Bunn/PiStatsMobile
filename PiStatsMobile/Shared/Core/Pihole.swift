@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftHole
+import PiMonitor
 import os.log
 
 class Pihole: Identifiable, Codable, ObservableObject {
@@ -16,6 +17,10 @@ class Pihole: Identifiable, Codable, ObservableObject {
     var actionError: String?
     var pollingError: String?
     let id: UUID
+    private(set) var metrics: PiMetrics?
+    private(set) var active = false
+    private lazy var keychainToken = APIToken(accountName: self.id.uuidString)
+
     private(set) var summary: Summary? {
         didSet {
             if summary?.status.lowercased() == "enabled" {
@@ -27,9 +32,7 @@ class Pihole: Identifiable, Codable, ObservableObject {
             }
         }
     }
-    private(set) var active = false
 
-    private lazy var keychainToken = APIToken(accountName: self.id.uuidString)
     var apiToken: String {
         get {
             keychainToken.token
@@ -48,7 +51,11 @@ class Pihole: Identifiable, Codable, ObservableObject {
     }
     
     private var service: SwiftHole {
-      SwiftHole(host: host, port: port, apiToken: apiToken)
+        SwiftHole(host: host, port: port, apiToken: apiToken)
+    }
+    
+    private var piMonitorService: PiMonitor {
+        PiMonitor(host: host, port: 8088)
     }
     
     enum CodingKeys: CodingKey {
@@ -96,6 +103,20 @@ class Pihole: Identifiable, Codable, ObservableObject {
 // MARK: Network Methods
 
 extension Pihole {
+    
+    public func updateMetrics(completion: @escaping (PiMonitorError?) -> Void) {
+        piMonitorService.fetchMetrics { result in
+            switch result {
+            case .success(let metrics):
+                self.metrics = metrics
+                completion(nil)
+            case .failure(let error):
+                self.metrics = nil
+                completion(error)
+            }
+        }
+    }
+    
     public func updateSummary(completion: @escaping (SwiftHoleError?) -> Void) {
         service.fetchSummary { result in
             switch result {

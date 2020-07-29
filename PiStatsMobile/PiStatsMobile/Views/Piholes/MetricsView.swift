@@ -43,6 +43,8 @@ struct MetricsView: View {
                     Image(systemName: item.systemName)
                         .frame(width: imageSize, height: imageSize)
                 })
+                .minimumScaleFactor(0.5)
+                .lineLimit(1)
                 .font(.footnote)
                 .help(item.helpText)
             }
