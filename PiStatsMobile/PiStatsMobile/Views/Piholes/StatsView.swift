@@ -35,9 +35,11 @@ struct StatsView: View {
                 statsGrid()
             }
             
-            //Divider()
-            //MetricsView()
-              //  .padding(.horizontal, 11)
+            if dataProvider.canDisplayMetrics {
+                Divider()
+                MetricsView(dataProvider: dataProvider)
+                    .padding(.horizontal, 11)
+            }
             if dataProvider.canDisplayEnableDisableButton {
                 Divider()
                 if dataProvider.status == .allDisabled {

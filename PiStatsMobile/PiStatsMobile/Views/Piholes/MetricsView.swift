@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PiMonitor
 
 struct MetricItem: Identifiable {
     let value: String
@@ -15,16 +16,20 @@ struct MetricItem: Identifiable {
 }
 
 struct MetricsView: View {
-    let items: [MetricItem] = [
-        MetricItem(value: "47.8º C", systemName: "thermometer", helpText: "Raspberry Pi temperature"),
-        MetricItem(value: "21 hours", systemName: "power", helpText: "Raspberry Pi uptime"),
-        MetricItem(value: "0.23, 0.2, 0.08", systemName: "cpu", helpText: "Raspberry Pi load average"),
-        MetricItem(value: "4.4.51-v7+", systemName: "server.rack", helpText: "Raspberry Pi kernel version"),
-    ]
+    @ObservedObject var dataProvider: PiholeDataProvider
+    private let imageSize: CGFloat = 10
+
+    func getMetricItems() -> [MetricItem] {
+        return [
+            MetricItem(value: dataProvider.temperature, systemName: UIConstants.SystemImages.metricTemperature, helpText: "Raspberry Pi temperature"),
+            MetricItem(value: dataProvider.uptime, systemName: UIConstants.SystemImages.metricUptime, helpText: "Raspberry Pi uptime"),
+            MetricItem(value: dataProvider.loadAverage, systemName: UIConstants.SystemImages.metricLoadAverage, helpText: "Raspberry Pi load average"),
+            MetricItem(value: dataProvider.memoryUsage, systemName: UIConstants.SystemImages.metricMemoryUsage, helpText: "Raspberry Pi memory usage"),
+        ]
+    }
+
     
-    let imageSize: CGFloat = 10
-    
-    let columns = [
+    private let columns = [
         /*
          Not a big fan of this 30, but to align the second column
          with the second column stats cards this is necessary.
@@ -36,7 +41,7 @@ struct MetricsView: View {
     
     var body: some View {
         LazyVGrid(columns: columns, alignment: .leading, spacing: 10) {
-            ForEach(items) { item in
+            ForEach(getMetricItems()) { item in
                 Label(title: {
                     Text(item.value)
                 }, icon: {
@@ -49,14 +54,12 @@ struct MetricsView: View {
                 .help(item.helpText)
             }
         }
-        
-        
     }
 }
 
 
 struct MetricsView_Previews: PreviewProvider {
     static var previews: some View {
-        MetricsView()
+        MetricsView(dataProvider: PiholeDataProvider.previewData())
     }
 }

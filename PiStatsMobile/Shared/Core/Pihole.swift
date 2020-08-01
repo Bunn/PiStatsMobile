@@ -11,15 +11,18 @@ import SwiftHole
 import PiMonitor
 import os.log
 
-class Pihole: Identifiable, Codable, ObservableObject {
+class Pihole: Identifiable, ObservableObject {
     private let log = Logger().osLog(describing: Pihole.self)
-    var address: String
-    var actionError: String?
-    var pollingError: String?
-    let id: UUID
     private(set) var metrics: PiMetrics?
     private(set) var active = false
     private lazy var keychainToken = APIToken(accountName: self.id.uuidString)
+
+    var address: String
+    var actionError: String?
+    var pollingError: String?
+    var piMonitorPort: Int?
+    var hasPiMonitor: Bool = false
+    let id: UUID
 
     private(set) var summary: Summary? {
         didSet {
@@ -55,24 +58,19 @@ class Pihole: Identifiable, Codable, ObservableObject {
     }
     
     private var piMonitorService: PiMonitor {
-        PiMonitor(host: host, port: 8088)
+        PiMonitor(host: host, port: piMonitorPort ?? 8088)
     }
-    
-    enum CodingKeys: CodingKey {
-        case id
-        case address
-    }
-    
+  
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(UUID.self, forKey: .id)
         address = try container.decode(String.self, forKey: .address)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(address, forKey: .address)
+        piMonitorPort = try container.decode(Int?.self, forKey: .piMonitorPort)
+        do {
+            hasPiMonitor = try container.decode(Bool.self, forKey: .hasPiMonitor)
+        } catch {
+            hasPiMonitor = false
+        }
     }
     
     public init(address: String, apiToken: String? = nil, piHoleID: UUID? = nil) {
@@ -195,14 +193,15 @@ extension Pihole {
         if let piHoleList = UserDefaults.shared().object(forKey: Pihole.piHoleListKey) as? Data {
             let decoder = JSONDecoder()
             
-            if let list = try? decoder.decode([Pihole].self, from: piHoleList) {
+            do {
+                let list = try decoder.decode([Pihole].self, from: piHoleList)
                 return list
-            } else {
+            } catch {
+                print("error \(error)")
                 return [Pihole]()
             }
-        } else {
-            return [Pihole]()
         }
+        return [Pihole]()
     }
     
     static func restore(_ uuid: UUID) -> Pihole? {
@@ -217,5 +216,23 @@ extension Pihole: Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+    }
+}
+
+extension Pihole: Codable {
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case address
+        case piMonitorPort
+        case hasPiMonitor
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(address, forKey: .address)
+        try container.encode(piMonitorPort, forKey: .piMonitorPort)
+        try container.encode(hasPiMonitor, forKey: .hasPiMonitor)
     }
 }

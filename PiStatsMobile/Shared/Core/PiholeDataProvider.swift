@@ -9,8 +9,7 @@
 import Foundation
 import SwiftHole
 import SwiftUI
-
-
+import PiMonitor
 
 class PiholeDataProvider: ObservableObject, Identifiable {
     
@@ -50,6 +49,17 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     @Published private(set) var pollingErrors = [String]()
     @Published private(set) var actionErrors = [String]()
     @Published private(set) var offlinePiholesCount = 0
+    
+    @Published private(set) var uptime = ""
+    @Published private(set) var memoryUsage = ""
+    @Published private(set) var loadAverage = ""
+    @Published private(set) var temperature = ""
+
+    var canDisplayMetrics: Bool {
+        return piholes.allSatisfy {
+            return $0.hasPiMonitor
+        }
+    }
 
      var canDisplayEnableDisableButton: Bool {
         return !piholes.allSatisfy {
@@ -89,9 +99,11 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     
     func startPolling() {
         self.fetchSummaryData()
+        self.fetchMetricsData()
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: pollingTimeInterval, repeats: true) { _ in
             self.fetchSummaryData()
+            self.fetchMetricsData()
         }
     }
     
@@ -176,6 +188,53 @@ class PiholeDataProvider: ObservableObject, Identifiable {
             return  UIConstants.Strings.Error.invalidResponse
         case .invalidAPIToken:
             return  UIConstants.Strings.Error.invalidAPIToken
+        }
+    }
+    
+    private func updateMetrics(_ metrics: PiMetrics?) {
+        guard let metrics = metrics else {
+            loadAverage = "-"
+            uptime = "-"
+            memoryUsage = "-"
+            temperature = "-"
+            return
+        }
+         loadAverage = metrics.loadAverage.map({"\($0)"}).joined(separator: ", ")
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.day, .hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        let timeInterval =  TimeInterval(metrics.uptime)
+        uptime = formatter.string(from: timeInterval) ?? "-"
+
+        let usedMemory = metrics.memory.totalMemory - metrics.memory.availableMemory
+        let percentageUsed = Double(usedMemory) / Double(metrics.memory.totalMemory)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .percent
+        numberFormatter.maximumFractionDigits = 2
+        memoryUsage = numberFormatter.string(for: percentageUsed) ?? "-"
+        
+        temperature = String(metrics.socTemperature)
+    }
+    
+    func fetchMetricsData(completion: (() -> ())? = nil) {
+        if !canDisplayMetrics {
+            completion?()
+            return
+        }
+        
+        let dispatchGroup = DispatchGroup()
+        
+        piholes.forEach { pihole in
+            dispatchGroup.enter()
+            pihole.updateMetrics { error in
+                DispatchQueue.main.async {
+                    self.updateMetrics(pihole.metrics)
+                }
+            }
+        }
+        dispatchGroup.notify(queue: DispatchQueue.main) {
+          completion?()
         }
     }
     

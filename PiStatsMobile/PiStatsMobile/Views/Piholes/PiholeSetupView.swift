@@ -16,7 +16,10 @@ struct PiholeSetupView: View {
         if pihole?.port != nil {
             _port = State(initialValue: String(pihole!.port!))
         }
-        
+        if pihole?.piMonitorPort != nil {
+            _piMonitorPort = State(initialValue: String(pihole!.piMonitorPort!))
+        }
+        _isPiMonitorEnabled = State(initialValue: pihole?.hasPiMonitor ?? false)
     }
     
     @Environment(\.presentationMode) private var mode: Binding<PresentationMode>
@@ -24,11 +27,13 @@ struct PiholeSetupView: View {
     @State private var port: String = ""
     @State private var token: String = ""
     @State private var isShowingScanner = false
+    @State private var piMonitorPort: String = ""
+    @State private var isPiMonitorEnabled: Bool = false
+    @State private var displayPiMonitorAlert = false
+
     @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
     @Environment(\.openURL) var openURL
 
-    @State private var toggleTest = false
-    @State private var displayPiMonitorAlert = false
     private let piMonitorURL = URL(string: "https://github.com/Bunn/pi_monitor")!
     
     var pihole: Pihole?
@@ -36,7 +41,7 @@ struct PiholeSetupView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Pi-hole"), footer: Text(UIConstants.Strings.piholeTokenFooterSection)) {
+                Section(header: Text(UIConstants.Strings.settingsSectionPihole), footer: Text(UIConstants.Strings.piholeTokenFooterSection)) {
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupHost)
                         TextField(UIConstants.Strings.piholeSetupHostPlaceholder, text: $host)
@@ -63,34 +68,34 @@ struct PiholeSetupView: View {
                                     CodeScannerView(codeTypes: [.qr], simulatedData: "abcd", completion: self.handleScan)
                                         .navigationBarItems(leading:  Button(UIConstants.Strings.cancelButton) {
                                             isShowingScanner = false
-                                        }).navigationBarTitle(Text("Scanner"), displayMode: .inline)
+                                        }).navigationBarTitle(Text(UIConstants.Strings.qrCodeScannerTitle), displayMode: .inline)
                                 }
                             }
                     }
                 }
                 
-                Section(header: Text("Pi Monitor")) {
+                Section(header: Text(UIConstants.Strings.settingsSectionPiMonitor)) {
                     HStack {
-                        Image(systemName: "binoculars")
-                        Text("Enable Pi Monitor")
+                        Image(systemName: UIConstants.SystemImages.piholeSetupMonitor)
+                        Text(UIConstants.Strings.piholeSetupEnablePiMonitor)
                         
-                        Image(systemName: "info.circle")
+                        Image(systemName: UIConstants.SystemImages.piMonitorInfoButton)
                             .foregroundColor(Color(.systemBlue))
                             .onTapGesture {
                                 displayPiMonitorAlert.toggle()
                             }.alert(isPresented: $displayPiMonitorAlert) {
-                                Alert(title: Text("Pi Monitor"), message: Text(UIConstants.Strings.piMonitorExplanation), primaryButton: .default(Text("Learn More")) {
+                                Alert(title: Text(UIConstants.Strings.piMonitorSetupAlertTitle), message: Text(UIConstants.Strings.piMonitorExplanation), primaryButton: .default(Text(UIConstants.Strings.piMonitorSetupAlertLearnMoreButton)) {
                                     openURL(piMonitorURL)
-                                }, secondaryButton: .cancel(Text("OK")))
+                                }, secondaryButton: .cancel(Text(UIConstants.Strings.piMonitorSetupAlertOKButton)))
                             }
                         
-                        Toggle("", isOn: $toggleTest.animation())
+                        Toggle("", isOn: $isPiMonitorEnabled.animation())
                     }
                     
-                    if toggleTest {
+                    if isPiMonitorEnabled {
                         HStack {
                             Image(systemName: UIConstants.SystemImages.piholeSetupPort)
-                            TextField(UIConstants.Strings.piMonitorSetupPortPlaceholder, text: $port)
+                            TextField(UIConstants.Strings.piMonitorSetupPortPlaceholder, text: $piMonitorPort)
                                 .keyboardType(.numberPad)
                                 .autocapitalization(.none)
                                 .disableAutocorrection(true)
@@ -112,7 +117,7 @@ struct PiholeSetupView: View {
                                     }, trailing: Button(UIConstants.Strings.saveButton) {
                                         savePihole()
                                     })
-            .navigationTitle("Pi-hole Setup")
+            .navigationTitle(UIConstants.Strings.piholeSetupTitle)
         }
     }
     
@@ -125,7 +130,7 @@ struct PiholeSetupView: View {
             deletePihole()
         }, label: {
             HStack (spacing: 0) {
-                Label("Delete", systemImage: "minus.circle.fill")
+                Label(UIConstants.Strings.deleteButton, systemImage: UIConstants.SystemImages.deleteButton)
                     .font(.headline)
                     .foregroundColor(.white)
             }
@@ -145,7 +150,8 @@ struct PiholeSetupView: View {
         } else {
             piholeToSave = Pihole(address: address)
         }
-        
+        piholeToSave.hasPiMonitor = isPiMonitorEnabled
+        piholeToSave.piMonitorPort = Int(piMonitorPort)
         piholeToSave.apiToken = token
         piholeToSave.save()
         piholeProviderListManager.updateList()
