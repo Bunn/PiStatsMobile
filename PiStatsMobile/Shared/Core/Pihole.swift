@@ -65,8 +65,8 @@ class Pihole: Identifiable, ObservableObject {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(UUID.self, forKey: .id)
         address = try container.decode(String.self, forKey: .address)
-        piMonitorPort = try container.decode(Int?.self, forKey: .piMonitorPort)
         do {
+            piMonitorPort = try container.decode(Int?.self, forKey: .piMonitorPort)
             hasPiMonitor = try container.decode(Bool.self, forKey: .hasPiMonitor)
         } catch {
             hasPiMonitor = false

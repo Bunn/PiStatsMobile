@@ -148,9 +148,8 @@ class PiholeDataProvider: ObservableObject, Identifiable {
                     case .failure(let error):
                         pihole.actionError = self.errorMessage(error)
                     }
+                    self.updateErrorMessageStatus()
                 }
-                self.updateErrorMessageStatus()
-
             }
         }
     }
