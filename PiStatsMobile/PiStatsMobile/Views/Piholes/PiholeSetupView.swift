@@ -75,21 +75,24 @@ struct PiholeSetupView: View {
                 }
                 
                 Section(header: Text(UIConstants.Strings.settingsSectionPiMonitor)) {
-                    HStack {
-                        Image(systemName: UIConstants.SystemImages.piholeSetupMonitor)
-                        Text(UIConstants.Strings.piholeSetupEnablePiMonitor)
-                        
-                        Image(systemName: UIConstants.SystemImages.piMonitorInfoButton)
-                            .foregroundColor(Color(.systemBlue))
-                            .onTapGesture {
-                                displayPiMonitorAlert.toggle()
-                            }.alert(isPresented: $displayPiMonitorAlert) {
-                                Alert(title: Text(UIConstants.Strings.piMonitorSetupAlertTitle), message: Text(UIConstants.Strings.piMonitorExplanation), primaryButton: .default(Text(UIConstants.Strings.piMonitorSetupAlertLearnMoreButton)) {
-                                    openURL(piMonitorURL)
-                                }, secondaryButton: .cancel(Text(UIConstants.Strings.piMonitorSetupAlertOKButton)))
+                    HStack {        
+                        Toggle(isOn: $isPiMonitorEnabled.animation()) {
+                            HStack {
+                                Image(systemName: UIConstants.SystemImages.piholeSetupMonitor)
+                                Text(UIConstants.Strings.piholeSetupEnablePiMonitor)
+                                    .lineLimit(1)
+                                
+                                Image(systemName: UIConstants.SystemImages.piMonitorInfoButton)
+                                    .foregroundColor(Color(.systemBlue))
+                                    .onTapGesture {
+                                        displayPiMonitorAlert.toggle()
+                                    }.alert(isPresented: $displayPiMonitorAlert) {
+                                        Alert(title: Text(UIConstants.Strings.piMonitorSetupAlertTitle), message: Text(UIConstants.Strings.piMonitorExplanation), primaryButton: .default(Text(UIConstants.Strings.piMonitorSetupAlertLearnMoreButton)) {
+                                            openURL(piMonitorURL)
+                                        }, secondaryButton: .cancel(Text(UIConstants.Strings.piMonitorSetupAlertOKButton)))
+                                    }
                             }
-                        
-                        Toggle("", isOn: $isPiMonitorEnabled.animation())
+                        }
                     }
                     
                     if isPiMonitorEnabled {
