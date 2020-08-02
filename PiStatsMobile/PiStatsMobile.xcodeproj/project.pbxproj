@@ -101,7 +101,6 @@
 
 /* Begin PBXFileReference section */
 		3102D30A24B7BC7900EC8120 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		3103E21224D4A1DA0045518B /* PiMonitor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PiMonitor; path = ../../../PiMonitor; sourceTree = "<group>"; };
 		310647CB24BD10E900E2DA90 /* CircleBadgeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBadgeStatus.swift; sourceTree = "<group>"; };
 		310647CD24BD115F00E2DA90 /* SmallStatsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallStatsItem.swift; sourceTree = "<group>"; };
 		310647CF24BD120600E2DA90 /* PiStatsDisplayWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsDisplayWidgetView.swift; sourceTree = "<group>"; };
@@ -272,7 +271,6 @@
 		3175EB5A24AE597900E7B5FF /* PiStatsMobile */ = {
 			isa = PBXGroup;
 			children = (
-				3103E21224D4A1DA0045518B /* PiMonitor */,
 				3182E28B24BB6A2300BF53D9 /* PiStatsMobile.entitlements */,
 				3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */,
 				31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */,
