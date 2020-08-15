@@ -12,12 +12,15 @@ struct SettingsView: View {
     
     var body: some View {
         List {
+            
             Toggle(isOn: $userPreferences.displayStatsAsList) {
                 Label(UIConstants.Strings.settingsDisplayAsList, systemImage: UIConstants.SystemImages.settingsDisplayAsList)
             }
+            
             Toggle(isOn: $userPreferences.displayStatsIcons) {
                 Label(UIConstants.Strings.settingsDisplayIcons, systemImage: UIConstants.SystemImages.settingsDisplayIcons)
             }
+            
             Toggle(isOn: $userPreferences.disablePermanently) {
                 Label(UIConstants.Strings.settingsAlwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
             }

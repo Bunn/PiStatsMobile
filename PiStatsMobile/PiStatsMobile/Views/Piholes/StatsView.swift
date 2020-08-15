@@ -38,7 +38,6 @@ struct StatsView: View {
             if dataProvider.canDisplayMetrics {
                 Divider()
                 MetricsView(dataProvider: dataProvider)
-                    .padding(.horizontal, 11)
             }
             if dataProvider.canDisplayEnableDisableButton {
                 Divider()

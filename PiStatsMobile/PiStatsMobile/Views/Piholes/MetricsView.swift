@@ -17,7 +17,7 @@ struct MetricItem: Identifiable {
 
 struct MetricsView: View {
     @ObservedObject var dataProvider: PiholeDataProvider
-    private let imageSize: CGFloat = 10
+    private let imageSize: CGFloat = 15
 
     func getMetricItems() -> [MetricItem] {
         return [
@@ -30,12 +30,7 @@ struct MetricsView: View {
 
     
     private let columns = [
-        /*
-         Not a big fan of this 30, but to align the second column
-         with the second column stats cards this is necessary.
-         I'm sure there's a better way to solve this, but it will do for now
-         */
-        GridItem(.flexible(), spacing: 30),
+        GridItem(.flexible()),
         GridItem(.flexible())
     ]
     

@@ -31,27 +31,29 @@ fileprivate struct ListStatView: View {
     let displayStatsIcons: Bool
     let contentType: StatsItemType
     let value: String
+    private let imageWidth: CGFloat = 15
     
     var body: some View {
         HStack {
             Label {
                 Text(contentType.title)
                     .foregroundColor(.primary)
-                    .font(.subheadline)
             } icon: {
                 Group {
                     if displayStatsIcons {
                         Image(systemName: contentType.imageName)
+                            .frame(width: imageWidth)
                     } else {
                         Image(systemName: "circle.fill")
+                            .frame(width: imageWidth)
+
                     }
                 }
                 .foregroundColor(contentType.color)
-                .font(.subheadline)
-                
             }
             Spacer()
             Text(value)
+            
         }
     }
 }
@@ -65,7 +67,6 @@ fileprivate struct RoundedStatView: View {
         VStack (alignment: .leading, spacing: 5) {
             Text(contentType.title)
                 .foregroundColor(.white)
-                .font(.subheadline)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
                 .frame(maxWidth: .infinity, alignment: .leading)
