@@ -45,6 +45,7 @@
 		318087FE24BDB11F00EF5159 /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */; };
 		3182E29024BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */; };
 		3182E29124BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */; };
+		319771AC24DB24BA0005E6BF /* ScannedPihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319771AB24DB24BA0005E6BF /* ScannedPihole.swift */; };
 		319B082824B5321C008B3C2F /* Pihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082624B5321C008B3C2F /* Pihole.swift */; };
 		319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082724B5321C008B3C2F /* PiholeDataProvider.swift */; };
 		319B082B24B53246008B3C2F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082A24B53246008B3C2F /* Logger.swift */; };
@@ -135,6 +136,7 @@
 		3182E28A24BB69BD00BF53D9 /* PiStatsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiStatsWidgetExtension.entitlements; sourceTree = "<group>"; };
 		3182E28B24BB6A2300BF53D9 /* PiStatsMobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiStatsMobile.entitlements; sourceTree = "<group>"; };
 		3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtensions.swift; sourceTree = "<group>"; };
+		319771AB24DB24BA0005E6BF /* ScannedPihole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedPihole.swift; sourceTree = "<group>"; };
 		319B082624B5321C008B3C2F /* Pihole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pihole.swift; sourceTree = "<group>"; };
 		319B082724B5321C008B3C2F /* PiholeDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiholeDataProvider.swift; sourceTree = "<group>"; };
 		319B082A24B53246008B3C2F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				317D482124B3D2F000897EA9 /* CodeScannerView.swift */,
 				3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */,
+				319771AB24DB24BA0005E6BF /* ScannedPihole.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				319B082D24B53255008B3C2F /* KeyChainPasswordItem.swift in Sources */,
 				319B082824B5321C008B3C2F /* Pihole.swift in Sources */,
 				319B082B24B53246008B3C2F /* Logger.swift in Sources */,
+				319771AC24DB24BA0005E6BF /* ScannedPihole.swift in Sources */,
 				31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */,
 				318087FE24BDB11F00EF5159 /* StatusHeaderView.swift in Sources */,
 				319B083124B53269008B3C2F /* UserPreferences.swift in Sources */,

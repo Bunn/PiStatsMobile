@@ -173,9 +173,27 @@ struct PiholeSetupView: View {
         self.isShowingScanner = false
         switch result {
         case .success(let data):
-            self.token = data
+            handleScannedString(data)
         case .failure(let error):
             print("Scanning failed \(error)")
+        }
+    }
+    
+    private func handleScannedString(_ value: String) {
+        
+        let decoder = JSONDecoder()
+        
+        guard let data = value.data(using: .utf8) else { return }
+        do {
+            let result = try decoder.decode([String: ScannedPihole].self, from: data)
+            if let scannedPihole = result["pihole"] {
+                self.token = scannedPihole.token ?? ""
+                self.host = scannedPihole.host
+                self.port = String(scannedPihole.port)
+
+            }
+        } catch {
+            self.token = value
         }
     }
 }
