@@ -41,6 +41,7 @@ struct UIConstants {
         static let piholeTokenFooterSection = "Token is required for some functionalities like disable/enable your pi-hole.\n\nYou can find the API Token on /etc/pihole/setupVars.conf under WEBPASSWORD or you can open the web UI and go to Settings -> API -> Show API Token"
         static let piholeSetupHostPlaceholder = "Host"
         static let piholeSetupPortPlaceholder = "Port (80)"
+        static let piholeSetupDisplayName = "Display Name (Optional)"
         static let piMonitorSetupPortPlaceholder = "Port (8088)"
         static let piholeSetupTokenPlaceholder = "Token (Optional)"
         static let piholeSetupEnablePiMonitor = "Enable Pi Monitor"
@@ -87,6 +88,7 @@ struct UIConstants {
     
     struct SystemImages {
         static let piholeSetupHost = "server.rack"
+        static let piholeSetupDisplayName = "person.crop.square.fill.and.at.rectangle"
         static let piholeSetupPort = "globe"
         static let piholeSetupToken = "key"
         static let piholeSetupTokenQRCode = "qrcode"

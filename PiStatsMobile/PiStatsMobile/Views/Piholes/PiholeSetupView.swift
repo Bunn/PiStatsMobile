@@ -19,6 +19,7 @@ struct PiholeSetupView: View {
         if pihole?.piMonitorPort != nil {
             _piMonitorPort = State(initialValue: String(pihole!.piMonitorPort!))
         }
+        _displayName = State(initialValue: pihole?.displayName ?? "")
         _isPiMonitorEnabled = State(initialValue: pihole?.hasPiMonitor ?? false)
     }
     
@@ -26,6 +27,7 @@ struct PiholeSetupView: View {
     @State private var host: String = ""
     @State private var port: String = ""
     @State private var token: String = ""
+    @State private var displayName: String = ""
     @State private var isShowingScanner = false
     @State private var piMonitorPort: String = ""
     @State private var isPiMonitorEnabled: Bool = false
@@ -42,12 +44,20 @@ struct PiholeSetupView: View {
         NavigationView {
             List {
                 Section(header: Text(UIConstants.Strings.settingsSectionPihole), footer: Text(UIConstants.Strings.piholeTokenFooterSection)) {
+          
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupHost)
                         TextField(UIConstants.Strings.piholeSetupHostPlaceholder, text: $host)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
                     }
+                    
+                    HStack {
+                        Image(systemName: UIConstants.SystemImages.piholeSetupDisplayName)
+                        TextField(UIConstants.Strings.piholeSetupDisplayName, text: $displayName)
+                            .disableAutocorrection(true)
+                    }
+                    
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupPort)
                         TextField(UIConstants.Strings.piholeSetupPortPlaceholder, text: $port)
@@ -156,6 +166,7 @@ struct PiholeSetupView: View {
         piholeToSave.hasPiMonitor = isPiMonitorEnabled
         piholeToSave.piMonitorPort = Int(piMonitorPort)
         piholeToSave.apiToken = token
+        piholeToSave.displayName = displayName.isEmpty ? nil : displayName
         piholeToSave.save()
         piholeProviderListManager.updateList()
         dismissView()

@@ -84,7 +84,9 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     
     init(piholes: [Pihole]) {
         self.piholes = piholes
-        self.name = piholes.first?.host ?? ""
+        if let firstPihole = piholes.first {
+            self.name = firstPihole.displayName ?? firstPihole.host
+        }
     }
     
     func updatePollingMode(_ pollingMode: PollingMode) {

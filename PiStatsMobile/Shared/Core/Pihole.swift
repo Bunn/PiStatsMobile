@@ -17,6 +17,7 @@ class Pihole: Identifiable, ObservableObject {
     private(set) var active = false
     private lazy var keychainToken = APIToken(accountName: self.id.uuidString)
 
+    var displayName: String?
     var address: String
     var actionError: String?
     var pollingError: String?
@@ -65,6 +66,7 @@ class Pihole: Identifiable, ObservableObject {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(UUID.self, forKey: .id)
         address = try container.decode(String.self, forKey: .address)
+        displayName = try container.decode(String?.self, forKey: .displayName)
         do {
             piMonitorPort = try container.decode(Int?.self, forKey: .piMonitorPort)
             hasPiMonitor = try container.decode(Bool.self, forKey: .hasPiMonitor)
@@ -224,6 +226,7 @@ extension Pihole: Codable {
     enum CodingKeys: CodingKey {
         case id
         case address
+        case displayName
         case piMonitorPort
         case hasPiMonitor
     }
@@ -234,5 +237,7 @@ extension Pihole: Codable {
         try container.encode(address, forKey: .address)
         try container.encode(piMonitorPort, forKey: .piMonitorPort)
         try container.encode(hasPiMonitor, forKey: .hasPiMonitor)
+        try container.encode(displayName, forKey: .displayName)
+
     }
 }
