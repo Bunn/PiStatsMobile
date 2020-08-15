@@ -37,6 +37,7 @@ struct PiholeSetupView: View {
     @Environment(\.openURL) var openURL
 
     private let piMonitorURL = URL(string: "https://github.com/Bunn/pi_monitor")!
+    private let imageWidthSize: CGFloat = 20
     
     var pihole: Pihole?
     
@@ -47,6 +48,7 @@ struct PiholeSetupView: View {
           
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupHost)
+                            .frame(width: imageWidthSize)
                         TextField(UIConstants.Strings.piholeSetupHostPlaceholder, text: $host)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
@@ -54,12 +56,14 @@ struct PiholeSetupView: View {
                     
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupDisplayName)
+                            .frame(width: imageWidthSize)
                         TextField(UIConstants.Strings.piholeSetupDisplayName, text: $displayName)
                             .disableAutocorrection(true)
                     }
                     
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupPort)
+                            .frame(width: imageWidthSize)
                         TextField(UIConstants.Strings.piholeSetupPortPlaceholder, text: $port)
                             .keyboardType(.numberPad)
                             .autocapitalization(.none)
@@ -67,6 +71,7 @@ struct PiholeSetupView: View {
                     }
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupToken)
+                            .frame(width: imageWidthSize)
                         SecureField(UIConstants.Strings.piholeSetupTokenPlaceholder, text: $token)
                         
                         Image(systemName: UIConstants.SystemImages.piholeSetupTokenQRCode)
@@ -89,10 +94,12 @@ struct PiholeSetupView: View {
                         Toggle(isOn: $isPiMonitorEnabled.animation()) {
                             HStack {
                                 Image(systemName: UIConstants.SystemImages.piholeSetupMonitor)
+                                    .frame(width: imageWidthSize)
                                 Text(UIConstants.Strings.piholeSetupEnablePiMonitor)
                                     .lineLimit(1)
                                 
                                 Image(systemName: UIConstants.SystemImages.piMonitorInfoButton)
+                                    .frame(width: imageWidthSize)
                                     .foregroundColor(Color(.systemBlue))
                                     .onTapGesture {
                                         displayPiMonitorAlert.toggle()
@@ -108,6 +115,7 @@ struct PiholeSetupView: View {
                     if isPiMonitorEnabled {
                         HStack {
                             Image(systemName: UIConstants.SystemImages.piholeSetupPort)
+                                .frame(width: imageWidthSize)
                             TextField(UIConstants.Strings.piMonitorSetupPortPlaceholder, text: $piMonitorPort)
                                 .keyboardType(.numberPad)
                                 .autocapitalization(.none)
