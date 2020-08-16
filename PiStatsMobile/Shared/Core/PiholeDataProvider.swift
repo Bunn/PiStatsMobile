@@ -10,6 +10,7 @@ import Foundation
 import SwiftHole
 import SwiftUI
 import PiMonitor
+import Combine
 
 class PiholeDataProvider: ObservableObject, Identifiable {
     
@@ -38,6 +39,10 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     private var timer: Timer?
     private(set) var piholes: [Pihole]
     let id = UUID()
+    
+    private var piSummaryCancellables: [AnyCancellable]?
+    private var piPollingErrorCancellables: [AnyCancellable]?
+    private var piActionErrorCancellables: [AnyCancellable]?
     
     @Published private(set) var totalQueries = ""
     @Published private(set) var queriesBlocked = ""
@@ -84,9 +89,12 @@ class PiholeDataProvider: ObservableObject, Identifiable {
     
     init(piholes: [Pihole]) {
         self.piholes = piholes
-        if let firstPihole = piholes.first {
+        if piholes.count > 1 {
+            self.name = UIConstants.Strings.allPiholesTitle
+        } else if let firstPihole = piholes.first {
             self.name = firstPihole.displayName ?? firstPihole.host
         }
+        setupCancellables()
     }
     
     func updatePollingMode(_ pollingMode: PollingMode) {
@@ -126,7 +134,6 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         piholes.append(pihole)
         updateStatus()
         updateErrorMessageStatus()
-
     }
     
     func remove(_ pihole: Pihole) {
@@ -139,6 +146,27 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         updateErrorMessageStatus()
     }
     
+    func setupCancellables() {
+      
+        piActionErrorCancellables = piholes.map {
+            $0.$actionError.receive(on: DispatchQueue.main).sink { [weak self] value in
+                self?.updateErrorMessageStatus()
+            }
+        }
+        
+        piPollingErrorCancellables = piholes.map {
+            $0.$pollingError.receive(on: DispatchQueue.main).sink { [weak self] value in
+                self?.updateErrorMessageStatus()
+            }
+        }
+        
+        piSummaryCancellables = piholes.map {
+            $0.$summary.receive(on: DispatchQueue.main).sink { [weak self] value in
+                self?.updateData()
+            }
+        }
+    }
+    
     func disablePiHole(seconds: Int = 0) {
         piholes.forEach { pihole in
             pihole.disablePiHole(seconds: seconds) { result in
@@ -146,11 +174,9 @@ class PiholeDataProvider: ObservableObject, Identifiable {
                     switch result {
                     case .success:
                         pihole.actionError = nil
-                        self.updateStatus()
                     case .failure(let error):
                         pihole.actionError = self.errorMessage(error)
                     }
-                    self.updateErrorMessageStatus()
                 }
             }
         }
@@ -163,11 +189,9 @@ class PiholeDataProvider: ObservableObject, Identifiable {
                     switch result {
                     case .success:
                         pihole.actionError = nil
-                        self.updateStatus()
                     case .failure(let error):
                         pihole.actionError = self.errorMessage(error)
                     }
-                    self.updateErrorMessageStatus()
                 }
             }
         }
@@ -250,9 +274,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
                         pihole.pollingError = self.errorMessage(error)
                     } else {
                         pihole.pollingError = nil
-                        self.updateData()
                     }
-                    self.updateErrorMessageStatus()
                     dispatchGroup.leave()
                 }
             }
