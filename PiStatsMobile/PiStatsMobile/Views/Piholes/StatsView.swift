@@ -35,10 +35,11 @@ struct StatsView: View {
                 statsGrid()
             }
             
-            if dataProvider.canDisplayMetrics {
+            if dataProvider.canDisplayMetrics && dataProvider.piholes.count == 1 {
                 Divider()
                 MetricsView(dataProvider: dataProvider)
             }
+            
             if dataProvider.canDisplayEnableDisableButton {
                 Divider()
                 if dataProvider.status == .allDisabled {

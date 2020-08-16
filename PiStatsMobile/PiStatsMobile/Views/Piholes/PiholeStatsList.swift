@@ -33,6 +33,8 @@ struct PiholeStatsList: View {
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
+                StatsView(dataProvider: piholeProviderListManager.allPiholesProvider)
+                Divider()
                 ForEach(piholeProviderListManager.providerList, id: \.id) { provider in
                     StatsView(dataProvider: provider)
                         .onTapGesture() {

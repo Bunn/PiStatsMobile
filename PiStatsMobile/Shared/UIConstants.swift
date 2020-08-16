@@ -75,7 +75,8 @@ struct UIConstants {
         static let settingsSectionPiMonitor = "Pi Monitor"
         static let qrCodeScannerTitle = "Scanner"
         static let piholeSetupTitle = "Pi-hole Setup"
-        
+        static let allPiholesTitle = "All Pi-holes"
+
         struct Error {
             static let invalidAPIToken = "Invalid API Token"
             static let invalidResponse = "Invalid Response"

@@ -19,6 +19,8 @@ class PiholeDataProviderListManager: ObservableObject {
     }
 
     @Published var providerList = [PiholeDataProvider]()
+    @Published var allPiholesProvider = PiholeDataProvider(piholes: [])
+
     private var piholes = Pihole.restoreAll()
     private var offlineBadgeCancellable: AnyCancellable?
     var shouldUpdateIconBadgeWithOfflinePiholes: Bool = false
@@ -51,6 +53,8 @@ class PiholeDataProviderListManager: ObservableObject {
         piholes.forEach { pihole in
             addPiholeToList(pihole)
         }
+        
+        allPiholesProvider = PiholeDataProvider(piholes: piholes)
         setupCancellables()
     }
     
