@@ -9,6 +9,7 @@
 import Foundation
 import SwiftHole
 import PiMonitor
+import Combine
 import os.log
 
 class Pihole: Identifiable, ObservableObject {
@@ -19,13 +20,14 @@ class Pihole: Identifiable, ObservableObject {
 
     var displayName: String?
     var address: String
-    var actionError: String?
-    var pollingError: String?
     var piMonitorPort: Int?
     var hasPiMonitor: Bool = false
     let id: UUID
 
-    private(set) var summary: Summary? {
+    @Published var actionError: String?
+    @Published var pollingError: String?
+    
+    @Published private(set) var summary: Summary? {
         didSet {
             if summary?.status.lowercased() == "enabled" {
                 active = true
