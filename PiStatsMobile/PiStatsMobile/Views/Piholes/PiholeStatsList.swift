@@ -20,6 +20,7 @@ final class StatsListConfig: ObservableObject {
 
 struct PiholeStatsList: View {
     @StateObject private var viewModel = StatsListConfig()
+    @EnvironmentObject private var userPreferences: UserPreferences
     @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
     @Environment(\.scenePhase) private var phase
     /*
@@ -33,8 +34,10 @@ struct PiholeStatsList: View {
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
-                StatsView(dataProvider: piholeProviderListManager.allPiholesProvider)
-                Divider()
+                if userPreferences.displayAllPiholes {
+                    StatsView(dataProvider: piholeProviderListManager.allPiholesProvider)
+                    Divider()
+                }
                 ForEach(piholeProviderListManager.providerList, id: \.id) { provider in
                     StatsView(dataProvider: provider)
                         .onTapGesture() {
