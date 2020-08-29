@@ -280,7 +280,8 @@ class PiholeDataProvider: ObservableObject, Identifiable {
             }
         }
         dispatchGroup.notify(queue: DispatchQueue.main) {
-          completion?()
+            self.updateData()
+            completion?()
         }
     }
     

@@ -22,7 +22,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        print("=")
     }
     /*
      func scheduleAppRefresh() {

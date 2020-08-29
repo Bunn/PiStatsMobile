@@ -55,7 +55,6 @@
 		319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F965C24B265D200B680D3 /* PiholeStatsList.swift */; };
 		31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4D54124B92D220033EF53 /* AppDelegate.swift */; };
 		31AECCC524C7A17400E381E0 /* PiStatsWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */; };
-		31AECCC724C7A27100E381E0 /* ToggleStatusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCC624C7A27100E381E0 /* ToggleStatusWidget.swift */; };
 		31AECCFC24C7A55A00E381E0 /* PiholeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */; };
 		31AECCFE24C7A57300E381E0 /* PiholeTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */; };
 		31BCBE6324D2197B0077B6AE /* PiMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 31BCBE6224D2197B0077B6AE /* PiMonitor */; };
@@ -146,7 +145,6 @@
 		319F965C24B265D200B680D3 /* PiholeStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeStatsList.swift; sourceTree = "<group>"; };
 		31A4D54124B92D220033EF53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsWidgets.swift; sourceTree = "<group>"; };
-		31AECCC624C7A27100E381E0 /* ToggleStatusWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStatusWidget.swift; sourceTree = "<group>"; };
 		31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeEntry.swift; sourceTree = "<group>"; };
 		31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeTimelineProvider.swift; sourceTree = "<group>"; };
 		31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHeaderView.swift; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 				31AECCFA24C7A54900E381E0 /* Core */,
 				310647CA24BD10D600E2DA90 /* Views */,
 				315F5EC424BA162600FED38F /* ViewStatsWidget.swift */,
-				31AECCC624C7A27100E381E0 /* ToggleStatusWidget.swift */,
 				31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */,
 				315F5EC624BA162800FED38F /* Assets.xcassets */,
 				315F5EC824BA162800FED38F /* Info.plist */,
@@ -571,7 +568,6 @@
 				315F5EC524BA162600FED38F /* ViewStatsWidget.swift in Sources */,
 				310647CE24BD115F00E2DA90 /* SmallStatsItem.swift in Sources */,
 				31AECCFC24C7A55A00E381E0 /* PiholeEntry.swift in Sources */,
-				31AECCC724C7A27100E381E0 /* ToggleStatusWidget.swift in Sources */,
 				315F5ED424BA1E1500FED38F /* UIConstants.swift in Sources */,
 				310647D224BD13D700E2DA90 /* MediumStatsItem.swift in Sources */,
 			);
@@ -825,7 +821,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_PREVIEWS = YES;
@@ -850,7 +846,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_PREVIEWS = YES;

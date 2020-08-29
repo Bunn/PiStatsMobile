@@ -12,19 +12,23 @@ struct PiholeTimelineProvider: TimelineProvider {
     typealias Entry = PiholeEntry
     private static let fakePihole = PiholeDataProvider.previewData()
     
-    func snapshot(with context: Context, completion: @escaping (PiholeEntry) -> ()) {
+    func placeholder(in context: Context) -> PiholeEntry {
+        PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemSmall)
+    }
+    
+    func getSnapshot(in context: Context, completion: @escaping (PiholeEntry) -> Void) {
         let entry = PiholeEntry(piholeDataProvider: PiholeTimelineProvider.fakePihole, date: Date(), widgetFamily: context.family)
         completion(entry)
     }
     
-    func timeline(with context: Context, completion: @escaping (Timeline<PiholeEntry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<PiholeEntry>) -> Void) {
         let currentDate = Date()
         let refreshDate = Calendar.current.date(byAdding: .minute, value: 5, to: currentDate)!
         
         let piholes = Pihole.restoreAll()
         let provider = PiholeDataProvider(piholes: piholes)
+
         provider.fetchSummaryData {
-            
             let entry = PiholeEntry(piholeDataProvider: provider, date: Date(), widgetFamily: context.family)
             let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
             completion(timeline)

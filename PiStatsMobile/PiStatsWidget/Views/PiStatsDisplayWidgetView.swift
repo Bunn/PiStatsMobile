@@ -46,6 +46,8 @@ struct PiStatsDisplayWidgetView : View {
 
 struct PiStatsDisplayWidgetView_Previews: PreviewProvider {
     static var previews: some View {
+        
         PiStatsDisplayWidgetView(entry: PiholeEntry.init(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemMedium))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
