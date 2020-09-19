@@ -295,7 +295,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         let sumDomainOnBlocklist = piholes.compactMap { $0.summary }.reduce(0) { value, pihole in value + pihole.domainsBeingBlocked }
         domainsOnBlocklist = numberFormatter.string(from: NSNumber(value: sumDomainOnBlocklist)) ?? "-"
         
-        let percentage = Double(sumQueriesBlocked) / Double(sumDNSQueries)
+        let percentage = sumDNSQueries == 0 ? 0 : Double(sumQueriesBlocked) / Double(sumDNSQueries)
         percentBlocked = percentageFormatter.string(from: NSNumber(value: percentage)) ?? "-"
         
         updateStatus()
