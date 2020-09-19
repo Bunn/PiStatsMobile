@@ -12,22 +12,31 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-            
-            Toggle(isOn: $userPreferences.displayStatsAsList) {
-                Label(UIConstants.Strings.settingsDisplayAsList, systemImage: UIConstants.SystemImages.settingsDisplayAsList)
+            Section(header: Text("Interface")) {
+                Toggle(isOn: $userPreferences.displayStatsAsList) {
+                    Label(UIConstants.Strings.settingsDisplayAsList, systemImage: UIConstants.SystemImages.settingsDisplayAsList)
+                }
+                
+                Toggle(isOn: $userPreferences.displayStatsIcons) {
+                    Label(UIConstants.Strings.settingsDisplayIcons, systemImage: UIConstants.SystemImages.settingsDisplayIcons)
+                }
+                
+                Toggle(isOn: $userPreferences.displayAllPiholes) {
+                    Label(UIConstants.Strings.settingsDisplayAllPiholesInSingleCard, systemImage: UIConstants.SystemImages.settingsDisplayAllPiholesInSingleCard)
+                }
             }
             
-            Toggle(isOn: $userPreferences.displayStatsIcons) {
-                Label(UIConstants.Strings.settingsDisplayIcons, systemImage: UIConstants.SystemImages.settingsDisplayIcons)
+            Section(header: Text("Enable / Disable")) {
+                
+                Toggle(isOn: $userPreferences.disablePermanently) {
+                    Label(UIConstants.Strings.settingsAlwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
+                }
             }
             
-            Toggle(isOn: $userPreferences.disablePermanently) {
-                Label(UIConstants.Strings.settingsAlwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
-            }
+        
             
-            Toggle(isOn: $userPreferences.displayAllPiholes) {
-                Label(UIConstants.Strings.settingsDisplayAllPiholesInSingleCard, systemImage: UIConstants.SystemImages.settingsDisplayAllPiholesInSingleCard)
-            }
+            
+         
             
             //            Toggle(isOn: $userPreferences.displayIconBadgeForOfflinePiholes) {
             //                Label(UIConstants.Strings.displayIconBadgeForOfflinePiholes, systemImage: UIConstants.SystemImages.settingsDisplayIconBadgeForOffline)
