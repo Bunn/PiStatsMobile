@@ -54,6 +54,8 @@
 		319B083124B53269008B3C2F /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082F24B53269008B3C2F /* UserPreferences.swift */; };
 		319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319F965C24B265D200B680D3 /* PiholeStatsList.swift */; };
 		31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A4D54124B92D220033EF53 /* AppDelegate.swift */; };
+		31A9297F2517CF0000FA9F50 /* CountdownPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A9297E2517CF0000FA9F50 /* CountdownPickerView.swift */; };
+		31A9298A2517CF4B00FA9F50 /* CountdownPickerViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A929892517CF4B00FA9F50 /* CountdownPickerViewRepresentable.swift */; };
 		31AECCC524C7A17400E381E0 /* PiStatsWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */; };
 		31AECCFC24C7A55A00E381E0 /* PiholeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */; };
 		31AECCFE24C7A57300E381E0 /* PiholeTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */; };
@@ -145,6 +147,8 @@
 		319B082F24B53269008B3C2F /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		319F965C24B265D200B680D3 /* PiholeStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeStatsList.swift; sourceTree = "<group>"; };
 		31A4D54124B92D220033EF53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		31A9297E2517CF0000FA9F50 /* CountdownPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownPickerView.swift; sourceTree = "<group>"; };
+		31A929892517CF4B00FA9F50 /* CountdownPickerViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownPickerViewRepresentable.swift; sourceTree = "<group>"; };
 		31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsWidgets.swift; sourceTree = "<group>"; };
 		31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeEntry.swift; sourceTree = "<group>"; };
 		31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeTimelineProvider.swift; sourceTree = "<group>"; };
@@ -333,11 +337,29 @@
 		319F965B24B2658300B680D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31A929882517CF1700FA9F50 /* Representables */,
+				31A9297D2517CEE700FA9F50 /* UIViews */,
 				3175EB5D24AE597900E7B5FF /* ContentView.swift */,
 				31F3DFE324B50E8D001D4679 /* Settings */,
 				31F3DFE224B50E84001D4679 /* Piholes */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		31A9297D2517CEE700FA9F50 /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				31A9297E2517CF0000FA9F50 /* CountdownPickerView.swift */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		31A929882517CF1700FA9F50 /* Representables */ = {
+			isa = PBXGroup;
+			children = (
+				31A929892517CF4B00FA9F50 /* CountdownPickerViewRepresentable.swift */,
+			);
+			path = Representables;
 			sourceTree = "<group>";
 		};
 		31AECCFA24C7A54900E381E0 /* Core */ = {
@@ -601,7 +623,9 @@
 				31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */,
 				319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */,
 				311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */,
+				31A9298A2517CF4B00FA9F50 /* CountdownPickerViewRepresentable.swift in Sources */,
 				3182E29024BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */,
+				31A9297F2517CF0000FA9F50 /* CountdownPickerView.swift in Sources */,
 				3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

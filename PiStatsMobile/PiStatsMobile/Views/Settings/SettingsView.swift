@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var userPreferences: UserPreferences
-    @State private var customDurationPresented = false
 
     var body: some View {
         List {
@@ -29,24 +28,25 @@ struct SettingsView: View {
             
             Section(header: Text("Enable / Disable")) {
                 
-                Toggle(isOn: $userPreferences.disablePermanently) {
+                Toggle(isOn: $userPreferences.disablePermanently.animation()) {
                     Label(UIConstants.Strings.settingsAlwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
                 }
                 
                 if userPreferences.disablePermanently == false {
-                    Button(action: {
-                        customDurationPresented.toggle()
-                    }) {
+                    NavigationLink(destination: CustomDurationsView()) {
                         Label("Customize disable times", systemImage: "clock")
-                            .foregroundColor(.primary)
                     }
                 }
             }
+            
+            Section(header: Text("About"), footer: Text("Version 1.1")) {
+                
+                Label("Pi Stats source code", systemImage: "terminal")
+                Label("Pi Stats for macOS", systemImage: "desktopcomputer")
+                Label("Leave a review on the App Store", systemImage: "heart")
+            }
         }
         .listStyle(InsetGroupedListStyle())
-        .sheet(isPresented: $customDurationPresented, content: {
-            Text("test")
-        })
         .navigationTitle(UIConstants.Strings.settingsNavigationTitle)
     }
 }

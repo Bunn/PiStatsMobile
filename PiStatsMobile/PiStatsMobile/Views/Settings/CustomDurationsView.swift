@@ -8,21 +8,24 @@
 import SwiftUI
 
 private struct TimePickerRow: View {
+    @State private var timeInterval: TimeInterval = 0
+    
     var body: some View {
-        VStack {
-            Text("30min")
-            DatePicker(selection: /*@START_MENU_TOKEN@*/.constant(Date())/*@END_MENU_TOKEN@*/, label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
-                .datePickerStyle(WheelDatePickerStyle())
+        Group{
+            Text("Test")
+            HStack {
+                Spacer()
+                CountdownPickerViewRepresentable(duration: $timeInterval)
+                    .background(Color(.red))
+                Spacer()
+            }
         }
-
     }
 }
 
 struct CustomDurationsView: View {
     var body: some View {
         List {
-
-TimePickerRow()
             TimePickerRow()
         }
     }
