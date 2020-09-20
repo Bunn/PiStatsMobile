@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var userPreferences: UserPreferences
-    @State private var shouldApplyAnimation = false
+    @State private var customDurationPresented = false
 
     var body: some View {
         List {
