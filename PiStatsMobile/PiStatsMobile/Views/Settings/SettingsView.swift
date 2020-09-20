@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var userPreferences: UserPreferences
-    
+    @State private var shouldApplyAnimation = false
+
     var body: some View {
         List {
             Section(header: Text("Interface")) {
@@ -31,17 +32,21 @@ struct SettingsView: View {
                 Toggle(isOn: $userPreferences.disablePermanently) {
                     Label(UIConstants.Strings.settingsAlwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
                 }
+                
+                if userPreferences.disablePermanently == false {
+                    Button(action: {
+                        customDurationPresented.toggle()
+                    }) {
+                        Label("Customize disable times", systemImage: "clock")
+                            .foregroundColor(.primary)
+                    }
+                }
             }
-            
-        
-            
-            
-         
-            
-            //            Toggle(isOn: $userPreferences.displayIconBadgeForOfflinePiholes) {
-            //                Label(UIConstants.Strings.displayIconBadgeForOfflinePiholes, systemImage: UIConstants.SystemImages.settingsDisplayIconBadgeForOffline)
-            //            }
-        }.listStyle(InsetGroupedListStyle())
+        }
+        .listStyle(InsetGroupedListStyle())
+        .sheet(isPresented: $customDurationPresented, content: {
+            Text("test")
+        })
         .navigationTitle(UIConstants.Strings.settingsNavigationTitle)
     }
 }
