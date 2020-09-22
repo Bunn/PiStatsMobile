@@ -6,48 +6,88 @@
 //
 
 import SwiftUI
+import StoreKit
+
+fileprivate struct PiStatsURL {
+    static let review = URL(string: "https://apps.apple.com/us/app/pi-stats-mobile/id1523024268?action=write-review&mt=8")!
+    static let piStatsMobileGitHub = URL(string: "https://github.com/Bunn/PiStatsMobile")!
+    static let piStatsMacOSGitHub = URL(string: "https://github.com/Bunn/PiStats")!
+}
 
 struct SettingsView: View {
     @EnvironmentObject private var userPreferences: UserPreferences
 
+    private var appVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    }
+
     var body: some View {
         List {
-            Section(header: Text("Interface")) {
+            Section(header: Text(UIConstants.Strings.Preferences.sectionInterface)) {
                 Toggle(isOn: $userPreferences.displayStatsAsList) {
-                    Label(UIConstants.Strings.settingsDisplayAsList, systemImage: UIConstants.SystemImages.settingsDisplayAsList)
+                    Label(UIConstants.Strings.Preferences.displayAsList, systemImage: UIConstants.SystemImages.settingsDisplayAsList)
                 }
                 
                 Toggle(isOn: $userPreferences.displayStatsIcons) {
-                    Label(UIConstants.Strings.settingsDisplayIcons, systemImage: UIConstants.SystemImages.settingsDisplayIcons)
+                    Label(UIConstants.Strings.Preferences.displayIcons, systemImage: UIConstants.SystemImages.settingsDisplayIcons)
                 }
                 
                 Toggle(isOn: $userPreferences.displayAllPiholes) {
-                    Label(UIConstants.Strings.settingsDisplayAllPiholesInSingleCard, systemImage: UIConstants.SystemImages.settingsDisplayAllPiholesInSingleCard)
+                    Label(UIConstants.Strings.Preferences.displayAllPiholesInSingleCard, systemImage: UIConstants.SystemImages.settingsDisplayAllPiholesInSingleCard)
                 }
             }
             
-            Section(header: Text("Enable / Disable")) {
+            Section(header: Text(UIConstants.Strings.Preferences.sectionEnableDisable)) {
                 
                 Toggle(isOn: $userPreferences.disablePermanently.animation()) {
-                    Label(UIConstants.Strings.settingsAlwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
+                    Label(UIConstants.Strings.Preferences.alwaysDisablePermanently, systemImage: UIConstants.SystemImages.settingsDisablePermanently)
                 }
                 
                 if userPreferences.disablePermanently == false {
                     NavigationLink(destination: CustomDurationsView()) {
-                        Label("Customize disable times", systemImage: "clock")
+                        Label(UIConstants.Strings.Preferences.customizeDisableTimes, systemImage: UIConstants.SystemImages.customizeDisableTimes)
                     }
                 }
             }
             
-            Section(header: Text("About"), footer: Text("Version 1.1")) {
+            Section(header: Text(UIConstants.Strings.Preferences.about), footer: Text("\(UIConstants.Strings.Preferences.version) \(appVersion)")) {
                 
-                Label("Pi Stats source code", systemImage: "terminal")
-                Label("Pi Stats for macOS", systemImage: "desktopcomputer")
-                Label("Leave a review on the App Store", systemImage: "heart")
+                Button(action: {
+                    openGithubPage()
+                }, label: {
+                    Label(UIConstants.Strings.Preferences.piStatsSourceCode, systemImage: UIConstants.SystemImages.piStatsSourceCode)
+                        .foregroundColor(.primary)
+                })
+                
+                Button(action: {
+                    openPiStatsMacOS()
+                }, label: {
+                    Label(UIConstants.Strings.Preferences.piStatsForMacOS, systemImage: UIConstants.SystemImages.piStatsMacOS)
+                        .foregroundColor(.primary)
+                })
+                
+                Button(action: {
+                    leaveAppReview()
+                }, label: {
+                    Label(UIConstants.Strings.Preferences.leaveReview, systemImage: UIConstants.SystemImages.leaveReview)
+                        .foregroundColor(.primary)
+                })
             }
         }
         .listStyle(InsetGroupedListStyle())
         .navigationTitle(UIConstants.Strings.settingsNavigationTitle)
+    }
+    
+    private func leaveAppReview() {
+        UIApplication.shared.open(PiStatsURL.review, options: [:], completionHandler: nil)
+    }
+    
+    private func openGithubPage() {
+        UIApplication.shared.open(PiStatsURL.piStatsMobileGitHub)
+    }
+    
+    private func openPiStatsMacOS() {
+        UIApplication.shared.open(PiStatsURL.piStatsMacOSGitHub)
     }
 }
 
