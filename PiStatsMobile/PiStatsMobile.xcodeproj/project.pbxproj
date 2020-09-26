@@ -40,6 +40,7 @@
 		3175EB6324AE597A00E7B5FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175EB6224AE597A00E7B5FF /* Preview Assets.xcassets */; };
 		3175EB6E24AE597A00E7B5FF /* PiStatsMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB6D24AE597A00E7B5FF /* PiStatsMobileTests.swift */; };
 		3175EB7924AE597A00E7B5FF /* PiStatsMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */; };
+		3176C733251FB547002DF0A3 /* DisableDurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176C732251FB547002DF0A3 /* DisableDurationManager.swift */; };
 		317D481D24B3ADE200897EA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317D481F24B3ADE200897EA9 /* Localizable.strings */; };
 		317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D482124B3D2F000897EA9 /* CodeScannerView.swift */; };
 		318087FE24BDB11F00EF5159 /* StatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */; };
@@ -132,6 +133,7 @@
 		3175EB7424AE597A00E7B5FF /* PiStatsMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PiStatsMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsMobileUITests.swift; sourceTree = "<group>"; };
 		3175EB7A24AE597A00E7B5FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3176C732251FB547002DF0A3 /* DisableDurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableDurationManager.swift; sourceTree = "<group>"; };
 		317D481E24B3ADE200897EA9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		317D482024B3ADEA00897EA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		317D482124B3D2F000897EA9 /* CodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 			children = (
 				3102D30A24B7BC7900EC8120 /* SettingsView.swift */,
 				31DB2A292517B1C200D67F9E /* CustomDurationsView.swift */,
+				3176C732251FB547002DF0A3 /* DisableDurationManager.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				31DB2A2A2517B1C200D67F9E /* CustomDurationsView.swift in Sources */,
 				31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */,
 				319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */,
+				3176C733251FB547002DF0A3 /* DisableDurationManager.swift in Sources */,
 				311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */,
 				31A9298A2517CF4B00FA9F50 /* CountdownPickerViewRepresentable.swift in Sources */,
 				3182E29024BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */,

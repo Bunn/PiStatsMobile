@@ -15,6 +15,7 @@ private enum Keys: String {
     case displayStatsIcons
     case displayAllPiholes
     case displayIconBadgeForOfflinePiholes
+    case disableTimes
 }
 
 class UserPreferences: ObservableObject {
@@ -39,6 +40,12 @@ class UserPreferences: ObservableObject {
     @AppStorage(Keys.displayStatsIcons.rawValue) var displayStatsIcons: Bool = true {
         willSet {
             objectWillChange.send()
+        }
+    }
+    
+    @Published var disableTimes: [TimeInterval] = UserDefaults.standard.object(forKey: Keys.disableTimes.rawValue) as? [TimeInterval] ?? [30,60,300] {
+        didSet {
+            UserDefaults.standard.set(disableTimes, forKey: Keys.disableTimes.rawValue)
         }
     }
     

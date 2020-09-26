@@ -9,54 +9,63 @@ import SwiftUI
 
 private struct TimePickerRow: View {
     @State private var timeInterval: TimeInterval = 0
-    
+    @State private var birthDate = Date()
+
     var body: some View {
         Group{
             HStack {
                 Spacer()
+//                DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) { }
+//                .datePickerStyle(WheelDatePickerStyle())
                 CountdownPickerViewRepresentable(duration: $timeInterval)
+
                 Spacer()
             }
         }
     }
 }
 
-fileprivate struct DisableTimeItem: Identifiable {
-    let id = UUID()
-    @State var timeInterval: TimeInterval = 0
-    @State var selected = false
-    @State var title: String
-}
 
 struct CustomDurationsView: View {
+    let disableDurationManager: DisableDurationManager
+    @EnvironmentObject private var userPreferences: UserPreferences
     @State private var countdownPickerVisible = false
-    private let items = [DisableTimeItem(title: "12"), DisableTimeItem(title: "1211"), DisableTimeItem(title: "1442")]
+    @State private var selectedItems = Set<DisableTimeItem>()
+    
     
     var body: some View {
         List {
-            ForEach(items) { item in
+            ForEach(disableDurationManager.items.indices, id: \.self) { index in
                 
                 Button(action: {
-                    withAnimation {
-                        item.selected.toggle()
+                    withAnimation(.spring()) {
+                        if selectedItems.contains(disableDurationManager.items[index]) {
+                            selectedItems.remove(disableDurationManager.items[index])
+                        } else {
+                            selectedItems.insert(disableDurationManager.items[index])
+                        }
                     }
                 }, label: {
-                    Text(item.title)
+                    Text(disableDurationManager.items[index].title)
                         .foregroundColor(.primary)
-                })
+                }) .transition(.move(edge: .leading))
                 
-                if item.selected {
+                if selectedItems.contains(disableDurationManager.items[index]) {
                     TimePickerRow()
+                        .transition(.move(edge: .leading))
                 }
-            }
-            
-        }.navigationBarTitle("Disable Time", displayMode: .inline)
+                
+            } .transition(.move(edge: .leading))
+
+        } .transition(.move(edge: .leading))
+
+        .navigationBarTitle("Disable Time", displayMode: .inline)
         
     }
 }
 
 struct CustomDurationsView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomDurationsView()
+        CustomDurationsView(disableDurationManager: DisableDurationManager(userPreferences: UserPreferences()))
     }
 }
