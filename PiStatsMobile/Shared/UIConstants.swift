@@ -57,12 +57,6 @@ struct UIConstants {
         static let statusEnabledAndDisabled = "Partially Active"
         static let piMonitorExplanation = "Pi Monitor is a service that helps you to monitor your Raspberry Pi by showing you information like temperature, memory usage and more!\n\nIn order to use it you'll need to install it in your Raspberry Pi."
 
-        static let settingsSectionDisplay = "Display"
-        static let settingsDisplayAsList = "Display Pi-hole stats as list"
-        static let settingsDisplayIcons = "Display Pi-hole stats icons"
-        static let settingsSectionActions = "Actions"
-        static let settingsAlwaysDisablePermanently = "Always disable Pi-hole permanently"
-        static let settingsDisplayAllPiholesInSingleCard = "Display all Pi-holes in a single card"
         static let addFirstPiholeCaption = "Tap here to add your first pi-hole"
         static let displayIconBadgeForOfflinePiholes = "Display icon badge for offline pi-holes"
         static let piholesNavigationTitle = "Pi-holes"
@@ -77,6 +71,21 @@ struct UIConstants {
         static let qrCodeScannerTitle = "Scanner"
         static let piholeSetupTitle = "Pi-hole Setup"
         static let allPiholesTitle = "All Pi-holes"
+        
+        struct Preferences {
+            static let sectionInterface = "Interface"
+            static let sectionEnableDisable = "Enable / Disable"
+            static let about = "About"
+            static let displayAsList = "Display Pi-hole stats as list"
+            static let displayIcons = "Display Pi-hole stats icons"
+            static let alwaysDisablePermanently = "Always disable Pi-hole permanently"
+            static let displayAllPiholesInSingleCard = "Display all Pi-holes in a single card"
+            static let version = "Version"
+            static let piStatsSourceCode = "Pi Stats source code"
+            static let piStatsForMacOS = "Pi Stats for macOS"
+            static let leaveReview = "Write a review on the App Store"
+            static let customizeDisableTimes = "Customize disable times"
+        }
 
         struct Error {
             static let invalidAPIToken = "Invalid API Token"
@@ -113,5 +122,9 @@ struct UIConstants {
         static let piholeSetupMonitor = "binoculars"
         static let piMonitorInfoButton = "info.circle"
         static let deleteButton = "minus.circle.fill"
+        static let piStatsSourceCode = "terminal"
+        static let piStatsMacOS = "desktopcomputer"
+        static let leaveReview = "heart"
+        static let customizeDisableTimes = "clock"
     }
 }

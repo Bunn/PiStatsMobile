@@ -7,11 +7,13 @@
 
 import WidgetKit
 import Foundation
+import os.log
 
 struct PiholeTimelineProvider: TimelineProvider {
     typealias Entry = PiholeEntry
     private static let fakePihole = PiholeDataProvider.previewData()
-    
+    private let log = Logger().osLog(describing: PiholeTimelineProvider.self)
+
     func placeholder(in context: Context) -> PiholeEntry {
         PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemSmall)
     }
@@ -27,8 +29,11 @@ struct PiholeTimelineProvider: TimelineProvider {
         
         let piholes = Pihole.restoreAll()
         let provider = PiholeDataProvider(piholes: piholes)
-
+        os_log("get timeline called")
+    
         provider.fetchSummaryData {
+            os_log("summary returned")
+            
             let entry = PiholeEntry(piholeDataProvider: provider, date: Date(), widgetFamily: context.family)
             let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
             completion(timeline)
