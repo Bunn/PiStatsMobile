@@ -32,13 +32,12 @@ struct CustomDurationsView: View {
     @State private var countdownPickerVisible = false
     @State private var selectedItems = Set<DisableTimeItem>()
     
-    
     var body: some View {
         List {
             ForEach(disableDurationManager.items.indices, id: \.self) { index in
                 
                 Button(action: {
-                    withAnimation(.spring()) {
+                    withAnimation {
                         if selectedItems.contains(disableDurationManager.items[index]) {
                             selectedItems.remove(disableDurationManager.items[index])
                         } else {
