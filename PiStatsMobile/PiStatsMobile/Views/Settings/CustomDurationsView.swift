@@ -12,22 +12,46 @@ private struct TimePickerRow: View {
     
     var body: some View {
         Group{
-            Text("Test")
             HStack {
                 Spacer()
                 CountdownPickerViewRepresentable(duration: $timeInterval)
-                    .background(Color(.red))
                 Spacer()
             }
         }
     }
 }
 
+fileprivate struct DisableTimeItem: Identifiable {
+    let id = UUID()
+    @State var timeInterval: TimeInterval = 0
+    @State var selected = false
+    @State var title: String
+}
+
 struct CustomDurationsView: View {
+    @State private var countdownPickerVisible = false
+    private let items = [DisableTimeItem(title: "12"), DisableTimeItem(title: "1211"), DisableTimeItem(title: "1442")]
+    
     var body: some View {
         List {
-            TimePickerRow()
-        }
+            ForEach(items) { item in
+                
+                Button(action: {
+                    withAnimation {
+                        item.selected.toggle()
+                    }
+                }, label: {
+                    Text(item.title)
+                        .foregroundColor(.primary)
+                })
+                
+                if item.selected {
+                    TimePickerRow()
+                }
+            }
+            
+        }.navigationBarTitle("Disable Time", displayMode: .inline)
+        
     }
 }
 
