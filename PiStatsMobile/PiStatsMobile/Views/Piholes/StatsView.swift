@@ -99,22 +99,24 @@ struct StatsView: View {
             .cornerRadius(UIConstants.Geometry.defaultCornerRadius)
         })
         .actionSheet(isPresented: $isShowingDisableOptions) {
-            ActionSheet(title: Text(UIConstants.Strings.disablePiholeOptionsTitle), buttons: [
-                .default(Text(UIConstants.Strings.disablePiholeOptions30Seconds)) {
-                    dataProvider.disablePiHole(seconds: 30)
-                },
-                .default(Text(UIConstants.Strings.disablePiholeOptions1Minute)) {
-                    dataProvider.disablePiHole(seconds: 60)
-                },
-                .default(Text(UIConstants.Strings.disablePiholeOptions5Minutes)) {
-                    dataProvider.disablePiHole(seconds: 300)
-                },
-                .default(Text(UIConstants.Strings.disablePiholeOptionsPermanently)) {
-                    dataProvider.disablePiHole()
-                },
-                .cancel()
-            ])
+            disableTimeActionSheet()
         }
+    }
+    
+    func disableTimeActionSheet() -> ActionSheet {
+        let disableTimes = userPreferences.disableTimes
+        
+        let intervalFormatter = DateComponentsFormatter()
+        intervalFormatter.unitsStyle = .full
+        intervalFormatter.allowedUnits = [.second, .minute, .hour]
+        
+        var buttons = disableTimes.map { timeInterval in
+            Alert.Button.default(Text(intervalFormatter.string(from: timeInterval) ?? "-"), action: {
+                dataProvider.disablePiHole(seconds: Int(timeInterval))
+            } )
+        }
+        buttons.append(.cancel())
+        return ActionSheet(title: Text(UIConstants.Strings.disablePiholeOptionsTitle), buttons: buttons)
     }
     
     private func enableButton() -> some View {
