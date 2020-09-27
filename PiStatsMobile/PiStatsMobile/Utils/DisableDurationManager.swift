@@ -26,6 +26,7 @@ class DisableTimeItem: Identifiable, Hashable {
         f.allowedUnits = [.second, .minute, .hour]
         return f
     }()
+    
     let id = UUID()
     @Published var timeInterval: TimeInterval
     
@@ -38,7 +39,8 @@ class DisableDurationManager: ObservableObject {
     private let userPreferences: UserPreferences
     @Published var items = [DisableTimeItem]()
     private var disableTimeCancellable: AnyCancellable?
-    
+    private var timeIntervalCancellables: [AnyCancellable]?
+
     internal init(userPreferences: UserPreferences) {
         self.userPreferences = userPreferences
         self.items = userPreferences.disableTimes.map { DisableTimeItem(timeInterval: $0) }
@@ -47,21 +49,29 @@ class DisableDurationManager: ObservableObject {
     
     func saveDurationTimes() {
         userPreferences.disableTimes = items.map { $0.timeInterval }
+        update()
     }
     
     func setupCancellables() {
         disableTimeCancellable = $items.receive(on: DispatchQueue.main).sink { [weak self] _ in
             self?.saveDurationTimes()
         }
+        timeIntervalCancellables = items.map { $0.$timeInterval.receive(on: DispatchQueue.main).sink { [weak self] _ in
+            self?.saveDurationTimes()
+        } }
+    }
+    
+    func update() {
+        objectWillChange.send()
     }
     
     func addNewItem() {
         items.append(DisableTimeItem(timeInterval: 30))
-        saveDurationTimes()
+        setupCancellables()
     }
     
     func delete(at offsets: IndexSet) {
         items.remove(atOffsets: offsets)
-        saveDurationTimes()
+        setupCancellables()
     }
 }

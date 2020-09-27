@@ -19,6 +19,8 @@ private enum Keys: String {
 }
 
 class UserPreferences: ObservableObject {
+    static let shared = UserPreferences()
+
     @AppStorage(Keys.displayAllPiholes.rawValue) var displayAllPiholes: Bool = false {
         willSet {
             objectWillChange.send()
@@ -43,7 +45,7 @@ class UserPreferences: ObservableObject {
         }
     }
     
-    @Published var disableTimes: [TimeInterval] = UserDefaults.standard.object(forKey: Keys.disableTimes.rawValue) as? [TimeInterval] ?? [30,60,300] {
+    @Published var disableTimes: [TimeInterval] = UserDefaults.standard.object(forKey: Keys.disableTimes.rawValue) as? [TimeInterval] ?? [30, 60, 300] {
         didSet {
             UserDefaults.standard.set(disableTimes, forKey: Keys.disableTimes.rawValue)
         }

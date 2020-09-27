@@ -22,40 +22,47 @@ private struct TimePickerRow: View {
 }
 
 struct CustomDurationsView: View {
-    @StateObject var disableDurationManager = DisableDurationManager(userPreferences: UserPreferences())
+    @StateObject var disableDurationManager = DisableDurationManager(userPreferences: UserPreferences.shared)
     @State private var selectedItems = Set<DisableTimeItem>()
-    
+
     var body: some View {
         List {
-            ForEach(disableDurationManager.items.indices, id: \.self) { index in
-                
+            ForEach(disableDurationManager.items, id: \.self) { item in
                 Button(action: {
                     withAnimation {
-                        if selectedItems.contains(disableDurationManager.items[index]) {
-                            selectedItems.remove(disableDurationManager.items[index])
+                        if selectedItems.contains(item) {
+                            selectedItems.remove(item)
                         } else {
-                            selectedItems.insert(disableDurationManager.items[index])
+                            selectedItems.insert(item)
                         }
                     }
                 }, label: {
-                    Text(disableDurationManager.items[index].title)
+                    Text(item.title)
                         .foregroundColor(.primary)
                 })
-                
-                if selectedItems.contains(disableDurationManager.items[index]) {
-                    TimePickerRow(timeInterval: $disableDurationManager.items[index].timeInterval)
-                    
+                /*
+                 This is required because once you use ForEach you can't use bindings anymore.
+                 One strategy is to use indices when looping, but when I do that the animations get really weird (more than already is)
+                 specially on delete animations
+                 */
+                if selectedItems.contains(item) {
+                    TimePickerRow(timeInterval: Binding(
+                        get: { item.timeInterval },
+                        set: { item.timeInterval = $0 } ))
                 }
             }.onDelete(perform: delete)
-            
         }
         .navigationBarTitle("Disable Time", displayMode: .inline)
         .navigationBarItems(trailing:
-                                Button(action: {
-                                    addNewDuration()
-                                }) {
-                                    Image(systemName: "plus")
-                                }
+                                    Button(action: {
+                                        withAnimation {
+                                            addNewDuration()
+                                        }
+                                    }) {
+                                        Image(systemName: "plus")
+                                    }
+                                    
+                            
         )
     }
     
@@ -64,6 +71,9 @@ struct CustomDurationsView: View {
     }
     
     func delete(at offsets: IndexSet) {
+        offsets.map { disableDurationManager.items[$0] }.forEach { itemToDelete in
+            selectedItems.remove(itemToDelete)
+        }
         disableDurationManager.delete(at: offsets)
     }
 }
