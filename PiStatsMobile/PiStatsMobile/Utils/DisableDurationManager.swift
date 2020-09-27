@@ -27,7 +27,7 @@ class DisableTimeItem: Identifiable, Hashable {
         return f
     }()
     let id = UUID()
-    var timeInterval: TimeInterval
+    @Published var timeInterval: TimeInterval
     
     var title: String {
         formatter.string(from: timeInterval) ?? "-"
@@ -37,9 +37,21 @@ class DisableTimeItem: Identifiable, Hashable {
 class DisableDurationManager: ObservableObject {
     private let userPreferences: UserPreferences
     @Published var items = [DisableTimeItem]()
+    private var disableTimeCancellable: AnyCancellable?
     
     internal init(userPreferences: UserPreferences) {
         self.userPreferences = userPreferences
         self.items = userPreferences.disableTimes.map { DisableTimeItem(timeInterval: $0) }
+        setupCancellables()
+    }
+    
+    func saveDurationTimes() {
+        userPreferences.disableTimes = items.map { $0.timeInterval }
+    }
+    
+    func setupCancellables() {
+        disableTimeCancellable = $items.receive(on: DispatchQueue.main).sink { [weak self] _ in
+            self?.saveDurationTimes()
+        }
     }
 }

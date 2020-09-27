@@ -318,6 +318,7 @@
 		317D481724B3ACCE00897EA9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3176C732251FB547002DF0A3 /* DisableDurationManager.swift */,
 				317D482124B3D2F000897EA9 /* CodeScannerView.swift */,
 				3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */,
 				319771AB24DB24BA0005E6BF /* ScannedPihole.swift */,
@@ -391,7 +392,6 @@
 			children = (
 				3102D30A24B7BC7900EC8120 /* SettingsView.swift */,
 				31DB2A292517B1C200D67F9E /* CustomDurationsView.swift */,
-				3176C732251FB547002DF0A3 /* DisableDurationManager.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
