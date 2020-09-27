@@ -238,7 +238,6 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         numberFormatter.numberStyle = .percent
         numberFormatter.maximumFractionDigits = 2
         memoryUsage = numberFormatter.string(for: percentageUsed) ?? "-"
-        print(metrics.socTemperature)
         
         if UserPreferences.shared.temperatureScaleType == .celsius {
             temperature = "\(String(metrics.socTemperature)) \(UIConstants.Strings.temperatureScaleCelsius)"
