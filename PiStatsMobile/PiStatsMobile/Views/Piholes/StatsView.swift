@@ -115,6 +115,11 @@ struct StatsView: View {
                 dataProvider.disablePiHole(seconds: Int(timeInterval))
             } )
         }
+       
+        buttons.append(.destructive(Text(UIConstants.Strings.disablePiholeOptionsPermanently)) {
+            dataProvider.disablePiHole()
+        })
+        
         buttons.append(.cancel())
         return ActionSheet(title: Text(UIConstants.Strings.disablePiholeOptionsTitle), buttons: buttons)
     }
