@@ -54,4 +54,9 @@ class DisableDurationManager: ObservableObject {
             self?.saveDurationTimes()
         }
     }
+    
+    func addNewItem() {
+        items.append(DisableTimeItem(timeInterval: 30))
+        saveDurationTimes()
+    }
 }

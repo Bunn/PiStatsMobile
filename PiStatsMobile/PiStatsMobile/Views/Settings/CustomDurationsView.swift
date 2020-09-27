@@ -49,6 +49,17 @@ struct CustomDurationsView: View {
             }
         }
         .navigationBarTitle("Disable Time", displayMode: .inline)
+        .navigationBarItems(trailing:
+            Button(action: {
+                addNewDuration()
+            }) {
+                Image(systemName: "plus")
+            }
+        )
+    }
+    
+    private func addNewDuration() {
+        disableDurationManager.addNewItem()
     }
 }
 
