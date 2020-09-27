@@ -52,6 +52,12 @@ class DisableDurationManager: ObservableObject {
         update()
     }
     
+    /*
+     I need to setup this cancellabes *with* the update method because of the issue on the
+     ForEach that doesn't like to work with bindables on a loop.
+     So this is to force the UI to be refreshed once a property changes.
+     I'm pretty sure there is a best way of doing this though :(
+     */
     func setupCancellables() {
         disableTimeCancellable = $items.receive(on: DispatchQueue.main).sink { [weak self] _ in
             self?.saveDurationTimes()
