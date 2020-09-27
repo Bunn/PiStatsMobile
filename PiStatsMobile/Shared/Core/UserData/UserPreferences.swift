@@ -19,8 +19,21 @@ private enum Keys: String {
     case temperatureScale
 }
 
+enum TemperatureScale {
+    case celsius
+    case fahrenheit
+}
+
 class UserPreferences: ObservableObject {
     static let shared = UserPreferences()
+    var temperatureScaleType: TemperatureScale {
+        get {
+            if temperatureScale == 1 {
+                return .fahrenheit
+            }
+            return .celsius
+        }
+    }
 
     @AppStorage(Keys.displayAllPiholes.rawValue) var displayAllPiholes: Bool = false {
         willSet {

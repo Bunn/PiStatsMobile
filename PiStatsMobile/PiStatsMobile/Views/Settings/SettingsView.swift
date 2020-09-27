@@ -56,8 +56,8 @@ struct SettingsView: View {
                     Label(UIConstants.Strings.Preferences.piMonitorTemperature, systemImage: UIConstants.SystemImages.piMonitorTemperature)
                     
                     Picker(selection: userPreferences.$temperatureScale, label: Text("")) {
-                        Text(UIConstants.Strings.Preferences.temperatureScaleCelsius).tag(0)
-                        Text(UIConstants.Strings.Preferences.temperatureScaleFahrenheit).tag(1)
+                        Text(UIConstants.Strings.temperatureScaleCelsius).tag(0)
+                        Text(UIConstants.Strings.temperatureScaleFahrenheit).tag(1)
                     }.pickerStyle(SegmentedPickerStyle())
                 }
             }

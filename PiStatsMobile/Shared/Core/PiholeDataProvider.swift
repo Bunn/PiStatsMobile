@@ -238,8 +238,14 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         numberFormatter.numberStyle = .percent
         numberFormatter.maximumFractionDigits = 2
         memoryUsage = numberFormatter.string(for: percentageUsed) ?? "-"
+        print(metrics.socTemperature)
         
-        temperature = String(metrics.socTemperature)
+        if UserPreferences.shared.temperatureScaleType == .celsius {
+            temperature = "\(String(metrics.socTemperature)) \(UIConstants.Strings.temperatureScaleCelsius)"
+        } else {
+            let converted = metrics.socTemperature * (9.0/5.0) + 32.0
+            temperature = "\(String(converted)) \(UIConstants.Strings.temperatureScaleFahrenheit)"
+        }
     }
     
     func fetchMetricsData(completion: (() -> ())? = nil) {

@@ -68,7 +68,9 @@ struct UIConstants {
         static let qrCodeScannerTitle = "Scanner"
         static let piholeSetupTitle = "Pi-hole Setup"
         static let allPiholesTitle = "All Pi-holes"
-        
+        static let temperatureScaleCelsius = "°C"
+        static let temperatureScaleFahrenheit = "°F"
+
         struct Preferences {
             static let sectionInterface = "Interface"
             static let sectionEnableDisable = "Enable / Disable"
@@ -84,9 +86,6 @@ struct UIConstants {
             static let leaveReview = "Write a review on the App Store"
             static let customizeDisableTimes = "Customize disable times"
             static let piMonitorTemperature = "Temperature Scale"
-            static let temperatureScaleCelsius = "°C"
-            static let temperatureScaleFahrenheit = "°F"
-
         }
 
         struct CustomizeDisabletime {
