@@ -46,20 +46,25 @@ struct CustomDurationsView: View {
                     TimePickerRow(timeInterval: $disableDurationManager.items[index].timeInterval)
                     
                 }
-            }
+            }.onDelete(perform: delete)
+            
         }
         .navigationBarTitle("Disable Time", displayMode: .inline)
         .navigationBarItems(trailing:
-            Button(action: {
-                addNewDuration()
-            }) {
-                Image(systemName: "plus")
-            }
+                                Button(action: {
+                                    addNewDuration()
+                                }) {
+                                    Image(systemName: "plus")
+                                }
         )
     }
     
     private func addNewDuration() {
         disableDurationManager.addNewItem()
+    }
+    
+    func delete(at offsets: IndexSet) {
+        disableDurationManager.delete(at: offsets)
     }
 }
 

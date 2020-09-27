@@ -59,4 +59,9 @@ class DisableDurationManager: ObservableObject {
         items.append(DisableTimeItem(timeInterval: 30))
         saveDurationTimes()
     }
+    
+    func delete(at offsets: IndexSet) {
+        items.remove(atOffsets: offsets)
+        saveDurationTimes()
+    }
 }
