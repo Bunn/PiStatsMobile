@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Combine
 
 class DisableTimeItem: Identifiable, Hashable {
     internal init(timeInterval: TimeInterval) {
@@ -28,14 +28,15 @@ class DisableTimeItem: Identifiable, Hashable {
     }()
     let id = UUID()
     var timeInterval: TimeInterval
+    
     var title: String {
         formatter.string(from: timeInterval) ?? "-"
     }
 }
 
-class DisableDurationManager {
+class DisableDurationManager: ObservableObject {
     private let userPreferences: UserPreferences
-    var items = [DisableTimeItem]()
+    @Published var items = [DisableTimeItem]()
     
     internal init(userPreferences: UserPreferences) {
         self.userPreferences = userPreferences

@@ -44,7 +44,7 @@ struct SettingsView: View {
                 }
                 
                 if userPreferences.disablePermanently == false {
-                    NavigationLink(destination: CustomDurationsView(disableDurationManager: DisableDurationManager(userPreferences: userPreferences))) {
+                    NavigationLink(destination: CustomDurationsView()) {
                         Label(UIConstants.Strings.Preferences.customizeDisableTimes, systemImage: UIConstants.SystemImages.customizeDisableTimes)
                     }
                 }

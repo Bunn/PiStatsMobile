@@ -8,28 +8,21 @@
 import SwiftUI
 
 private struct TimePickerRow: View {
-    @State private var timeInterval: TimeInterval = 0
-    @State private var birthDate = Date()
-
+    @Binding var timeInterval: TimeInterval
+    
     var body: some View {
         Group{
             HStack {
                 Spacer()
-//                DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) { }
-//                .datePickerStyle(WheelDatePickerStyle())
                 CountdownPickerViewRepresentable(duration: $timeInterval)
-
                 Spacer()
             }
         }
     }
 }
 
-
 struct CustomDurationsView: View {
-    let disableDurationManager: DisableDurationManager
-    @EnvironmentObject private var userPreferences: UserPreferences
-    @State private var countdownPickerVisible = false
+    @StateObject var disableDurationManager = DisableDurationManager(userPreferences: UserPreferences())
     @State private var selectedItems = Set<DisableTimeItem>()
     
     var body: some View {
@@ -47,19 +40,15 @@ struct CustomDurationsView: View {
                 }, label: {
                     Text(disableDurationManager.items[index].title)
                         .foregroundColor(.primary)
-                }) .transition(.move(edge: .leading))
+                })
                 
                 if selectedItems.contains(disableDurationManager.items[index]) {
-                    TimePickerRow()
-                        .transition(.move(edge: .leading))
+                    TimePickerRow(timeInterval: $disableDurationManager.items[index].timeInterval)
+                    
                 }
-                
-            } .transition(.move(edge: .leading))
-
-        } .transition(.move(edge: .leading))
-
+            }
+        }
         .navigationBarTitle("Disable Time", displayMode: .inline)
-        
     }
 }
 

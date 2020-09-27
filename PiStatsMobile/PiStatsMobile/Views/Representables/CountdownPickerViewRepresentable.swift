@@ -12,7 +12,6 @@ struct CountdownPickerViewRepresentable: UIViewRepresentable {
 
     func makeUIView(context: Context) -> UIPickerView {
         let pickerView = CountdownPickerView()
-        //datePicker.datePickerMode = .countDownTimer
         pickerView.dataSource = context.coordinator
         pickerView.delegate = context.coordinator
 
@@ -52,7 +51,6 @@ struct CountdownPickerViewRepresentable: UIViewRepresentable {
         }
 
         func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-            
             switch component {
             case 0, 1:
                 return pickerView.frame.size.width / 3.5
@@ -77,6 +75,8 @@ struct CountdownPickerViewRepresentable: UIViewRepresentable {
             }
         }
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            parent.duration += 1
+
 //            switch component {
 //            case 0:
 //                hour = row
