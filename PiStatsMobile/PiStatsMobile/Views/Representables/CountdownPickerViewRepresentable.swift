@@ -14,13 +14,19 @@ struct CountdownPickerViewRepresentable: UIViewRepresentable {
         let pickerView = CountdownPickerView()
         pickerView.dataSource = context.coordinator
         pickerView.delegate = context.coordinator
-
-        //datePicker.addTarget(context.coordinator, action: #selector(Coordinator.updateDuration), for: .valueChanged)
         return pickerView
     }
 
     func updateUIView(_ pickerView: UIPickerView, context: Context) {
-//        datePicker.countDownDuration = duration
+        let roundedDuration = Int(duration)
+        
+        let seconds = roundedDuration % 60
+        let minutes = (roundedDuration / 60) % 60
+        let hours = (roundedDuration / 3600)
+
+        pickerView.selectRow(hours, inComponent: 0, animated: false)
+        pickerView.selectRow(minutes, inComponent: 1, animated: false)
+        pickerView.selectRow(seconds, inComponent: 2, animated: false)
     }
 
     func makeCoordinator() -> Coordinator {
@@ -34,17 +40,16 @@ struct CountdownPickerViewRepresentable: UIViewRepresentable {
             self.parent = parent
         }
 
-        
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 3
         }
+        
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
             switch component {
             case 0:
                 return 25
             case 1,2:
                 return 60
-
             default:
                 return 0
             }
@@ -57,9 +62,6 @@ struct CountdownPickerViewRepresentable: UIViewRepresentable {
             default:
                 return pickerView.frame.size.width / 2.5
             }
-            
-            
-    
         }
 
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -75,18 +77,10 @@ struct CountdownPickerViewRepresentable: UIViewRepresentable {
             }
         }
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            parent.duration += 1
-
-//            switch component {
-//            case 0:
-//                hour = row
-//            case 1:
-//                minutes = row
-//            case 2:
-//                seconds = row
-//            default:
-//                break;
-//            }
+            let selectedHour = TimeInterval(pickerView.selectedRow(inComponent: 0) * 60 * 60)
+            let selectedMinute = TimeInterval(pickerView.selectedRow(inComponent: 1) * 60)
+            let selectedSecond = TimeInterval(pickerView.selectedRow(inComponent: 2))
+            parent.duration = selectedHour + selectedMinute + selectedSecond
         }
     }
 }
