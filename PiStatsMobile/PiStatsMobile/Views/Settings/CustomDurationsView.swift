@@ -29,7 +29,7 @@ struct CustomDurationsView: View {
         Group {
             if disableDurationManager.items.count == 0 {
                 VStack {
-                    Text("Tap here to add a custom disable time")
+                    Text(UIConstants.Strings.CustomizeDisabletime.emptyListMessage)
                         .font(.title)
                         .multilineTextAlignment(.center)
                         .padding()
@@ -78,14 +78,14 @@ struct CustomDurationsView: View {
         
         }
         }
-        .navigationBarTitle("Disable Time", displayMode: .inline)
+        .navigationBarTitle(UIConstants.Strings.CustomizeDisabletime.title, displayMode: .inline)
         .navigationBarItems(trailing:
                                     Button(action: {
                                         withAnimation {
                                             addNewDuration()
                                         }
                                     }) {
-                                        Image(systemName: "plus")
+                                        Image(systemName: UIConstants.SystemImages.addNewCustomDisableTime)
                                     }
         )
     }

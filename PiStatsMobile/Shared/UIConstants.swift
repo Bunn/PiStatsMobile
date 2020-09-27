@@ -84,6 +84,11 @@ struct UIConstants {
             static let customizeDisableTimes = "Customize disable times"
         }
 
+        struct CustomizeDisabletime {
+            static let emptyListMessage = "Tap here to add a custom disable time"
+            static let title = "Disable Time"
+        }
+        
         struct Error {
             static let invalidAPIToken = "Invalid API Token"
             static let invalidResponse = "Invalid Response"
@@ -123,5 +128,6 @@ struct UIConstants {
         static let piStatsMacOS = "desktopcomputer"
         static let leaveReview = "heart"
         static let customizeDisableTimes = "clock"
+        static let addNewCustomDisableTime = "plus"
     }
 }
