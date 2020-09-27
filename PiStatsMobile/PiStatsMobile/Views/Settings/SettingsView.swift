@@ -16,11 +16,11 @@ fileprivate struct PiStatsURL {
 
 struct SettingsView: View {
     @EnvironmentObject private var userPreferences: UserPreferences
-
+    
     private var appVersion: String {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }
-
+    
     var body: some View {
         List {
             Section(header: Text(UIConstants.Strings.Preferences.sectionInterface)) {
@@ -51,15 +51,12 @@ struct SettingsView: View {
             }
             
             Section(header: Text(UIConstants.Strings.Preferences.sectionPiMonitor)) {
+                Label(UIConstants.Strings.Preferences.piMonitorTemperature, systemImage: UIConstants.SystemImages.piMonitorTemperature)
                 
-                VStack(alignment: .leading) {
-                    Label(UIConstants.Strings.Preferences.piMonitorTemperature, systemImage: UIConstants.SystemImages.piMonitorTemperature)
-                    
-                    Picker(selection: userPreferences.$temperatureScale, label: Text("")) {
-                        Text(UIConstants.Strings.temperatureScaleCelsius).tag(0)
-                        Text(UIConstants.Strings.temperatureScaleFahrenheit).tag(1)
-                    }.pickerStyle(SegmentedPickerStyle())
-                }
+                Picker(selection: userPreferences.$temperatureScale, label: Text("")) {
+                    Text(UIConstants.Strings.temperatureScaleCelsius).tag(0)
+                    Text(UIConstants.Strings.temperatureScaleFahrenheit).tag(1)
+                }.pickerStyle(SegmentedPickerStyle())
             }
             
             Section(header: Text(UIConstants.Strings.Preferences.about), footer: Text("\(UIConstants.Strings.Preferences.version) \(appVersion)")) {
@@ -77,7 +74,7 @@ struct SettingsView: View {
                     Label(UIConstants.Strings.Preferences.piStatsForMacOS, systemImage: UIConstants.SystemImages.piStatsMacOS)
                         .foregroundColor(.primary)
                 })
-                
+
                 Button(action: {
                     leaveAppReview()
                 }, label: {

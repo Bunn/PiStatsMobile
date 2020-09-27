@@ -86,6 +86,8 @@ struct CustomDurationsView: View {
                                         }
                                     }) {
                                         Image(systemName: UIConstants.SystemImages.addNewCustomDisableTime)
+                                            .resizable().frame(width: 20, height: 20)
+                                            .font(.caption)
                                     }
         )
     }
