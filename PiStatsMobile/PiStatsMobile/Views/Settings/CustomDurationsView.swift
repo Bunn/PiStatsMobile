@@ -24,7 +24,7 @@ private struct TimePickerRow: View {
 struct CustomDurationsView: View {
     @StateObject var disableDurationManager = DisableDurationManager(userPreferences: UserPreferences.shared)
     @State private var selectedItems = Set<DisableTimeItem>()
-
+    
     var body: some View {
         Group {
             if disableDurationManager.items.count == 0 {
@@ -33,62 +33,61 @@ struct CustomDurationsView: View {
                         .font(.title)
                         .multilineTextAlignment(.center)
                         .padding()
-                Button(action: {
-                   addNewDuration()
-                }, label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: UIConstants.Geometry.addPiholeButtonHeight, height: UIConstants.Geometry.addPiholeButtonHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        Image(systemName: UIConstants.SystemImages.addPiholeButton)
-                            .foregroundColor(.white)
-                            .font(.largeTitle)
-                    }
-                })
-                .shadow(radius: UIConstants.Geometry.shadowRadius)
-                .padding()
+                    Button(action: {
+                        addNewDuration()
+                    }, label: {
+                        ZStack {
+                            Circle()
+                                .frame(width: UIConstants.Geometry.addPiholeButtonHeight, height: UIConstants.Geometry.addPiholeButtonHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            Image(systemName: UIConstants.SystemImages.addPiholeButton)
+                                .foregroundColor(.white)
+                                .font(.largeTitle)
+                        }
+                    })
+                    .shadow(radius: UIConstants.Geometry.shadowRadius)
+                    .padding()
                 }
             } else {
                 List {
-                ForEach(disableDurationManager.items, id: \.self) { item in
-                    Button(action: {
-                        withAnimation {
-                            if selectedItems.contains(item) {
-                                selectedItems.remove(item)
-                            } else {
-                                selectedItems.insert(item)
+                    ForEach(disableDurationManager.items, id: \.self) { item in
+                        Button(action: {
+                            withAnimation {
+                                if selectedItems.contains(item) {
+                                    selectedItems.remove(item)
+                                } else {
+                                    selectedItems.insert(item)
+                                }
                             }
+                        }, label: {
+                            Text(item.title)
+                                .foregroundColor(.primary)
+                        })
+                        /*
+                         This is required because once you use ForEach you can't use bindings anymore.
+                         One strategy is to use indices when looping, but when I do that the animations get really weird (more than already is)
+                         specially on delete animations
+                         */
+                        if selectedItems.contains(item) {
+                            TimePickerRow(timeInterval: Binding(
+                                            get: { item.timeInterval },
+                                            set: { item.timeInterval = $0 } ))
+                                .animation(nil)
                         }
-                    }, label: {
-                        Text(item.title)
-                            .foregroundColor(.primary)
-                    })
-                    /*
-                     This is required because once you use ForEach you can't use bindings anymore.
-                     One strategy is to use indices when looping, but when I do that the animations get really weird (more than already is)
-                     specially on delete animations
-                     */
-                    if selectedItems.contains(item) {
-                        TimePickerRow(timeInterval: Binding(
-                            get: { item.timeInterval },
-                            set: { item.timeInterval = $0 } ))
-                    }
-                }.onDelete(perform: delete)
+                    }.onDelete(perform: delete)
+                }
             }
-            
-        
-        }
         }
         .navigationBarTitle(UIConstants.Strings.CustomizeDisabletime.title, displayMode: .inline)
         .navigationBarItems(trailing:
-                                    Button(action: {
-                                        withAnimation {
-                                            addNewDuration()
-                                        }
-                                    }) {
-                                        Image(systemName: UIConstants.SystemImages.addNewCustomDisableTime)
-                                            .resizable().frame(width: 20, height: 20)
-                                            .font(.caption)
+                                Button(action: {
+                                    withAnimation {
+                                        addNewDuration()
                                     }
+                                }) {
+                                    Image(systemName: UIConstants.SystemImages.addNewCustomDisableTime)
+                                        .resizable().frame(width: 20, height: 20)
+                                        .font(.caption)
+                                }
         )
     }
     
