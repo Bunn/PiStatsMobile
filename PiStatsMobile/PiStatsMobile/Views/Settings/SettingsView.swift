@@ -50,6 +50,18 @@ struct SettingsView: View {
                 }
             }
             
+            Section(header: Text(UIConstants.Strings.Preferences.sectionPiMonitor)) {
+                
+                VStack(alignment: .leading) {
+                    Label(UIConstants.Strings.Preferences.piMonitorTemperature, systemImage: UIConstants.SystemImages.piMonitorTemperature)
+                    
+                    Picker(selection: userPreferences.$temperatureScale, label: Text("")) {
+                        Text(UIConstants.Strings.Preferences.temperatureScaleCelsius).tag(0)
+                        Text(UIConstants.Strings.Preferences.temperatureScaleFahrenheit).tag(1)
+                    }.pickerStyle(SegmentedPickerStyle())
+                }
+            }
+            
             Section(header: Text(UIConstants.Strings.Preferences.about), footer: Text("\(UIConstants.Strings.Preferences.version) \(appVersion)")) {
                 
                 Button(action: {

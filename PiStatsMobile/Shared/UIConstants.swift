@@ -72,6 +72,7 @@ struct UIConstants {
         struct Preferences {
             static let sectionInterface = "Interface"
             static let sectionEnableDisable = "Enable / Disable"
+            static let sectionPiMonitor = "Pi Monitor"
             static let about = "About"
             static let displayAsList = "Display Pi-hole stats as list"
             static let displayIcons = "Display Pi-hole stats icons"
@@ -82,6 +83,10 @@ struct UIConstants {
             static let piStatsForMacOS = "Pi Stats for macOS"
             static let leaveReview = "Write a review on the App Store"
             static let customizeDisableTimes = "Customize disable times"
+            static let piMonitorTemperature = "Temperature Scale"
+            static let temperatureScaleCelsius = "°C"
+            static let temperatureScaleFahrenheit = "°F"
+
         }
 
         struct CustomizeDisabletime {
@@ -129,5 +134,7 @@ struct UIConstants {
         static let leaveReview = "heart"
         static let customizeDisableTimes = "clock"
         static let addNewCustomDisableTime = "plus"
+        static let piMonitorTemperature = "thermometer"
+
     }
 }
