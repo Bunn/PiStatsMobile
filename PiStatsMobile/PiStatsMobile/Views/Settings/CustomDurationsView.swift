@@ -26,31 +26,57 @@ struct CustomDurationsView: View {
     @State private var selectedItems = Set<DisableTimeItem>()
 
     var body: some View {
-        List {
-            ForEach(disableDurationManager.items, id: \.self) { item in
+        Group {
+            if disableDurationManager.items.count == 0 {
+                VStack {
+                    Text("Tap here to add a custom disable time")
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                        .padding()
                 Button(action: {
-                    withAnimation {
-                        if selectedItems.contains(item) {
-                            selectedItems.remove(item)
-                        } else {
-                            selectedItems.insert(item)
-                        }
-                    }
+                   addNewDuration()
                 }, label: {
-                    Text(item.title)
-                        .foregroundColor(.primary)
+                    ZStack {
+                        Circle()
+                            .frame(width: UIConstants.Geometry.addPiholeButtonHeight, height: UIConstants.Geometry.addPiholeButtonHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Image(systemName: UIConstants.SystemImages.addPiholeButton)
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                    }
                 })
-                /*
-                 This is required because once you use ForEach you can't use bindings anymore.
-                 One strategy is to use indices when looping, but when I do that the animations get really weird (more than already is)
-                 specially on delete animations
-                 */
-                if selectedItems.contains(item) {
-                    TimePickerRow(timeInterval: Binding(
-                        get: { item.timeInterval },
-                        set: { item.timeInterval = $0 } ))
+                .shadow(radius: UIConstants.Geometry.shadowRadius)
+                .padding()
                 }
-            }.onDelete(perform: delete)
+            } else {
+                List {
+                ForEach(disableDurationManager.items, id: \.self) { item in
+                    Button(action: {
+                        withAnimation {
+                            if selectedItems.contains(item) {
+                                selectedItems.remove(item)
+                            } else {
+                                selectedItems.insert(item)
+                            }
+                        }
+                    }, label: {
+                        Text(item.title)
+                            .foregroundColor(.primary)
+                    })
+                    /*
+                     This is required because once you use ForEach you can't use bindings anymore.
+                     One strategy is to use indices when looping, but when I do that the animations get really weird (more than already is)
+                     specially on delete animations
+                     */
+                    if selectedItems.contains(item) {
+                        TimePickerRow(timeInterval: Binding(
+                            get: { item.timeInterval },
+                            set: { item.timeInterval = $0 } ))
+                    }
+                }.onDelete(perform: delete)
+            }
+            
+        
+        }
         }
         .navigationBarTitle("Disable Time", displayMode: .inline)
         .navigationBarItems(trailing:
@@ -61,8 +87,6 @@ struct CustomDurationsView: View {
                                     }) {
                                         Image(systemName: "plus")
                                     }
-                                    
-                            
         )
     }
     
