@@ -243,7 +243,8 @@ class PiholeDataProvider: ObservableObject, Identifiable {
             temperature = "\(String(metrics.socTemperature)) \(UIConstants.Strings.temperatureScaleCelsius)"
         } else {
             let converted = metrics.socTemperature * (9.0/5.0) + 32.0
-            temperature = "\(String(converted)) \(UIConstants.Strings.temperatureScaleFahrenheit)"
+            let fahrenheit = String(format: "%.01f", converted)
+            temperature = "\(String(fahrenheit)) \(UIConstants.Strings.temperatureScaleFahrenheit)"
         }
     }
     
