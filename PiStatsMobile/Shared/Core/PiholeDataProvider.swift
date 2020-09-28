@@ -239,7 +239,13 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         numberFormatter.maximumFractionDigits = 2
         memoryUsage = numberFormatter.string(for: percentageUsed) ?? "-"
         
-        temperature = String(metrics.socTemperature)
+        if UserPreferences.shared.temperatureScaleType == .celsius {
+            temperature = "\(String(metrics.socTemperature)) \(UIConstants.Strings.temperatureScaleCelsius)"
+        } else {
+            let converted = metrics.socTemperature * (9.0/5.0) + 32.0
+            let fahrenheit = String(format: "%.01f", converted)
+            temperature = "\(fahrenheit) \(UIConstants.Strings.temperatureScaleFahrenheit)"
+        }
     }
     
     func fetchMetricsData(completion: (() -> ())? = nil) {
@@ -295,7 +301,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         let sumDomainOnBlocklist = piholes.compactMap { $0.summary }.reduce(0) { value, pihole in value + pihole.domainsBeingBlocked }
         domainsOnBlocklist = numberFormatter.string(from: NSNumber(value: sumDomainOnBlocklist)) ?? "-"
         
-        let percentage = Double(sumQueriesBlocked) / Double(sumDNSQueries)
+        let percentage = sumDNSQueries == 0 ? 0 : Double(sumQueriesBlocked) / Double(sumDNSQueries)
         percentBlocked = percentageFormatter.string(from: NSNumber(value: percentage)) ?? "-"
         
         updateStatus()

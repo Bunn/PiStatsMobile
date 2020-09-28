@@ -10,7 +10,7 @@ import Combine
 
 final class DataModel: ObservableObject {
     let piholeProviderListManager = PiholeDataProviderListManager()
-    let userPreferences = UserPreferences()
+    let userPreferences = UserPreferences.shared
     private var offlineBadgeCancellable: AnyCancellable?
     
     init() {

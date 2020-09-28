@@ -15,9 +15,26 @@ private enum Keys: String {
     case displayStatsIcons
     case displayAllPiholes
     case displayIconBadgeForOfflinePiholes
+    case disableTimes
+    case temperatureScale
+}
+
+enum TemperatureScale {
+    case celsius
+    case fahrenheit
 }
 
 class UserPreferences: ObservableObject {
+    static let shared = UserPreferences()
+    var temperatureScaleType: TemperatureScale {
+        get {
+            if temperatureScale == 1 {
+                return .fahrenheit
+            }
+            return .celsius
+        }
+    }
+
     @AppStorage(Keys.displayAllPiholes.rawValue) var displayAllPiholes: Bool = false {
         willSet {
             objectWillChange.send()
@@ -37,6 +54,19 @@ class UserPreferences: ObservableObject {
     }
     
     @AppStorage(Keys.displayStatsIcons.rawValue) var displayStatsIcons: Bool = true {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @Published var disableTimes: [TimeInterval] = UserDefaults.standard.object(forKey: Keys.disableTimes.rawValue) as? [TimeInterval] ?? [30, 60, 300] {
+        didSet {
+            UserDefaults.standard.set(disableTimes, forKey: Keys.disableTimes.rawValue)
+        }
+    }
+    
+    
+    @AppStorage(Keys.temperatureScale.rawValue) var temperatureScale: Int = 0 {
         willSet {
             objectWillChange.send()
         }
