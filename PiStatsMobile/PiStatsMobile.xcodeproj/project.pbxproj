@@ -62,6 +62,8 @@
 		31AECCFE24C7A57300E381E0 /* PiholeTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */; };
 		31BCBE6324D2197B0077B6AE /* PiMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 31BCBE6224D2197B0077B6AE /* PiMonitor */; };
 		31DB2A2A2517B1C200D67F9E /* CustomDurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB2A292517B1C200D67F9E /* CustomDurationsView.swift */; };
+		31E153072523AD61008DD6CD /* PiMonitorWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */; };
+		31E153102523AD69008DD6CD /* PiMonitorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */; };
 		31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +158,8 @@
 		31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeTimelineProvider.swift; sourceTree = "<group>"; };
 		31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHeaderView.swift; sourceTree = "<group>"; };
 		31DB2A292517B1C200D67F9E /* CustomDurationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDurationsView.swift; sourceTree = "<group>"; };
+		31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorWidget.swift; sourceTree = "<group>"; };
+		31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorWidgetView.swift; sourceTree = "<group>"; };
 		31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeDataProviderListManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +218,7 @@
 				310647CD24BD115F00E2DA90 /* SmallStatsItem.swift */,
 				310647D124BD13D700E2DA90 /* MediumStatsItem.swift */,
 				310647CF24BD120600E2DA90 /* PiStatsDisplayWidgetView.swift */,
+				31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				31AECCFA24C7A54900E381E0 /* Core */,
 				310647CA24BD10D600E2DA90 /* Views */,
 				315F5EC424BA162600FED38F /* ViewStatsWidget.swift */,
+				31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */,
 				31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */,
 				315F5EC624BA162800FED38F /* Assets.xcassets */,
 				315F5EC824BA162800FED38F /* Info.plist */,
@@ -589,10 +595,12 @@
 				310647CC24BD10E900E2DA90 /* CircleBadgeStatus.swift in Sources */,
 				31AECCFE24C7A57300E381E0 /* PiholeTimelineProvider.swift in Sources */,
 				31AECCC524C7A17400E381E0 /* PiStatsWidgets.swift in Sources */,
+				31E153102523AD69008DD6CD /* PiMonitorWidget.swift in Sources */,
 				3182E29124BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */,
 				315F5ED924BA2D0C00FED38F /* APIToken.swift in Sources */,
 				310647D024BD120600E2DA90 /* PiStatsDisplayWidgetView.swift in Sources */,
 				315F5ED124BA1DF800FED38F /* StatsItemType.swift in Sources */,
+				31E153072523AD61008DD6CD /* PiMonitorWidgetView.swift in Sources */,
 				315F5EC524BA162600FED38F /* ViewStatsWidget.swift in Sources */,
 				310647CE24BD115F00E2DA90 /* SmallStatsItem.swift in Sources */,
 				31AECCFC24C7A55A00E381E0 /* PiholeEntry.swift in Sources */,

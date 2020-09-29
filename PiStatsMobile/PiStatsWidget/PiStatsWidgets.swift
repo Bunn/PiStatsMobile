@@ -13,6 +13,7 @@ struct PiStatsWidgets: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
         ViewStatsWidget()
+        PiMonitorWidget()
         //ToggleStatusWidget()
     }
 }
