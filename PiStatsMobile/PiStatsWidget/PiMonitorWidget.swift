@@ -10,28 +10,21 @@ import SwiftUI
 
 private struct PlaceholderView : View {
     var body: some View {
-        VStack (spacing:0) {
-            HStack(spacing:0) {
-                StatsItemType.totalQueries.color
-                StatsItemType.queriesBlocked.color
-            }
-            HStack(spacing:0) {
-                StatsItemType.percentBlocked.color
-                StatsItemType.domainsOnBlockList.color
-            }
-        }
+        PiMonitorView(provider: PiholeDataProvider.previewData() ).redacted(reason: .placeholder)
     }
 }
 
 struct PiMonitorWidget: Widget {
     private let kind: String = "PiMonitorWidget"
-    
     public var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: PiholeTimelineProvider()) { entry in
+        
+        IntentConfiguration(
+            kind: "dev.bunn.PiStatsMobile.SelectPiholeIntent",
+            intent: SelectPiholeIntent.self,
+            provider: PiMonitorTimelineProvider()
+        ) { entry in
             PiMonitorWidgetView(entry: entry)
-
         }
-
         .configurationDisplayName("Pi Monitor")
         .description("Display metrics for your Raspberry Pi")
         .supportedFamilies([.systemSmall, .systemMedium])
@@ -50,7 +43,6 @@ struct PiMonitorWidget_Previews: PreviewProvider {
         
         PlaceholderView()
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-        
     }
 }
 

@@ -56,6 +56,13 @@ class Pihole: Identifiable, ObservableObject {
         address.components(separatedBy: ":").first ?? ""
     }
     
+    var title: String {
+        if let name = displayName {
+            return name
+        }
+        return host
+    }
+    
     private var service: SwiftHole {
         SwiftHole(host: host, port: port, apiToken: apiToken, timeoutInterval: 10)
     }

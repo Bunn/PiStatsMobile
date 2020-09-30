@@ -8,73 +8,83 @@
 import SwiftUI
 import WidgetKit
 
-struct PiMonitorWidgetView: View {
-    var entry: PiholeEntry
+struct PiMonitorView: View {
+    var provider: PiholeDataProvider
     let imageSize: CGFloat = 15
     
+    var body: some View {
+        VStack (alignment:.leading) {
+            VStack (alignment:.leading) {
+                Label(title: {
+                    Text(provider.name)
+                }, icon: {
+                    Image(systemName: UIConstants.SystemImages.piholeStatusWarning)
+                        .frame(width: imageSize, height: imageSize)
+                        .foregroundColor(UIConstants.Colors.statusOnline)
+                    
+                })
+                .font(Font.headline.weight(.bold))
+                Divider()
+                Spacer()
+            }
+            
+            VStack (alignment:.leading, spacing: 6.0) {
+                
+                Label(title: {
+                    Text(provider.temperature)
+                }, icon: {
+                    Image(systemName: UIConstants.SystemImages.metricTemperature)
+                        .frame(width: imageSize, height: imageSize)
+                })
+                .foregroundColor(UIConstants.Colors.domainsOnBlocklist)
+                Label(title: {
+                    Text(provider.uptime)
+                }, icon: {
+                    Image(systemName: UIConstants.SystemImages.metricUptime)
+                        .frame(width: imageSize, height: imageSize)
+                    
+                })
+                .foregroundColor(UIConstants.Colors.queriesBlocked)
+                
+                Label(title: {
+                    Text(provider.loadAverage)
+                }, icon: {
+                    Image(systemName: UIConstants.SystemImages.metricLoadAverage)
+                        .frame(width: imageSize, height: imageSize)
+                })
+                .foregroundColor(UIConstants.Colors.percentBlocked)
+                
+                Label(title: {
+                    Text(provider.memoryUsage)
+                }, icon: {
+                    Image(systemName: UIConstants.SystemImages.metricMemoryUsage)
+                        .frame(width: imageSize, height: imageSize)
+                })
+                .foregroundColor(UIConstants.Colors.totalQueries)
+            }
+            .font(Font.headline.weight(.bold))
+            
+        }
+        .frame(
+            maxWidth: .infinity,
+            maxHeight: .infinity,
+            alignment: .topLeading
+        ).padding()
+        .font(.headline)
+    }
+}
+
+struct PiMonitorWidgetView: View {
+    var entry: PiholeEntry
     
     var body: some View {
         ZStack {
             Color(.secondarySystemBackground)
-            
-            VStack (alignment:.leading) {
-                VStack (alignment:.leading) {
-                    Label(title: {
-                        Text("192.123.22.11")
-                    }, icon: {
-                        Image(systemName: UIConstants.SystemImages.piholeStatusWarning)
-                            .frame(width: imageSize, height: imageSize)
-                            .foregroundColor(UIConstants.Colors.statusOnline)
-                        
-                    })
-                    .font(Font.headline.weight(.bold))
-                    Divider()
-                    Spacer()
-                }
-                
-                VStack (alignment:.leading, spacing: 6.0) {
-                    
-                    Label(title: {
-                        Text("47 ºC")
-                    }, icon: {
-                        Image(systemName: UIConstants.SystemImages.metricTemperature)
-                            .frame(width: imageSize, height: imageSize)
-                    })
-                    .foregroundColor(UIConstants.Colors.domainsOnBlocklist)
-                    Label(title: {
-                        Text("43d 9h 2m")
-                    }, icon: {
-                        Image(systemName: UIConstants.SystemImages.metricUptime)
-                            .frame(width: imageSize, height: imageSize)
-                        
-                    })
-                    .foregroundColor(UIConstants.Colors.queriesBlocked)
-                    
-                    Label(title: {
-                        Text("0.0, 0.01, 0.4")
-                    }, icon: {
-                        Image(systemName: UIConstants.SystemImages.metricLoadAverage)
-                            .frame(width: imageSize, height: imageSize)
-                    })
-                    .foregroundColor(UIConstants.Colors.percentBlocked)
-                    
-                    Label(title: {
-                        Text("13,32%")
-                    }, icon: {
-                        Image(systemName: UIConstants.SystemImages.metricMemoryUsage)
-                            .frame(width: imageSize, height: imageSize)
-                    })
-                    .foregroundColor(UIConstants.Colors.totalQueries)
-                }
-                .font(Font.headline.weight(.bold))
-                
+            if entry.piholeDataProvider.piholes.count == 0 {
+                PiMonitorView(provider: PiholeDataProvider.previewData() ).redacted(reason: .placeholder)
+            } else {
+                PiMonitorView(provider: entry.piholeDataProvider)
             }
-            .frame(
-                maxWidth: .infinity,
-                maxHeight: .infinity,
-                alignment: .topLeading
-            ).padding()
-            .font(.headline)
         }
     }
 }
