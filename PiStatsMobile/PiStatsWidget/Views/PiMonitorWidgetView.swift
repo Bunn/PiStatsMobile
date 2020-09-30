@@ -47,22 +47,24 @@ struct PiMonitorView: View {
                 .foregroundColor(UIConstants.Colors.queriesBlocked)
                 
                 Label(title: {
-                    Text(provider.loadAverage)
-                }, icon: {
-                    Image(systemName: UIConstants.SystemImages.metricLoadAverage)
-                        .frame(width: imageSize, height: imageSize)
-                })
-                .foregroundColor(UIConstants.Colors.percentBlocked)
-                
-                Label(title: {
                     Text(provider.memoryUsage)
                 }, icon: {
                     Image(systemName: UIConstants.SystemImages.metricMemoryUsage)
                         .frame(width: imageSize, height: imageSize)
                 })
                 .foregroundColor(UIConstants.Colors.totalQueries)
+                                
+                Label(title: {
+                    Text(provider.loadAverage)
+                }, icon: {
+                    Image(systemName: UIConstants.SystemImages.metricLoadAverage)
+                        .frame(width: imageSize, height: imageSize)
+                })
+                .foregroundColor(UIConstants.Colors.percentBlocked)
             }
-            .font(Font.headline.weight(.bold))
+            .font(Font.body.weight(.bold))
+            .minimumScaleFactor(0.89)
+
             
         }
         .frame(
@@ -79,7 +81,7 @@ struct PiMonitorWidgetView: View {
     
     var body: some View {
         ZStack {
-            Color(.secondarySystemBackground)
+            UIConstants.Colors.piMonitorWidgetBackground
             if entry.piholeDataProvider.piholes.count == 0 {
                 PiMonitorView(provider: PiholeDataProvider.previewData() ).redacted(reason: .placeholder)
             } else {

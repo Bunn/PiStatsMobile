@@ -29,6 +29,7 @@ struct UIConstants {
         static let statusOnline = Color("StatusOnline")
         static let statusWarning = Color("StatusWarning")
         static let errorMessage = Color("StatusOffline")
+        static let piMonitorWidgetBackground = Color("PiMonitorWidgetBackground")
     }
     
     struct Strings {
