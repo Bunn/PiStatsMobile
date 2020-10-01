@@ -14,6 +14,5 @@ struct PiStatsWidgets: WidgetBundle {
     var body: some Widget {
         ViewStatsWidget()
         PiMonitorWidget()
-        //ToggleStatusWidget()
     }
 }

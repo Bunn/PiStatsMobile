@@ -29,9 +29,7 @@ struct ViewStatsWidget: Widget {
     public var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: PiholeTimelineProvider()) { entry in
             PiStatsDisplayWidgetView(entry: entry)
-
         }
-
         .configurationDisplayName("Pi Stats")
         .description("Display the status of your pi-holes")
         .supportedFamilies([.systemSmall, .systemMedium])
