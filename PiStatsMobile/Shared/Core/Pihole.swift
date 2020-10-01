@@ -99,7 +99,9 @@ class Pihole: Identifiable, ObservableObject {
     }
     
     static func previewData() -> Pihole {
-        Pihole(address: "127.0.0.1")
+        let pihole = Pihole(address: "127.0.0.1")
+        pihole.hasPiMonitor = true
+        return pihole
     }
     
     private func getPort(_ address: String) -> Int? {
