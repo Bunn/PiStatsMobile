@@ -140,5 +140,9 @@ struct UIConstants {
         static let addNewCustomDisableTime = "plus"
         static let piMonitorTemperature = "thermometer"
 
+        static let domainsOnBlockList = "list.bullet"
+        static let totalQueries = "globe"
+        static let queriesBlocked = "hand.raised"
+        static let percentBlocked = "chart.pie"
     }
 }

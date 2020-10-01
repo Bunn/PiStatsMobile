@@ -10,7 +10,8 @@ import SwiftUI
 
 private struct PlaceholderView : View {
     var body: some View {
-        PiMonitorView(provider: PiholeDataProvider.previewData() ).redacted(reason: .placeholder)
+        
+        PiMonitorView(provider: PiholeDataProvider.previewData(), shouldDisplayStats: false ).redacted(reason: .placeholder)
     }
 }
 

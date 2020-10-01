@@ -10,12 +10,16 @@ import WidgetKit
 
 struct PiMonitorWidgetView: View {
     var entry: PiholeEntry
+    var shouldDisplayStats: Bool {
+        entry.widgetFamily == .systemMedium
+    }
     
     var body: some View {
         ZStack {
             UIConstants.Colors.piMonitorWidgetBackground
+            
             if entry.piholeDataProvider.piholes.count == 0 {
-                PiMonitorView(provider: PiholeDataProvider.previewData() ).redacted(reason: .placeholder)
+                PiMonitorView(provider: PiholeDataProvider.previewData() , shouldDisplayStats: shouldDisplayStats).redacted(reason: .placeholder)
             } else if entry.piholeDataProvider.canDisplayMetrics == false {
                 VStack (spacing: 10) {
                     Image(systemName: UIConstants.SystemImages.piholeSetupMonitor)
@@ -28,7 +32,7 @@ struct PiMonitorWidgetView: View {
                 .padding()
             }
             else {
-                PiMonitorView(provider: entry.piholeDataProvider)
+                PiMonitorView(provider: entry.piholeDataProvider, shouldDisplayStats: shouldDisplayStats)
             }
         }
     }

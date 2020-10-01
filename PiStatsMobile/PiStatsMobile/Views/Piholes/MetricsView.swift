@@ -8,7 +8,7 @@
 import SwiftUI
 import PiMonitor
 
-struct MetricItem: Identifiable {
+fileprivate struct MetricItem: Identifiable {
     let value: String
     let systemName: String
     let helpText: String
@@ -19,7 +19,7 @@ struct MetricsView: View {
     @ObservedObject var dataProvider: PiholeDataProvider
     private let imageSize: CGFloat = 15
 
-    func getMetricItems() -> [MetricItem] {
+    private func getMetricItems() -> [MetricItem] {
         return [
             MetricItem(value: dataProvider.temperature, systemName: UIConstants.SystemImages.metricTemperature, helpText: "Raspberry Pi temperature"),
             MetricItem(value: dataProvider.uptime, systemName: UIConstants.SystemImages.metricUptime, helpText: "Raspberry Pi uptime"),

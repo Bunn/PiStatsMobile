@@ -16,13 +16,13 @@ enum StatsItemType {
     var imageName: String {
         switch self {
         case .domainsOnBlockList:
-            return "list.bullet"
+            return UIConstants.SystemImages.domainsOnBlockList
         case .totalQueries:
-            return "globe"
+            return UIConstants.SystemImages.totalQueries
         case .queriesBlocked:
-            return "hand.raised"
+            return UIConstants.SystemImages.queriesBlocked
         case .percentBlocked:
-            return "chart.pie"
+            return UIConstants.SystemImages.percentBlocked
         }
     }
     

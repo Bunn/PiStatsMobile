@@ -59,7 +59,6 @@
 		3175EB7924AE597A00E7B5FF /* PiStatsMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */; };
 		317636A2252658F5005AED55 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317636A1252658F5005AED55 /* ViewUtils.swift */; };
 		317636A3252658F5005AED55 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317636A1252658F5005AED55 /* ViewUtils.swift */; };
-		317636AA25265AB7005AED55 /* PiMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317636A925265AB7005AED55 /* PiMonitorView.swift */; };
 		317636AB25265AB7005AED55 /* PiMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317636A925265AB7005AED55 /* PiMonitorView.swift */; };
 		3176C733251FB547002DF0A3 /* DisableDurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176C732251FB547002DF0A3 /* DisableDurationManager.swift */; };
 		317D481D24B3ADE200897EA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317D481F24B3ADE200897EA9 /* Localizable.strings */; };
@@ -83,6 +82,7 @@
 		31AECCFC24C7A55A00E381E0 /* PiholeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */; };
 		31AECCFE24C7A57300E381E0 /* PiholeTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */; };
 		31BCBE6324D2197B0077B6AE /* PiMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 31BCBE6224D2197B0077B6AE /* PiMonitor */; };
+		31C1A585252691A900431C87 /* PiMonitorStatusHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C1A584252691A900431C87 /* PiMonitorStatusHeader.swift */; };
 		31DB2A2A2517B1C200D67F9E /* CustomDurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB2A292517B1C200D67F9E /* CustomDurationsView.swift */; };
 		31E153072523AD61008DD6CD /* PiMonitorWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */; };
 		31E153102523AD69008DD6CD /* PiMonitorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */; };
@@ -194,6 +194,7 @@
 		31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsWidgets.swift; sourceTree = "<group>"; };
 		31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeEntry.swift; sourceTree = "<group>"; };
 		31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeTimelineProvider.swift; sourceTree = "<group>"; };
+		31C1A584252691A900431C87 /* PiMonitorStatusHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorStatusHeader.swift; sourceTree = "<group>"; };
 		31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHeaderView.swift; sourceTree = "<group>"; };
 		31DB2A292517B1C200D67F9E /* CustomDurationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDurationsView.swift; sourceTree = "<group>"; };
 		31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorWidget.swift; sourceTree = "<group>"; };
@@ -261,12 +262,11 @@
 		310647CA24BD10D600E2DA90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31C1A5832526919300431C87 /* PiMonitor */,
 				310647CB24BD10E900E2DA90 /* CircleBadgeStatus.swift */,
 				310647CD24BD115F00E2DA90 /* SmallStatsItem.swift */,
 				310647D124BD13D700E2DA90 /* MediumStatsItem.swift */,
 				310647CF24BD120600E2DA90 /* PiStatsDisplayWidgetView.swift */,
-				31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */,
-				317636A925265AB7005AED55 /* PiMonitorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -441,6 +441,16 @@
 				31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		31C1A5832526919300431C87 /* PiMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */,
+				317636A925265AB7005AED55 /* PiMonitorView.swift */,
+				31C1A584252691A900431C87 /* PiMonitorStatusHeader.swift */,
+			);
+			path = PiMonitor;
 			sourceTree = "<group>";
 		};
 		31F3DFE224B50E84001D4679 /* Piholes */ = {
@@ -701,6 +711,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				315F5EDC24BA2D3200FED38F /* Logger.swift in Sources */,
+				31C1A585252691A900431C87 /* PiMonitorStatusHeader.swift in Sources */,
 				315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */,
 				315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */,
 				317636A3252658F5005AED55 /* ViewUtils.swift in Sources */,
@@ -731,7 +742,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				317636AA25265AB7005AED55 /* PiMonitorView.swift in Sources */,
 				311D0A7524B0ED05003F18DB /* StatsItemView.swift in Sources */,
 				3142B27A24CDE2EE00484AB2 /* MetricsView.swift in Sources */,
 				317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */,
