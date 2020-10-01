@@ -19,11 +19,12 @@ struct PiMonitorWidgetView: View {
             } else if entry.piholeDataProvider.canDisplayMetrics == false {
                 VStack (spacing: 10) {
                     Image(systemName: UIConstants.SystemImages.piholeSetupMonitor)
+                        .foregroundColor(UIConstants.Colors.domainsOnBlocklist)
+
                     Text("\(UIConstants.Strings.Widget.piholeNotEnabledOn) \(entry.piholeDataProvider.name)")
                         .multilineTextAlignment(.center)
                 }
                 .font(Font.headline.weight(.semibold))
-                .foregroundColor(UIConstants.Colors.domainsOnBlocklist)
                 .padding()
             }
             else {
