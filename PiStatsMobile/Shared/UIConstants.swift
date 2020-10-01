@@ -71,6 +71,10 @@ struct UIConstants {
         static let allPiholesTitle = "All Pi-holes"
         static let temperatureScaleCelsius = "°C"
         static let temperatureScaleFahrenheit = "°F"
+        
+        struct Widget {
+            static let piholeNotEnabledOn = "Pi Monitor is not enabled on"
+        }
 
         struct Preferences {
             static let sectionInterface = "Interface"
