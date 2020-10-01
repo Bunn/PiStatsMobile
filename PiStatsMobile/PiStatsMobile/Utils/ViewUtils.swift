@@ -10,7 +10,7 @@ import SwiftUI
 struct ViewUtils {
     
     static func shieldStatusImageForDataProvider(_ dataProvider: PiholeDataProvider) -> some View {
-        if dataProvider.hasErrorMessages {
+        if dataProvider.hasErrorMessages || dataProvider.status == .enabledAndDisabled {
             return Image(systemName: UIConstants.SystemImages.piholeStatusWarning)
                 .foregroundColor(UIConstants.Colors.statusWarning)
         } else if dataProvider.status == .allEnabled {
