@@ -36,17 +36,24 @@ struct PiMonitorTimelineProvider: IntentTimelineProvider {
            let pihole = Pihole.restore(piholeUUID) {
             let provider = PiholeDataProvider(piholes: [pihole])
             os_log("get timeline called")
-            
+            let dispatchGroup = DispatchGroup()
+
+            dispatchGroup.enter()
             provider.fetchSummaryData {
-                os_log("summary returned")
-                provider.fetchMetricsData {
-                    os_log("metrics returned")
-                    let entry = PiholeEntry(piholeDataProvider: provider, date: Date(), widgetFamily: context.family)
-                    let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
-                    completion(timeline)
-                }
+                dispatchGroup.leave()
             }
-          
+            
+            dispatchGroup.enter()
+            provider.fetchMetricsData {
+                dispatchGroup.leave()
+            }
+            
+            dispatchGroup.notify(queue: DispatchQueue.main) {
+                let entry = PiholeEntry(piholeDataProvider: provider, date: Date(), widgetFamily: context.family)
+                let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
+                completion(timeline)                
+            }
+
         } else {
             os_log("No pihole found/selected")
             let provider = PiholeDataProvider(piholes: [])
