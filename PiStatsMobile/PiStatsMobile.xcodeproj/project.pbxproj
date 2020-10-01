@@ -57,6 +57,8 @@
 		3175EB6324AE597A00E7B5FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175EB6224AE597A00E7B5FF /* Preview Assets.xcassets */; };
 		3175EB6E24AE597A00E7B5FF /* PiStatsMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB6D24AE597A00E7B5FF /* PiStatsMobileTests.swift */; };
 		3175EB7924AE597A00E7B5FF /* PiStatsMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */; };
+		317636A2252658F5005AED55 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317636A1252658F5005AED55 /* ViewUtils.swift */; };
+		317636A3252658F5005AED55 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317636A1252658F5005AED55 /* ViewUtils.swift */; };
 		3176C733251FB547002DF0A3 /* DisableDurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176C732251FB547002DF0A3 /* DisableDurationManager.swift */; };
 		317D481D24B3ADE200897EA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317D481F24B3ADE200897EA9 /* Localizable.strings */; };
 		317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D482124B3D2F000897EA9 /* CodeScannerView.swift */; };
@@ -165,6 +167,7 @@
 		3175EB7424AE597A00E7B5FF /* PiStatsMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PiStatsMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsMobileUITests.swift; sourceTree = "<group>"; };
 		3175EB7A24AE597A00E7B5FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		317636A1252658F5005AED55 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		3176C732251FB547002DF0A3 /* DisableDurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableDurationManager.swift; sourceTree = "<group>"; };
 		317D481E24B3ADE200897EA9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		317D482024B3ADEA00897EA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -382,6 +385,7 @@
 				317D482124B3D2F000897EA9 /* CodeScannerView.swift */,
 				3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */,
 				319771AB24DB24BA0005E6BF /* ScannedPihole.swift */,
+				317636A1252658F5005AED55 /* ViewUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -695,6 +699,7 @@
 				315F5EDC24BA2D3200FED38F /* Logger.swift in Sources */,
 				315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */,
 				315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */,
+				317636A3252658F5005AED55 /* ViewUtils.swift in Sources */,
 				315F5EDA24BA2D0C00FED38F /* UserPreferences.swift in Sources */,
 				3132CDCC252522F400542F6F /* IntentHandler.swift in Sources */,
 				315F5EDB24BA2D2700FED38F /* KeyChainPasswordItem.swift in Sources */,
@@ -748,6 +753,7 @@
 				31A9298A2517CF4B00FA9F50 /* CountdownPickerViewRepresentable.swift in Sources */,
 				3182E29024BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */,
 				31A9297F2517CF0000FA9F50 /* CountdownPickerView.swift in Sources */,
+				317636A2252658F5005AED55 /* ViewUtils.swift in Sources */,
 				3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

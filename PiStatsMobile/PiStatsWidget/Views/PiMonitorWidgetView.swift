@@ -18,9 +18,7 @@ struct PiMonitorView: View {
                 Label(title: {
                     Text(provider.name)
                 }, icon: {
-                    Image(systemName: UIConstants.SystemImages.piholeStatusWarning)
-                        .frame(width: imageSize, height: imageSize)
-                        .foregroundColor(UIConstants.Colors.statusOnline)
+                    ViewUtils.shieldStatusImageForDataProvider(provider)
                     
                 })
                 .font(Font.headline.weight(.bold))
