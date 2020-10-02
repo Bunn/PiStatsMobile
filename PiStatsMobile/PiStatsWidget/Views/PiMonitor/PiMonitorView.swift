@@ -28,6 +28,8 @@ struct PiMonitorStatsView: View {
                     Image(systemName: item.systemImage)
                         .frame(width: imageSize, height: imageSize)
                 })
+                .font(Font.body.weight(.medium))
+                .minimumScaleFactor(0.80)
                 .foregroundColor(item.color)
             }
         }
@@ -52,8 +54,6 @@ struct PiMonitorView: View {
                     Spacer()
                     
                     PiMonitorStatsView(listItems: getStatsListItems(provider))
-                        .font(Font.body.weight(.semibold))
-                        .minimumScaleFactor(0.89)
                 }
             }
         }

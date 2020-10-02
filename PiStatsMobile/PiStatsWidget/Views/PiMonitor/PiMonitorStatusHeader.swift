@@ -17,6 +17,7 @@ struct PiMonitorStatusHeader: View {
             }, icon: {
                 ViewUtils.shieldStatusImageForDataProvider(provider)
             })
+            .minimumScaleFactor(0.75)
             .font(Font.headline.weight(.bold))
             Divider()
             Spacer()
