@@ -29,6 +29,7 @@ struct UIConstants {
         static let statusOnline = Color("StatusOnline")
         static let statusWarning = Color("StatusWarning")
         static let errorMessage = Color("StatusOffline")
+        static let piMonitorWidgetBackground = Color("PiMonitorWidgetBackground")
     }
     
     struct Strings {
@@ -58,7 +59,6 @@ struct UIConstants {
         static let piMonitorExplanation = "Pi Monitor is a service that helps you to monitor your Raspberry Pi by showing you information like temperature, memory usage and more!\n\nIn order to use it you'll need to install it in your Raspberry Pi."
 
         static let addFirstPiholeCaption = "Tap here to add your first pi-hole"
-        static let displayIconBadgeForOfflinePiholes = "Display icon badge for offline pi-holes"
         static let piholesNavigationTitle = "Pi-holes"
         static let settingsNavigationTitle = "Settings"
         static let disablePiholeOptionsTitle = "Disable Pi-hole"
@@ -70,6 +70,10 @@ struct UIConstants {
         static let allPiholesTitle = "All Pi-holes"
         static let temperatureScaleCelsius = "°C"
         static let temperatureScaleFahrenheit = "°F"
+        
+        struct Widget {
+            static let piholeNotEnabledOn = "Pi Monitor is not enabled on"
+        }
 
         struct Preferences {
             static let sectionInterface = "Interface"
@@ -135,5 +139,9 @@ struct UIConstants {
         static let addNewCustomDisableTime = "plus"
         static let piMonitorTemperature = "thermometer"
 
+        static let domainsOnBlockList = "list.bullet"
+        static let totalQueries = "globe"
+        static let queriesBlocked = "hand.raised"
+        static let percentBlocked = "chart.pie"
     }
 }

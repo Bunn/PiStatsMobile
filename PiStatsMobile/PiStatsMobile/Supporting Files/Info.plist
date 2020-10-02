@@ -35,6 +35,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera permission is necessary to read the API Token QRCode</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>SelectPiholeIntent</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

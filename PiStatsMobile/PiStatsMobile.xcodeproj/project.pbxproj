@@ -13,12 +13,32 @@
 		310647D024BD120600E2DA90 /* PiStatsDisplayWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310647CF24BD120600E2DA90 /* PiStatsDisplayWidgetView.swift */; };
 		310647D224BD13D700E2DA90 /* MediumStatsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310647D124BD13D700E2DA90 /* MediumStatsItem.swift */; };
 		31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31115BC724B29A1700C91212 /* PiholeSetupView.swift */; };
+		311A3E1C25252504005464D2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082A24B53246008B3C2F /* Logger.swift */; };
+		311A3E2225252509005464D2 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082F24B53269008B3C2F /* UserPreferences.swift */; };
+		311A3E282525250C005464D2 /* APIToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082E24B53268008B3C2F /* APIToken.swift */; };
+		311A3E2E2525250E005464D2 /* KeyChainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082C24B53255008B3C2F /* KeyChainPasswordItem.swift */; };
+		311A3E3425252544005464D2 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132CDBE252522DA00542F6F /* IntentHandler.swift */; };
+		311A3E4425252766005464D2 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */; };
+		311A3E4A2525276A005464D2 /* Pihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082624B5321C008B3C2F /* Pihole.swift */; };
+		311A3E5625252775005464D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7824B0F405003F18DB /* UIConstants.swift */; };
+		311A3E5C25252778005464D2 /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
+		311A3E68252527D9005464D2 /* SwiftHole in Frameworks */ = {isa = PBXBuildFile; productRef = 311A3E67252527D9005464D2 /* SwiftHole */; };
+		311A3E6A252527DC005464D2 /* PiMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 311A3E69252527DC005464D2 /* PiMonitor */; };
 		311D0A7524B0ED05003F18DB /* StatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7424B0ED05003F18DB /* StatsItemView.swift */; };
 		311D0A7724B0EFE3003F18DB /* StatsItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7624B0EFE3003F18DB /* StatsItemType.swift */; };
 		311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7824B0F405003F18DB /* UIConstants.swift */; };
 		311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311D0A7A24B0F613003F18DB /* StatsView.swift */; };
+		3132CDBF252522DA00542F6F /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132CDBE252522DA00542F6F /* IntentHandler.swift */; };
+		3132CDC3252522DA00542F6F /* IntentHandler.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3132CDBC252522DA00542F6F /* IntentHandler.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3132CDCC252522F400542F6F /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132CDBE252522DA00542F6F /* IntentHandler.swift */; };
+		313599D32527224300A12AC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313599D22527224300A12AC9 /* Constants.swift */; };
+		313599D42527224300A12AC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313599D22527224300A12AC9 /* Constants.swift */; };
+		313599D52527224300A12AC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313599D22527224300A12AC9 /* Constants.swift */; };
 		3137D20D24D217CD0021ACD3 /* PiMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 3137D20C24D217CD0021ACD3 /* PiMonitor */; };
 		3142B27A24CDE2EE00484AB2 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3142B27924CDE2EE00484AB2 /* MetricsView.swift */; };
+		315825AD25275812001160EA /* PiholeIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 315825B125275812001160EA /* PiholeIntents.intentdefinition */; };
+		315825AE25275812001160EA /* PiholeIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 315825B125275812001160EA /* PiholeIntents.intentdefinition */; };
+		315825AF25275812001160EA /* PiholeIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 315825B125275812001160EA /* PiholeIntents.intentdefinition */; };
 		315F5EC024BA162600FED38F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315F5EBF24BA162600FED38F /* WidgetKit.framework */; };
 		315F5EC224BA162600FED38F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315F5EC124BA162600FED38F /* SwiftUI.framework */; };
 		315F5EC524BA162600FED38F /* ViewStatsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315F5EC424BA162600FED38F /* ViewStatsWidget.swift */; };
@@ -40,6 +60,9 @@
 		3175EB6324AE597A00E7B5FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175EB6224AE597A00E7B5FF /* Preview Assets.xcassets */; };
 		3175EB6E24AE597A00E7B5FF /* PiStatsMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB6D24AE597A00E7B5FF /* PiStatsMobileTests.swift */; };
 		3175EB7924AE597A00E7B5FF /* PiStatsMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */; };
+		317636A2252658F5005AED55 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317636A1252658F5005AED55 /* ViewUtils.swift */; };
+		317636A3252658F5005AED55 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317636A1252658F5005AED55 /* ViewUtils.swift */; };
+		317636AB25265AB7005AED55 /* PiMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317636A925265AB7005AED55 /* PiMonitorView.swift */; };
 		3176C733251FB547002DF0A3 /* DisableDurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176C732251FB547002DF0A3 /* DisableDurationManager.swift */; };
 		317D481D24B3ADE200897EA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 317D481F24B3ADE200897EA9 /* Localizable.strings */; };
 		317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D482124B3D2F000897EA9 /* CodeScannerView.swift */; };
@@ -47,6 +70,7 @@
 		3182E29024BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */; };
 		3182E29124BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */; };
 		319771AC24DB24BA0005E6BF /* ScannedPihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319771AB24DB24BA0005E6BF /* ScannedPihole.swift */; };
+		31986A9425252AC500261BF5 /* PiMonitorTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31986A9325252AC500261BF5 /* PiMonitorTimelineProvider.swift */; };
 		319B082824B5321C008B3C2F /* Pihole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082624B5321C008B3C2F /* Pihole.swift */; };
 		319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082724B5321C008B3C2F /* PiholeDataProvider.swift */; };
 		319B082B24B53246008B3C2F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B082A24B53246008B3C2F /* Logger.swift */; };
@@ -61,11 +85,21 @@
 		31AECCFC24C7A55A00E381E0 /* PiholeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */; };
 		31AECCFE24C7A57300E381E0 /* PiholeTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */; };
 		31BCBE6324D2197B0077B6AE /* PiMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 31BCBE6224D2197B0077B6AE /* PiMonitor */; };
+		31C1A585252691A900431C87 /* PiMonitorStatusHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C1A584252691A900431C87 /* PiMonitorStatusHeader.swift */; };
 		31DB2A2A2517B1C200D67F9E /* CustomDurationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB2A292517B1C200D67F9E /* CustomDurationsView.swift */; };
+		31E153072523AD61008DD6CD /* PiMonitorWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */; };
+		31E153102523AD69008DD6CD /* PiMonitorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */; };
 		31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3132CDC1252522DA00542F6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3175EB5024AE597900E7B5FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3132CDBB252522DA00542F6F;
+			remoteInfo = IntentHandler;
+		};
 		315F5EC924BA162800FED38F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3175EB5024AE597900E7B5FF /* Project object */;
@@ -97,6 +131,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				315F5ECB24BA162800FED38F /* PiStatsWidgetExtension.appex in Embed App Extensions */,
+				3132CDC3252522DA00542F6F /* IntentHandler.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,13 +149,20 @@
 		311D0A7624B0EFE3003F18DB /* StatsItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsItemType.swift; sourceTree = "<group>"; };
 		311D0A7824B0F405003F18DB /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		311D0A7A24B0F613003F18DB /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		3132CDBC252522DA00542F6F /* IntentHandler.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IntentHandler.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3132CDBE252522DA00542F6F /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		3132CDC0252522DA00542F6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		313599D22527224300A12AC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3142B27924CDE2EE00484AB2 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
+		315825B025275812001160EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/PiholeIntents.intentdefinition; sourceTree = "<group>"; };
+		315825B825275832001160EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PiholeIntents.strings; sourceTree = "<group>"; };
 		315F5EBD24BA162600FED38F /* PiStatsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PiStatsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		315F5EBF24BA162600FED38F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		315F5EC124BA162600FED38F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		315F5EC424BA162600FED38F /* ViewStatsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStatsWidget.swift; sourceTree = "<group>"; };
 		315F5EC624BA162800FED38F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		315F5EC824BA162800FED38F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3171772B25277BBA001B1CAB /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/PiholeIntents.strings"; sourceTree = "<group>"; };
 		3175EB5824AE597900E7B5FF /* PiStatsMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiStatsMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175EB5B24AE597900E7B5FF /* PiStatsMobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsMobileApp.swift; sourceTree = "<group>"; };
 		3175EB5D24AE597900E7B5FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +175,8 @@
 		3175EB7424AE597A00E7B5FF /* PiStatsMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PiStatsMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175EB7824AE597A00E7B5FF /* PiStatsMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsMobileUITests.swift; sourceTree = "<group>"; };
 		3175EB7A24AE597A00E7B5FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		317636A1252658F5005AED55 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
+		317636A925265AB7005AED55 /* PiMonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorView.swift; sourceTree = "<group>"; };
 		3176C732251FB547002DF0A3 /* DisableDurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableDurationManager.swift; sourceTree = "<group>"; };
 		317D481E24B3ADE200897EA9 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		317D482024B3ADEA00897EA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -141,6 +185,8 @@
 		3182E28B24BB6A2300BF53D9 /* PiStatsMobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PiStatsMobile.entitlements; sourceTree = "<group>"; };
 		3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtensions.swift; sourceTree = "<group>"; };
 		319771AB24DB24BA0005E6BF /* ScannedPihole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedPihole.swift; sourceTree = "<group>"; };
+		31986A9325252AC500261BF5 /* PiMonitorTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorTimelineProvider.swift; sourceTree = "<group>"; };
+		31986AA025252D9600261BF5 /* IntentHandler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntentHandler.entitlements; sourceTree = "<group>"; };
 		319B082624B5321C008B3C2F /* Pihole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pihole.swift; sourceTree = "<group>"; };
 		319B082724B5321C008B3C2F /* PiholeDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiholeDataProvider.swift; sourceTree = "<group>"; };
 		319B082A24B53246008B3C2F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -154,12 +200,24 @@
 		31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiStatsWidgets.swift; sourceTree = "<group>"; };
 		31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeEntry.swift; sourceTree = "<group>"; };
 		31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeTimelineProvider.swift; sourceTree = "<group>"; };
+		31C1A584252691A900431C87 /* PiMonitorStatusHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorStatusHeader.swift; sourceTree = "<group>"; };
 		31D1F58A24BB7F8500D50FDB /* StatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHeaderView.swift; sourceTree = "<group>"; };
 		31DB2A292517B1C200D67F9E /* CustomDurationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDurationsView.swift; sourceTree = "<group>"; };
+		31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorWidget.swift; sourceTree = "<group>"; };
+		31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorWidgetView.swift; sourceTree = "<group>"; };
 		31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeDataProviderListManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3132CDB9252522DA00542F6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				311A3E6A252527DC005464D2 /* PiMonitor in Frameworks */,
+				311A3E68252527D9005464D2 /* SwiftHole in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		315F5EBA24BA162600FED38F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -210,12 +268,23 @@
 		310647CA24BD10D600E2DA90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31C1A5832526919300431C87 /* PiMonitor */,
 				310647CB24BD10E900E2DA90 /* CircleBadgeStatus.swift */,
 				310647CD24BD115F00E2DA90 /* SmallStatsItem.swift */,
 				310647D124BD13D700E2DA90 /* MediumStatsItem.swift */,
 				310647CF24BD120600E2DA90 /* PiStatsDisplayWidgetView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3132CDBD252522DA00542F6F /* IntentHandler */ = {
+			isa = PBXGroup;
+			children = (
+				31986AA025252D9600261BF5 /* IntentHandler.entitlements */,
+				3132CDBE252522DA00542F6F /* IntentHandler.swift */,
+				3132CDC0252522DA00542F6F /* Info.plist */,
+			);
+			path = IntentHandler;
 			sourceTree = "<group>";
 		};
 		315F5EBE24BA162600FED38F /* Frameworks */ = {
@@ -233,6 +302,7 @@
 				31AECCFA24C7A54900E381E0 /* Core */,
 				310647CA24BD10D600E2DA90 /* Views */,
 				315F5EC424BA162600FED38F /* ViewStatsWidget.swift */,
+				31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */,
 				31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */,
 				315F5EC624BA162800FED38F /* Assets.xcassets */,
 				315F5EC824BA162800FED38F /* Info.plist */,
@@ -259,6 +329,7 @@
 				3175EB6C24AE597A00E7B5FF /* PiStatsMobileTests */,
 				3175EB7724AE597A00E7B5FF /* PiStatsMobileUITests */,
 				315F5EC324BA162600FED38F /* PiStatsWidget */,
+				3132CDBD252522DA00542F6F /* IntentHandler */,
 				315F5EBE24BA162600FED38F /* Frameworks */,
 				3175EB5924AE597900E7B5FF /* Products */,
 			);
@@ -271,6 +342,7 @@
 				3175EB6924AE597A00E7B5FF /* PiStatsMobileTests.xctest */,
 				3175EB7424AE597A00E7B5FF /* PiStatsMobileUITests.xctest */,
 				315F5EBD24BA162600FED38F /* PiStatsWidgetExtension.appex */,
+				3132CDBC252522DA00542F6F /* IntentHandler.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -285,6 +357,7 @@
 				319F965B24B2658300B680D3 /* Views */,
 				317D481724B3ACCE00897EA9 /* Utils */,
 				317D481824B3ACDD00897EA9 /* Supporting Files */,
+				315825B125275812001160EA /* PiholeIntents.intentdefinition */,
 			);
 			path = PiStatsMobile;
 			sourceTree = "<group>";
@@ -322,6 +395,8 @@
 				317D482124B3D2F000897EA9 /* CodeScannerView.swift */,
 				3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */,
 				319771AB24DB24BA0005E6BF /* ScannedPihole.swift */,
+				317636A1252658F5005AED55 /* ViewUtils.swift */,
+				313599D22527224300A12AC9 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -369,9 +444,20 @@
 			isa = PBXGroup;
 			children = (
 				31AECCFB24C7A55A00E381E0 /* PiholeEntry.swift */,
+				31986A9325252AC500261BF5 /* PiMonitorTimelineProvider.swift */,
 				31AECCFD24C7A57300E381E0 /* PiholeTimelineProvider.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		31C1A5832526919300431C87 /* PiMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */,
+				317636A925265AB7005AED55 /* PiMonitorView.swift */,
+				31C1A584252691A900431C87 /* PiMonitorStatusHeader.swift */,
+			);
+			path = PiMonitor;
 			sourceTree = "<group>";
 		};
 		31F3DFE224B50E84001D4679 /* Piholes */ = {
@@ -410,6 +496,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3132CDBB252522DA00542F6F /* IntentHandler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3132CDC4252522DA00542F6F /* Build configuration list for PBXNativeTarget "IntentHandler" */;
+			buildPhases = (
+				3132CDB8252522DA00542F6F /* Sources */,
+				3132CDB9252522DA00542F6F /* Frameworks */,
+				3132CDBA252522DA00542F6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IntentHandler;
+			packageProductDependencies = (
+				311A3E67252527D9005464D2 /* SwiftHole */,
+				311A3E69252527DC005464D2 /* PiMonitor */,
+			);
+			productName = IntentHandler;
+			productReference = 3132CDBC252522DA00542F6F /* IntentHandler.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		315F5EBC24BA162600FED38F /* PiStatsWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 315F5ECF24BA162800FED38F /* Build configuration list for PBXNativeTarget "PiStatsWidgetExtension" */;
@@ -444,6 +551,7 @@
 			);
 			dependencies = (
 				315F5ECA24BA162800FED38F /* PBXTargetDependency */,
+				3132CDC2252522DA00542F6F /* PBXTargetDependency */,
 			);
 			name = PiStatsMobile;
 			packageProductDependencies = (
@@ -499,6 +607,9 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					3132CDBB252522DA00542F6F = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
 					315F5EBC24BA162600FED38F = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -537,11 +648,19 @@
 				3175EB6824AE597A00E7B5FF /* PiStatsMobileTests */,
 				3175EB7324AE597A00E7B5FF /* PiStatsMobileUITests */,
 				315F5EBC24BA162600FED38F /* PiStatsWidgetExtension */,
+				3132CDBB252522DA00542F6F /* IntentHandler */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3132CDBA252522DA00542F6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		315F5EBB24BA162600FED38F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -577,25 +696,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3132CDB8252522DA00542F6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				311A3E4A2525276A005464D2 /* Pihole.swift in Sources */,
+				313599D52527224300A12AC9 /* Constants.swift in Sources */,
+				311A3E1C25252504005464D2 /* Logger.swift in Sources */,
+				311A3E2225252509005464D2 /* UserPreferences.swift in Sources */,
+				311A3E4425252766005464D2 /* UserDefaultExtensions.swift in Sources */,
+				311A3E282525250C005464D2 /* APIToken.swift in Sources */,
+				311A3E2E2525250E005464D2 /* KeyChainPasswordItem.swift in Sources */,
+				311A3E5625252775005464D2 /* UIConstants.swift in Sources */,
+				3132CDBF252522DA00542F6F /* IntentHandler.swift in Sources */,
+				315825AF25275812001160EA /* PiholeIntents.intentdefinition in Sources */,
+				311A3E5C25252778005464D2 /* StatsItemType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		315F5EB924BA162600FED38F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				315F5EDC24BA2D3200FED38F /* Logger.swift in Sources */,
+				31C1A585252691A900431C87 /* PiMonitorStatusHeader.swift in Sources */,
 				315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */,
 				315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */,
+				317636A3252658F5005AED55 /* ViewUtils.swift in Sources */,
 				315F5EDA24BA2D0C00FED38F /* UserPreferences.swift in Sources */,
+				3132CDCC252522F400542F6F /* IntentHandler.swift in Sources */,
+				313599D42527224300A12AC9 /* Constants.swift in Sources */,
 				315F5EDB24BA2D2700FED38F /* KeyChainPasswordItem.swift in Sources */,
 				310647CC24BD10E900E2DA90 /* CircleBadgeStatus.swift in Sources */,
 				31AECCFE24C7A57300E381E0 /* PiholeTimelineProvider.swift in Sources */,
 				31AECCC524C7A17400E381E0 /* PiStatsWidgets.swift in Sources */,
+				31986A9425252AC500261BF5 /* PiMonitorTimelineProvider.swift in Sources */,
+				31E153102523AD69008DD6CD /* PiMonitorWidget.swift in Sources */,
 				3182E29124BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */,
 				315F5ED924BA2D0C00FED38F /* APIToken.swift in Sources */,
 				310647D024BD120600E2DA90 /* PiStatsDisplayWidgetView.swift in Sources */,
 				315F5ED124BA1DF800FED38F /* StatsItemType.swift in Sources */,
+				31E153072523AD61008DD6CD /* PiMonitorWidgetView.swift in Sources */,
 				315F5EC524BA162600FED38F /* ViewStatsWidget.swift in Sources */,
+				317636AB25265AB7005AED55 /* PiMonitorView.swift in Sources */,
 				310647CE24BD115F00E2DA90 /* SmallStatsItem.swift in Sources */,
 				31AECCFC24C7A55A00E381E0 /* PiholeEntry.swift in Sources */,
+				315825AE25275812001160EA /* PiholeIntents.intentdefinition in Sources */,
 				315F5ED424BA1E1500FED38F /* UIConstants.swift in Sources */,
 				310647D224BD13D700E2DA90 /* MediumStatsItem.swift in Sources */,
 			);
@@ -610,8 +756,10 @@
 				317D482224B3D2F000897EA9 /* CodeScannerView.swift in Sources */,
 				319B083024B53269008B3C2F /* APIToken.swift in Sources */,
 				31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */,
+				313599D32527224300A12AC9 /* Constants.swift in Sources */,
 				3175EB5E24AE597900E7B5FF /* ContentView.swift in Sources */,
 				3102D30B24B7BC7900EC8120 /* SettingsView.swift in Sources */,
+				315825AD25275812001160EA /* PiholeIntents.intentdefinition in Sources */,
 				311D0A7B24B0F613003F18DB /* StatsView.swift in Sources */,
 				311D0A7924B0F405003F18DB /* UIConstants.swift in Sources */,
 				319F965D24B265D200B680D3 /* PiholeStatsList.swift in Sources */,
@@ -622,6 +770,7 @@
 				31A4D54224B92D220033EF53 /* AppDelegate.swift in Sources */,
 				318087FE24BDB11F00EF5159 /* StatusHeaderView.swift in Sources */,
 				319B083124B53269008B3C2F /* UserPreferences.swift in Sources */,
+				311A3E3425252544005464D2 /* IntentHandler.swift in Sources */,
 				31DB2A2A2517B1C200D67F9E /* CustomDurationsView.swift in Sources */,
 				31115BC824B29A1700C91212 /* PiholeSetupView.swift in Sources */,
 				319B082924B5321C008B3C2F /* PiholeDataProvider.swift in Sources */,
@@ -630,6 +779,7 @@
 				31A9298A2517CF4B00FA9F50 /* CountdownPickerViewRepresentable.swift in Sources */,
 				3182E29024BB6DA100BF53D9 /* UserDefaultExtensions.swift in Sources */,
 				31A9297F2517CF0000FA9F50 /* CountdownPickerView.swift in Sources */,
+				317636A2252658F5005AED55 /* ViewUtils.swift in Sources */,
 				3175EB5C24AE597900E7B5FF /* PiStatsMobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,6 +803,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3132CDC2252522DA00542F6F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3132CDBB252522DA00542F6F /* IntentHandler */;
+			targetProxy = 3132CDC1252522DA00542F6F /* PBXContainerItemProxy */;
+		};
 		315F5ECA24BA162800FED38F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 315F5EBC24BA162600FED38F /* PiStatsWidgetExtension */;
@@ -671,6 +826,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		315825B125275812001160EA /* PiholeIntents.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				315825B025275812001160EA /* Base */,
+				315825B825275832001160EA /* en */,
+				3171772B25277BBA001B1CAB /* pt-BR */,
+			);
+			name = PiholeIntents.intentdefinition;
+			sourceTree = "<group>";
+		};
 		317D481F24B3ADE200897EA9 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -683,6 +848,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3132CDC5252522DA00542F6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = IntentHandler/IntentHandler.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 13;
+				DEVELOPMENT_TEAM = B2RUA6XMHC;
+				INFOPLIST_FILE = IntentHandler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.IntentHandler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3132CDC6252522DA00542F6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = IntentHandler/IntentHandler.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 13;
+				DEVELOPMENT_TEAM = B2RUA6XMHC;
+				INFOPLIST_FILE = IntentHandler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.IntentHandler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		315F5ECD24BA162800FED38F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -690,7 +899,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PiStatsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -698,7 +907,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.PiStatsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -714,7 +923,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PiStatsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -722,7 +931,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.PiStatsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -855,7 +1064,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_PREVIEWS = YES;
@@ -865,11 +1074,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -881,7 +1090,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_PREVIEWS = YES;
@@ -891,11 +1100,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -986,6 +1195,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3132CDC4252522DA00542F6F /* Build configuration list for PBXNativeTarget "IntentHandler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3132CDC5252522DA00542F6F /* Debug */,
+				3132CDC6252522DA00542F6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		315F5ECF24BA162800FED38F /* Build configuration list for PBXNativeTarget "PiStatsWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1053,6 +1271,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		311A3E67252527D9005464D2 /* SwiftHole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 315F5EDD24BA2E3900FED38F /* XCRemoteSwiftPackageReference "SwiftHole" */;
+			productName = SwiftHole;
+		};
+		311A3E69252527DC005464D2 /* PiMonitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3137D20B24D217CD0021ACD3 /* XCRemoteSwiftPackageReference "PiMonitor" */;
+			productName = PiMonitor;
+		};
 		3137D20C24D217CD0021ACD3 /* PiMonitor */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3137D20B24D217CD0021ACD3 /* XCRemoteSwiftPackageReference "PiMonitor" */;

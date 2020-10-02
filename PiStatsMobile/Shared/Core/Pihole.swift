@@ -17,7 +17,8 @@ class Pihole: Identifiable, ObservableObject {
     private(set) var metrics: PiMetrics?
     private(set) var active = false
     private lazy var keychainToken = APIToken(accountName: self.id.uuidString)
-
+    private let servicesTimeout: TimeInterval = 10
+    
     var displayName: String?
     var address: String
     var piMonitorPort: Int?
@@ -56,12 +57,19 @@ class Pihole: Identifiable, ObservableObject {
         address.components(separatedBy: ":").first ?? ""
     }
     
+    var title: String {
+        if let name = displayName {
+            return name
+        }
+        return host
+    }
+    
     private var service: SwiftHole {
-        SwiftHole(host: host, port: port, apiToken: apiToken, timeoutInterval: 10)
+        SwiftHole(host: host, port: port, apiToken: apiToken, timeoutInterval: servicesTimeout)
     }
     
     private var piMonitorService: PiMonitor {
-        PiMonitor(host: host, port: piMonitorPort ?? 8088)
+        PiMonitor(host: host, port: piMonitorPort ?? 8088, timeoutInterval: servicesTimeout)
     }
   
     required init(from decoder: Decoder) throws {
@@ -92,7 +100,9 @@ class Pihole: Identifiable, ObservableObject {
     }
     
     static func previewData() -> Pihole {
-        Pihole(address: "127.0.0.1")
+        let pihole = Pihole(address: "127.0.0.1")
+        pihole.hasPiMonitor = true
+        return pihole
     }
     
     private func getPort(_ address: String) -> Int? {

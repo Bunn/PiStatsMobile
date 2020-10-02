@@ -21,6 +21,11 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         provider.percentBlocked = "12,3%"
         provider.domainsOnBlocklist = "12,345"
         provider.status = .allEnabled
+        
+        provider.temperature = "23 ºC"
+        provider.memoryUsage = "50%"
+        provider.loadAverage = "0.1, 0.3, 0.6"
+        provider.uptime = "23h 2m"
         return provider
     }
     
@@ -92,7 +97,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         if piholes.count > 1 {
             self.name = UIConstants.Strings.allPiholesTitle
         } else if let firstPihole = piholes.first {
-            self.name = firstPihole.displayName ?? firstPihole.host
+            self.name = firstPihole.title
         }
         setupCancellables()
     }
@@ -253,7 +258,6 @@ class PiholeDataProvider: ObservableObject, Identifiable {
             completion?()
             return
         }
-        
         let dispatchGroup = DispatchGroup()
         
         piholes.forEach { pihole in
@@ -262,6 +266,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
                 DispatchQueue.main.async {
                     self.updateMetrics(pihole.metrics)
                 }
+                dispatchGroup.leave()
             }
         }
         dispatchGroup.notify(queue: DispatchQueue.main) {
