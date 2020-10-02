@@ -10,7 +10,6 @@ import Foundation
 extension UserDefaults {
   
     static func shared() -> UserDefaults {
-        let appGroup = "group.dev.bunn.PiStatsMobile"
-        return UserDefaults(suiteName: appGroup)!
+        return UserDefaults(suiteName: Constants.appGroup)!
     }
 }

@@ -59,7 +59,6 @@ struct UIConstants {
         static let piMonitorExplanation = "Pi Monitor is a service that helps you to monitor your Raspberry Pi by showing you information like temperature, memory usage and more!\n\nIn order to use it you'll need to install it in your Raspberry Pi."
 
         static let addFirstPiholeCaption = "Tap here to add your first pi-hole"
-        static let displayIconBadgeForOfflinePiholes = "Display icon badge for offline pi-holes"
         static let piholesNavigationTitle = "Pi-holes"
         static let settingsNavigationTitle = "Settings"
         static let disablePiholeOptionsTitle = "Disable Pi-hole"

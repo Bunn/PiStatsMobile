@@ -14,7 +14,6 @@ private enum Keys: String {
     case displayStatsAsList
     case displayStatsIcons
     case displayAllPiholes
-    case displayIconBadgeForOfflinePiholes
     case disableTimes
     case temperatureScale
 }
@@ -34,65 +33,73 @@ class UserPreferences: ObservableObject {
             return .celsius
         }
     }
-
-    @AppStorage(Keys.displayAllPiholes.rawValue) var displayAllPiholes: Bool = false {
-        willSet {
-            objectWillChange.send()
-        }
+    
+    init() {
+        migrateStandardUserDefaultToGroupIfNecessary()
     }
     
-    @AppStorage(Keys.disablePermanently.rawValue) var disablePermanently: Bool = false {
-        willSet {
-            objectWillChange.send()
-        }
-    }
-    
-    @AppStorage(Keys.displayStatsAsList.rawValue) var displayStatsAsList: Bool = false {
-        willSet {
-            objectWillChange.send()
-        }
-    }
-    
-    @AppStorage(Keys.displayStatsIcons.rawValue) var displayStatsIcons: Bool = true {
-        willSet {
-            objectWillChange.send()
-        }
-    }
-    
-    @Published var disableTimes: [TimeInterval] = UserDefaults.standard.object(forKey: Keys.disableTimes.rawValue) as? [TimeInterval] ?? [30, 60, 300] {
-        didSet {
-            UserDefaults.standard.set(disableTimes, forKey: Keys.disableTimes.rawValue)
-        }
-    }
-    
-    
-    @AppStorage(Keys.temperatureScale.rawValue) var temperatureScale: Int = 0 {
-        willSet {
-            objectWillChange.send()
-        }
-    }
-    
-    /*
-     TODO: Improve this:
-     I'm not sure how to have an AppStorage + Published, so I used standard UserDefaults
-     Also, the handling of the requestAuthorization and badge reset should be done by the caller since this
-     class should only be responsible for data storage and not business logic
-     */
-    @Published var displayIconBadgeForOfflinePiholes: Bool =  UserDefaults.standard.object(forKey: Keys.displayIconBadgeForOfflinePiholes.rawValue) as? Bool ?? false {
-        willSet {
-            if newValue {
-                UNUserNotificationCenter.current().requestAuthorization(options: .badge) { (granted, error) in
-                    if granted == false {
-                        DispatchQueue.main.async {
-                            self.displayIconBadgeForOfflinePiholes = false
-                        }
+    private func migrateStandardUserDefaultToGroupIfNecessary() {
+        let keys = [
+            Keys.displayAllPiholes.rawValue,
+            Keys.disablePermanently.rawValue,
+            Keys.displayStatsAsList.rawValue,
+            Keys.displayStatsIcons.rawValue,
+            Keys.temperatureScale.rawValue,
+            Keys.disableTimes.rawValue
+        ]
+        
+        keys.forEach { key in
+            if let value = UserDefaults.standard.object(forKey: key) {
+                UserDefaults.standard.removeObject(forKey: key)
+                /*
+                 If I only set the disableTimes using the shared().setValue, it's getter returns nil and then returns the default set of intervals.
+               */
+                if key == Keys.disableTimes.rawValue {
+                    if let times = value as? [TimeInterval] {
+                        disableTimes = times
                     }
+                } else {
+                    UserDefaults.shared().setValue(value, forKey: key)
                 }
-            } else {
-               // UIApplication.shared.applicationIconBadgeNumber = 0
             }
-        } didSet {
-            UserDefaults.standard.set(displayIconBadgeForOfflinePiholes, forKey: Keys.displayIconBadgeForOfflinePiholes.rawValue)
+        }
+
+        UserDefaults.shared().synchronize()
+    }
+
+    @AppStorage(Keys.displayAllPiholes.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var displayAllPiholes: Bool = false {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @AppStorage(Keys.disablePermanently.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var disablePermanently: Bool = false {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @AppStorage(Keys.displayStatsAsList.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var displayStatsAsList: Bool = false {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @AppStorage(Keys.displayStatsIcons.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var displayStatsIcons: Bool = true {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @Published var disableTimes: [TimeInterval] = UserDefaults.shared().object(forKey: Keys.disableTimes.rawValue) as? [TimeInterval] ?? [30, 60, 300] {
+        didSet {
+            UserDefaults.shared().set(disableTimes, forKey: Keys.disableTimes.rawValue)
+        }
+    }
+    
+    @AppStorage(Keys.temperatureScale.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var temperatureScale: Int = 0 {
+        willSet {
+            objectWillChange.send()
         }
     }
 }

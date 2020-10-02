@@ -72,7 +72,7 @@ class DisableDurationManager: ObservableObject {
     }
     
     func addNewItem() {
-        items.append(DisableTimeItem(timeInterval: 30))
+        items.append(DisableTimeItem(timeInterval: 0))
         setupCancellables()
     }
     
