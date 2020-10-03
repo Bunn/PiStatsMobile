@@ -32,6 +32,7 @@ struct PiholeSetupView: View {
     @State private var piMonitorPort: String = ""
     @State private var isPiMonitorEnabled: Bool = false
     @State private var displayPiMonitorAlert = false
+    @State private var httpType: Int = 0
 
     @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
     @Environment(\.openURL) var openURL
@@ -68,6 +69,12 @@ struct PiholeSetupView: View {
                             .keyboardType(.numberPad)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
+                    }
+                    HStack {
+                        Picker(selection: $httpType, label: Text("")) {
+                            Text("HTTP").tag(0)
+                            Text("HTTPS").tag(1)
+                        }.pickerStyle(SegmentedPickerStyle())
                     }
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupToken)
