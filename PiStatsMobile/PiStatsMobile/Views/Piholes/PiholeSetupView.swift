@@ -136,9 +136,7 @@ struct PiholeSetupView: View {
                 }
                 
             }.listStyle(InsetGroupedListStyle())
-            .onTapGesture {
-                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
-            }
+
             .navigationBarItems(leading:
                                     Button(UIConstants.Strings.cancelButton) {
                                         dismissView()
