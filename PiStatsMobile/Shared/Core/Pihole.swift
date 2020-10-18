@@ -24,6 +24,7 @@ class Pihole: Identifiable, ObservableObject {
     var piMonitorPort: Int?
     var hasPiMonitor: Bool = false
     let id: UUID
+    var secure: Bool
 
     @Published var actionError: String?
     @Published var pollingError: String?
@@ -80,14 +81,17 @@ class Pihole: Identifiable, ObservableObject {
         do {
             piMonitorPort = try container.decode(Int?.self, forKey: .piMonitorPort)
             hasPiMonitor = try container.decode(Bool.self, forKey: .hasPiMonitor)
+            secure = try container.decode(Bool.self, forKey: .secure)
         } catch {
             hasPiMonitor = false
+            secure = false
         }
     }
     
-    public init(address: String, apiToken: String? = nil, piHoleID: UUID? = nil) {
+    public init(address: String, apiToken: String? = nil, piHoleID: UUID? = nil, secure: Bool = false) {
         self.address = address
-        
+        self.secure = secure
+
         if let piHoleID = piHoleID {
             self.id = piHoleID
         } else {
@@ -241,6 +245,7 @@ extension Pihole: Codable {
         case displayName
         case piMonitorPort
         case hasPiMonitor
+        case secure
     }
     
     func encode(to encoder: Encoder) throws {
@@ -250,6 +255,6 @@ extension Pihole: Codable {
         try container.encode(piMonitorPort, forKey: .piMonitorPort)
         try container.encode(hasPiMonitor, forKey: .hasPiMonitor)
         try container.encode(displayName, forKey: .displayName)
-
+        try container.encode(secure, forKey: .secure)
     }
 }

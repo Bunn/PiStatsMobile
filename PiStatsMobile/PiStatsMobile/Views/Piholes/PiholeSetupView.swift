@@ -7,41 +7,92 @@
 
 import SwiftUI
 
-struct PiholeSetupView: View {
+enum SecureTag: Int {
+    case unsecure
+    case secure
+}
+
+fileprivate class SetupViewModel: ObservableObject {
+    let piMonitorURL = URL(string: "https://github.com/Bunn/pi_monitor")!
+    @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
+
+    @Published var pihole: Pihole?
+    @Published var host: String = ""
+    @Published var port: String = ""
+    @Published var token: String = ""
+    @Published var displayName: String = ""
+    @Published var isShowingScanner = false
+    @Published var piMonitorPort: String = ""
+    @Published var isPiMonitorEnabled: Bool = false
+    @Published var displayPiMonitorAlert = false
+    @Published var httpType: SecureTag = .unsecure
     
     init(pihole: Pihole? = nil) {
         self.pihole = pihole
-        _host = State(initialValue: pihole?.host ?? "")
-        _token = State(initialValue: pihole?.apiToken ?? "")
-        if pihole?.port != nil {
-            _port = State(initialValue: String(pihole!.port!))
+       
+        if let pihole = pihole {
+            host = pihole.host
+            token = pihole.apiToken
+            httpType = pihole.secure ? .secure : .unsecure
+            isPiMonitorEnabled = pihole.hasPiMonitor
+           
+            if let piholePort = pihole.port {
+                port = String(piholePort)
+            }
+            
+            if let piholeMonitorPort = pihole.piMonitorPort {
+                piMonitorPort = String(piholeMonitorPort)
+            }
+            
+        } else {
+            host = ""
+            token = ""
+            httpType = .unsecure
+            isPiMonitorEnabled = false
         }
-        if pihole?.piMonitorPort != nil {
-            _piMonitorPort = State(initialValue: String(pihole!.piMonitorPort!))
-        }
-        _displayName = State(initialValue: pihole?.displayName ?? "")
-        _isPiMonitorEnabled = State(initialValue: pihole?.hasPiMonitor ?? false)
+
+        displayName = pihole?.displayName ?? ""
     }
     
-    @Environment(\.presentationMode) private var mode: Binding<PresentationMode>
-    @State private var host: String = ""
-    @State private var port: String = ""
-    @State private var token: String = ""
-    @State private var displayName: String = ""
-    @State private var isShowingScanner = false
-    @State private var piMonitorPort: String = ""
-    @State private var isPiMonitorEnabled: Bool = false
-    @State private var displayPiMonitorAlert = false
-    @State private var httpType: Int = 0
+    func savePihole() {
+        var piholeToSave: Pihole
+        let address = port.isEmpty ? host : "\(host):\(port)"
+        
+        if let pihole = pihole {
+            piholeToSave = pihole
+            piholeToSave.address = address
+        } else {
+            piholeToSave = Pihole(address: address)
+        }
+        piholeToSave.hasPiMonitor = isPiMonitorEnabled
+        piholeToSave.piMonitorPort = Int(piMonitorPort)
+        piholeToSave.apiToken = token
+        piholeToSave.displayName = displayName.isEmpty ? nil : displayName
+        piholeToSave.secure = httpType == .secure
+        piholeToSave.save()
+    }
+    
+    func deletePihole() {
+        if let pihole = pihole {
+            pihole.delete()
+        }
+    }
+}
 
+struct PiholeSetupView: View {
+    
+    init(pihole: Pihole? = nil) {
+        _viewModel = StateObject(wrappedValue: SetupViewModel(pihole: pihole))
+    }
+    
+    @StateObject private var viewModel: SetupViewModel
     @EnvironmentObject private var piholeProviderListManager: PiholeDataProviderListManager
+    
     @Environment(\.openURL) var openURL
+    @Environment(\.presentationMode) private var mode: Binding<PresentationMode>
 
-    private let piMonitorURL = URL(string: "https://github.com/Bunn/pi_monitor")!
     private let imageWidthSize: CGFloat = 20
-    
-    var pihole: Pihole?
-    
+        
     var body: some View {
         NavigationView {
             List {
@@ -50,7 +101,7 @@ struct PiholeSetupView: View {
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupHost)
                             .frame(width: imageWidthSize)
-                        TextField(UIConstants.Strings.piholeSetupHostPlaceholder, text: $host)
+                        TextField(UIConstants.Strings.piholeSetupHostPlaceholder, text: $viewModel.host)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
                     }
@@ -58,38 +109,38 @@ struct PiholeSetupView: View {
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupDisplayName)
                             .frame(width: imageWidthSize)
-                        TextField(UIConstants.Strings.piholeSetupDisplayName, text: $displayName)
+                        TextField(UIConstants.Strings.piholeSetupDisplayName, text: $viewModel.displayName)
                             .disableAutocorrection(true)
                     }
                     
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupPort)
                             .frame(width: imageWidthSize)
-                        TextField(UIConstants.Strings.piholeSetupPortPlaceholder, text: $port)
+                        TextField(UIConstants.Strings.piholeSetupPortPlaceholder, text: $viewModel.port)
                             .keyboardType(.numberPad)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
                     }
                     HStack {
-                        Picker(selection: $httpType, label: Text("")) {
-                            Text("HTTP").tag(0)
-                            Text("HTTPS").tag(1)
+                        Picker(selection: $viewModel.httpType, label: Text("")) {
+                            Text(UIConstants.Strings.Preferences.protocolHTTP).tag(SecureTag.unsecure)
+                            Text(UIConstants.Strings.Preferences.protocolHTTPS).tag(SecureTag.secure)
                         }.pickerStyle(SegmentedPickerStyle())
                     }
                     HStack {
                         Image(systemName: UIConstants.SystemImages.piholeSetupToken)
                             .frame(width: imageWidthSize)
-                        SecureField(UIConstants.Strings.piholeSetupTokenPlaceholder, text: $token)
+                        SecureField(UIConstants.Strings.piholeSetupTokenPlaceholder, text: $viewModel.token)
                         
                         Image(systemName: UIConstants.SystemImages.piholeSetupTokenQRCode)
                             .foregroundColor(Color(.systemBlue))
                             .onTapGesture {
-                                isShowingScanner = true
-                            }.sheet(isPresented: $isShowingScanner) {
+                                viewModel.isShowingScanner = true
+                            }.sheet(isPresented: $viewModel.isShowingScanner) {
                                 NavigationView {
-                                    CodeScannerView(codeTypes: [.qr], simulatedData: "abcd", completion: self.handleScan)
+                                    CodeScannerView(codeTypes: [.qr], simulatedData: "abcd", completion: handleScan)
                                         .navigationBarItems(leading:  Button(UIConstants.Strings.cancelButton) {
-                                            isShowingScanner = false
+                                            viewModel.isShowingScanner = false
                                         }).navigationBarTitle(Text(UIConstants.Strings.qrCodeScannerTitle), displayMode: .inline)
                                 }
                             }
@@ -98,7 +149,7 @@ struct PiholeSetupView: View {
                 
                 Section(header: Text(UIConstants.Strings.settingsSectionPiMonitor)) {
                     HStack {        
-                        Toggle(isOn: $isPiMonitorEnabled.animation()) {
+                        Toggle(isOn: $viewModel.isPiMonitorEnabled.animation()) {
                             HStack {
                                 Image(systemName: UIConstants.SystemImages.piholeSetupMonitor)
                                     .frame(width: imageWidthSize)
@@ -109,21 +160,21 @@ struct PiholeSetupView: View {
                                     .frame(width: imageWidthSize)
                                     .foregroundColor(Color(.systemBlue))
                                     .onTapGesture {
-                                        displayPiMonitorAlert.toggle()
-                                    }.alert(isPresented: $displayPiMonitorAlert) {
+                                        viewModel.displayPiMonitorAlert.toggle()
+                                    }.alert(isPresented: $viewModel.displayPiMonitorAlert) {
                                         Alert(title: Text(UIConstants.Strings.piMonitorSetupAlertTitle), message: Text(UIConstants.Strings.piMonitorExplanation), primaryButton: .default(Text(UIConstants.Strings.piMonitorSetupAlertLearnMoreButton)) {
-                                            openURL(piMonitorURL)
+                                            openURL(viewModel.piMonitorURL)
                                         }, secondaryButton: .cancel(Text(UIConstants.Strings.piMonitorSetupAlertOKButton)))
                                     }
                             }
                         }
                     }
                     
-                    if isPiMonitorEnabled {
+                    if viewModel.isPiMonitorEnabled {
                         HStack {
                             Image(systemName: UIConstants.SystemImages.piholeSetupPort)
                                 .frame(width: imageWidthSize)
-                            TextField(UIConstants.Strings.piMonitorSetupPortPlaceholder, text: $piMonitorPort)
+                            TextField(UIConstants.Strings.piMonitorSetupPortPlaceholder, text: $viewModel.piMonitorPort)
                                 .keyboardType(.numberPad)
                                 .autocapitalization(.none)
                                 .disableAutocorrection(true)
@@ -131,7 +182,7 @@ struct PiholeSetupView: View {
                     }
                 }
                 
-                if pihole != nil {
+                if viewModel.pihole != nil {
                     Section(footer: deleteButton()) { }
                 }
                 
@@ -148,7 +199,7 @@ struct PiholeSetupView: View {
     }
     
     private func dismissView() {
-        self.mode.wrappedValue.dismiss()
+        mode.wrappedValue.dismiss()
     }
     
     private func deleteButton() -> some View {
@@ -167,34 +218,19 @@ struct PiholeSetupView: View {
     }
     
     private func savePihole() {
-        var piholeToSave: Pihole
-        let address = port.isEmpty ? host : "\(host):\(port)"
-        
-        if let pihole = pihole {
-            piholeToSave = pihole
-            piholeToSave.address = address
-        } else {
-            piholeToSave = Pihole(address: address)
-        }
-        piholeToSave.hasPiMonitor = isPiMonitorEnabled
-        piholeToSave.piMonitorPort = Int(piMonitorPort)
-        piholeToSave.apiToken = token
-        piholeToSave.displayName = displayName.isEmpty ? nil : displayName
-        piholeToSave.save()
+        viewModel.savePihole()
         piholeProviderListManager.updateList()
         dismissView()
     }
     
     private func deletePihole() {
-        if let pihole = pihole {
-            pihole.delete()
-            piholeProviderListManager.updateList()
-        }
+        viewModel.deletePihole()
+        piholeProviderListManager.updateList()
         dismissView()
     }
     
     private func handleScan(result: Result<String, CodeScannerView.ScanError>) {
-        self.isShowingScanner = false
+        self.viewModel.isShowingScanner = false
         switch result {
         case .success(let data):
             handleScannedString(data)
@@ -211,13 +247,12 @@ struct PiholeSetupView: View {
         do {
             let result = try decoder.decode([String: ScannedPihole].self, from: data)
             if let scannedPihole = result["pihole"] {
-                self.token = scannedPihole.token ?? ""
-                self.host = scannedPihole.host
-                self.port = String(scannedPihole.port)
-
+                viewModel.token = scannedPihole.token ?? ""
+                viewModel.host = scannedPihole.host
+                viewModel.port = String(scannedPihole.port)
             }
         } catch {
-            self.token = value
+            viewModel.token = value
         }
     }
 }

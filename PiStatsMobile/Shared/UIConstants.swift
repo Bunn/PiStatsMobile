@@ -90,6 +90,8 @@ struct UIConstants {
             static let leaveReview = "Write a review on the App Store"
             static let customizeDisableTimes = "Customize disable times"
             static let piMonitorTemperature = "Temperature Scale"
+            static let protocolHTTP = "HTTP"
+            static let protocolHTTPS = "HTTPS"
         }
 
         struct CustomizeDisabletime {
