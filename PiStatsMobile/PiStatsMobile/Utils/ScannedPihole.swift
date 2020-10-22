@@ -11,4 +11,5 @@ struct ScannedPihole: Codable {
     let host: String
     let port: Int
     let token: String?
+    let secure: Bool?
 }
