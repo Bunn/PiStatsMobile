@@ -70,7 +70,7 @@ class Pihole: Identifiable, ObservableObject {
     }
     
     private var piMonitorService: PiMonitor {
-        PiMonitor(host: host, port: piMonitorPort ?? 8088, timeoutInterval: servicesTimeout)
+        PiMonitor(host: host, port: piMonitorPort ?? 8088, timeoutInterval: servicesTimeout, secure: secure)
     }
   
     required init(from decoder: Decoder) throws {
