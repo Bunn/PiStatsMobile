@@ -66,7 +66,7 @@ class Pihole: Identifiable, ObservableObject {
     }
     
     private var service: SwiftHole {
-        SwiftHole(host: host, port: port, apiToken: apiToken, timeoutInterval: servicesTimeout)
+        SwiftHole(host: host, port: port, apiToken: apiToken, timeoutInterval: servicesTimeout, secure: secure)
     }
     
     private var piMonitorService: PiMonitor {
