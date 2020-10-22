@@ -853,7 +853,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = IntentHandler/IntentHandler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = IntentHandler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -875,7 +875,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = IntentHandler/IntentHandler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = IntentHandler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -899,7 +899,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PiStatsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -923,7 +923,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PiStatsWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1064,7 +1064,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_PREVIEWS = YES;
@@ -1090,7 +1090,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
 				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_PREVIEWS = YES;

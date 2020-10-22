@@ -78,12 +78,22 @@ class Pihole: Identifiable, ObservableObject {
         id = try container.decode(UUID.self, forKey: .id)
         address = try container.decode(String.self, forKey: .address)
         displayName = try container.decode(String?.self, forKey: .displayName)
+       
         do {
             piMonitorPort = try container.decode(Int?.self, forKey: .piMonitorPort)
+        } catch {
+            piMonitorPort = nil
+        }
+        
+        do {
             hasPiMonitor = try container.decode(Bool.self, forKey: .hasPiMonitor)
-            secure = try container.decode(Bool.self, forKey: .secure)
         } catch {
             hasPiMonitor = false
+        }
+        
+        do {
+            secure = try container.decode(Bool.self, forKey: .secure)
+        } catch {
             secure = false
         }
     }
