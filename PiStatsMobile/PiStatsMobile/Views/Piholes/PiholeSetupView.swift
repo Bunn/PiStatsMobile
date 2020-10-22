@@ -250,6 +250,10 @@ struct PiholeSetupView: View {
                 viewModel.token = scannedPihole.token ?? ""
                 viewModel.host = scannedPihole.host
                 viewModel.port = String(scannedPihole.port)
+                
+                if let secure = scannedPihole.secure {
+                    viewModel.httpType = secure ? .secure : .unsecure
+                }
             }
         } catch {
             viewModel.token = value
