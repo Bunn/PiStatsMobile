@@ -16,6 +16,7 @@ private enum Keys: String {
     case displayAllPiholes
     case disableTimes
     case temperatureScale
+    case didMigrateAppGroup
 }
 
 enum TemperatureScale {
@@ -102,4 +103,6 @@ class UserPreferences: ObservableObject {
             objectWillChange.send()
         }
     }
+    
+    @AppStorage(Keys.didMigrateAppGroup.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var didMigrateAppGroup: Bool = false
 }

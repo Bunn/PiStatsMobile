@@ -11,7 +11,18 @@ import Foundation
 struct APIToken {
     internal init(accountName: String) {
         self.accountName = accountName
-        self.passwordItem = KeychainPasswordItem(service: APIToken.serviceName, account: accountName, accessGroup: nil)
+        self.passwordItem = KeychainPasswordItem(service: APIToken.serviceName, account: accountName, accessGroup: "group.dev.bunn.PiStatsMobile")
+        migratePasswordItemIfNecessary(accountName)
+    }
+    
+    private mutating func migratePasswordItemIfNecessary(_ accountName: String) {
+        guard UserPreferences().didMigrateAppGroup == false else { return }
+        let oldPasswordItem = KeychainPasswordItem(service: APIToken.serviceName, account: accountName, accessGroup: nil)
+        
+        if let oldPassword = try? oldPasswordItem.readPassword(), oldPassword.count > 0 {
+            self.token = oldPassword
+            UserPreferences().didMigrateAppGroup = true
+        }
     }
     
     private static let serviceName = "PiHoleStatsService"
