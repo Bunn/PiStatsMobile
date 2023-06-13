@@ -32,5 +32,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>
+	<key>PiStatsAppGroupID</key>
+	<string>$(PISTATS_APPGROUP_ID)</string>
 </dict>
 </plist>

@@ -11,7 +11,7 @@ import Foundation
 struct APIToken {
     internal init(accountName: String) {
         self.accountName = accountName
-        self.passwordItem = KeychainPasswordItem(service: APIToken.serviceName, account: accountName, accessGroup: "group.dev.bunn.PiStatsMobile")
+        self.passwordItem = KeychainPasswordItem(service: APIToken.serviceName, account: accountName, accessGroup: Constants.appGroup)
         migratePasswordItemIfNecessary(accountName)
     }
     

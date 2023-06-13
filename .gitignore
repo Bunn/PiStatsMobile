@@ -89,3 +89,7 @@ fastlane/test_output
 
 iOSInjectionProject/
 .DS_Store
+
+# Generated Config Files
+
+TeamID.xcconfig
