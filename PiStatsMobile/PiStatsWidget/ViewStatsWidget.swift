@@ -20,6 +20,7 @@ private struct PlaceholderView : View {
                 StatsItemType.domainsOnBlockList.color
             }
         }
+        .widgetBackground()
     }
 }
 
@@ -27,28 +28,36 @@ struct ViewStatsWidget: Widget {
     private let kind: String = "ViewStatsWidget"
     
     public var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: PiholeTimelineProvider()) { entry in
+        let config = StaticConfiguration(kind: kind, provider: PiholeTimelineProvider()) { entry in
             PiStatsDisplayWidgetView(entry: entry)
         }
         .configurationDisplayName("Pi Stats")
         .description("Display the status of your pi-holes")
         .supportedFamilies([.systemSmall, .systemMedium])
+
+        if #available(iOSApplicationExtension 17.0, *) {
+            return config.contentMarginsDisabled()
+        } else {
+            return config
+        }
     }
 }
 
-
 struct ViewStatsWidget_Previews: PreviewProvider {
+    /// NOTE: Previews do not respect `contentMarginsDisabled` from widget because they use the view directly,
+    /// so margins will not look correct in Xcode Previews.
     static var previews: some View {
-        
         PiStatsDisplayWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemSmall))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewDisplayName("System Small")
 
         PiStatsDisplayWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemMedium))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
-        
+            .previewDisplayName("System Medium")
+
         PlaceholderView()
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-        
+            .previewDisplayName("Placeholder")
     }
 }
 
