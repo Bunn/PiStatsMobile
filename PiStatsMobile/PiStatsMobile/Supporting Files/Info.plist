@@ -39,6 +39,8 @@
 	<array>
 		<string>SelectPiholeIntent</string>
 	</array>
+	<key>PiStatsAppGroupID</key>
+	<string>$(PISTATS_APPGROUP_ID)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

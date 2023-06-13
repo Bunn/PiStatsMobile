@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -206,6 +206,9 @@
 		31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorWidget.swift; sourceTree = "<group>"; };
 		31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorWidgetView.swift; sourceTree = "<group>"; };
 		31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeDataProviderListManager.swift; sourceTree = "<group>"; };
+		F4B4BF7A2A38AA3B00C3B9BA /* Main.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Main.xcconfig; sourceTree = "<group>"; };
+		F4B4BF7B2A38AA3B00C3B9BA /* OpenSource.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OpenSource.xcconfig; sourceTree = "<group>"; };
+		F4B4BF7C2A38AA3B00C3B9BA /* TeamID.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TeamID.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +309,7 @@
 				31AECCC424C7A17400E381E0 /* PiStatsWidgets.swift */,
 				315F5EC624BA162800FED38F /* Assets.xcassets */,
 				315F5EC824BA162800FED38F /* Info.plist */,
+				3182E28A24BB69BD00BF53D9 /* PiStatsWidgetExtension.entitlements */,
 			);
 			path = PiStatsWidget;
 			sourceTree = "<group>";
@@ -314,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				31FC1DAB24B669E100319E6F /* Core */,
+				313599D22527224300A12AC9 /* Constants.swift */,
 				311D0A7824B0F405003F18DB /* UIConstants.swift */,
 				311D0A7624B0EFE3003F18DB /* StatsItemType.swift */,
 			);
@@ -323,7 +328,7 @@
 		3175EB4F24AE597900E7B5FF = {
 			isa = PBXGroup;
 			children = (
-				3182E28A24BB69BD00BF53D9 /* PiStatsWidgetExtension.entitlements */,
+				F4B4BF792A38AA3B00C3B9BA /* Config */,
 				315F5ED024BA1DC400FED38F /* Shared */,
 				3175EB5A24AE597900E7B5FF /* PiStatsMobile */,
 				3175EB6C24AE597A00E7B5FF /* PiStatsMobileTests */,
@@ -396,7 +401,6 @@
 				3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */,
 				319771AB24DB24BA0005E6BF /* ScannedPihole.swift */,
 				317636A1252658F5005AED55 /* ViewUtils.swift */,
-				313599D22527224300A12AC9 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -491,6 +495,16 @@
 				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		F4B4BF792A38AA3B00C3B9BA /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F4B4BF7A2A38AA3B00C3B9BA /* Main.xcconfig */,
+				F4B4BF7B2A38AA3B00C3B9BA /* OpenSource.xcconfig */,
+				F4B4BF7C2A38AA3B00C3B9BA /* TeamID.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,7 +619,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					3132CDBB252522DA00542F6F = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -852,9 +866,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = IntentHandler/IntentHandler.entitlements;
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 19;
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = IntentHandler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -862,7 +874,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.IntentHandler;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR).IntentHandler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -874,9 +886,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = IntentHandler/IntentHandler.entitlements;
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 19;
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = IntentHandler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -884,7 +894,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.IntentHandler;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR).IntentHandler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -897,10 +907,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = PiStatsWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = PiStatsWidget/PiStatsWidgetExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 19;
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -908,7 +916,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.PiStatsWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR).PiStatsWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -921,10 +929,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = PiStatsWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = PiStatsWidget/PiStatsWidgetExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 19;
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -932,7 +938,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 2.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile.PiStatsWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR).PiStatsWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -942,6 +948,7 @@
 		};
 		3175EB7B24AE597A00E7B5FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4B4BF7B2A38AA3B00C3B9BA /* OpenSource.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1003,6 +1010,7 @@
 		};
 		3175EB7C24AE597A00E7B5FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4B4BF7B2A38AA3B00C3B9BA /* OpenSource.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1063,10 +1071,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "PiStatsMobile/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1075,7 +1081,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1089,10 +1095,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "PiStatsMobile/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1101,7 +1105,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1113,8 +1117,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsMobileTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1122,7 +1124,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobileTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobileTests$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1135,8 +1137,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsMobileTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1144,7 +1144,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobileTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobileTests$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1156,15 +1156,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsMobileUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobileUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobileUITests$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1176,21 +1174,345 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2RUA6XMHC;
 				INFOPLIST_FILE = PiStatsMobileUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.bunn.PiStatsMobileUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobileUITests$(SAMPLE_CODE_DISAMBIGUATOR)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PiStatsMobile;
 			};
 			name = Release;
+		};
+		F4B4BF7D2A38B48400C3B9BA /* Debug-Private */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4B4BF7A2A38AA3B00C3B9BA /* Main.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Debug-Private";
+		};
+		F4B4BF7E2A38B48400C3B9BA /* Debug-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "PiStatsMobile/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug-Private";
+		};
+		F4B4BF7F2A38B48400C3B9BA /* Debug-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PiStatsMobileTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobileTests$(SAMPLE_CODE_DISAMBIGUATOR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PiStatsMobile.app/PiStatsMobile";
+			};
+			name = "Debug-Private";
+		};
+		F4B4BF802A38B48400C3B9BA /* Debug-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = PiStatsMobileUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobileUITests$(SAMPLE_CODE_DISAMBIGUATOR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PiStatsMobile;
+			};
+			name = "Debug-Private";
+		};
+		F4B4BF812A38B48400C3B9BA /* Debug-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PiStatsWidget/PiStatsWidgetExtension.entitlements;
+				CURRENT_PROJECT_VERSION = 19;
+				INFOPLIST_FILE = PiStatsWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR).PiStatsWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug-Private";
+		};
+		F4B4BF822A38B48400C3B9BA /* Debug-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = IntentHandler/IntentHandler.entitlements;
+				CURRENT_PROJECT_VERSION = 19;
+				INFOPLIST_FILE = IntentHandler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR).IntentHandler";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug-Private";
+		};
+		F4B4BF832A38B49600C3B9BA /* Release-Private */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4B4BF7A2A38AA3B00C3B9BA /* Main.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release-Private";
+		};
+		F4B4BF842A38B49600C3B9BA /* Release-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PiStatsMobile/PiStatsMobile.entitlements;
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_ASSET_PATHS = "\"PiStatsMobile/Supporting Files/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "PiStatsMobile/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Release-Private";
+		};
+		F4B4BF852A38B49600C3B9BA /* Release-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PiStatsMobileTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobileTests$(SAMPLE_CODE_DISAMBIGUATOR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PiStatsMobile.app/PiStatsMobile";
+			};
+			name = "Release-Private";
+		};
+		F4B4BF862A38B49600C3B9BA /* Release-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = PiStatsMobileUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobileUITests$(SAMPLE_CODE_DISAMBIGUATOR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PiStatsMobile;
+			};
+			name = "Release-Private";
+		};
+		F4B4BF872A38B49600C3B9BA /* Release-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PiStatsWidget/PiStatsWidgetExtension.entitlements;
+				CURRENT_PROJECT_VERSION = 19;
+				INFOPLIST_FILE = PiStatsWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR).PiStatsWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Release-Private";
+		};
+		F4B4BF882A38B49600C3B9BA /* Release-Private */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = IntentHandler/IntentHandler.entitlements;
+				CURRENT_PROJECT_VERSION = 19;
+				INFOPLIST_FILE = IntentHandler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.2.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.bunn.PiStatsMobile$(SAMPLE_CODE_DISAMBIGUATOR).IntentHandler";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Release-Private";
 		};
 /* End XCBuildConfiguration section */
 
@@ -1199,7 +1521,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3132CDC5252522DA00542F6F /* Debug */,
+				F4B4BF822A38B48400C3B9BA /* Debug-Private */,
 				3132CDC6252522DA00542F6F /* Release */,
+				F4B4BF882A38B49600C3B9BA /* Release-Private */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1208,7 +1532,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				315F5ECD24BA162800FED38F /* Debug */,
+				F4B4BF812A38B48400C3B9BA /* Debug-Private */,
 				315F5ECE24BA162800FED38F /* Release */,
+				F4B4BF872A38B49600C3B9BA /* Release-Private */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1217,7 +1543,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3175EB7B24AE597A00E7B5FF /* Debug */,
+				F4B4BF7D2A38B48400C3B9BA /* Debug-Private */,
 				3175EB7C24AE597A00E7B5FF /* Release */,
+				F4B4BF832A38B49600C3B9BA /* Release-Private */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1226,7 +1554,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3175EB7E24AE597A00E7B5FF /* Debug */,
+				F4B4BF7E2A38B48400C3B9BA /* Debug-Private */,
 				3175EB7F24AE597A00E7B5FF /* Release */,
+				F4B4BF842A38B49600C3B9BA /* Release-Private */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1235,7 +1565,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3175EB8124AE597A00E7B5FF /* Debug */,
+				F4B4BF7F2A38B48400C3B9BA /* Debug-Private */,
 				3175EB8224AE597A00E7B5FF /* Release */,
+				F4B4BF852A38B49600C3B9BA /* Release-Private */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1244,7 +1576,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3175EB8424AE597A00E7B5FF /* Debug */,
+				F4B4BF802A38B48400C3B9BA /* Debug-Private */,
 				3175EB8524AE597A00E7B5FF /* Release */,
+				F4B4BF862A38B49600C3B9BA /* Release-Private */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
