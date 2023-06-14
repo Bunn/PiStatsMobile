@@ -42,12 +42,15 @@ struct PiMonitorWidget_Previews: PreviewProvider {
     static var previews: some View {
         
         PiMonitorWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemSmall))
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemSmall))
 
         PiMonitorWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemMedium))
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemMedium))
         
         PlaceholderView()
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

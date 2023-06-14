@@ -48,14 +48,17 @@ struct ViewStatsWidget_Previews: PreviewProvider {
     /// so margins will not look correct in Xcode Previews.
     static var previews: some View {
         PiStatsDisplayWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemSmall))
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("System Small")
 
         PiStatsDisplayWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemMedium))
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDisplayName("System Medium")
 
         PlaceholderView()
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDisplayName("Placeholder")
     }
