@@ -10,16 +10,15 @@ import SwiftUI
 
 private struct PlaceholderView : View {
     var body: some View {
-        
-        PiMonitorView(provider: PiholeDataProvider.previewData(), shouldDisplayStats: false ).redacted(reason: .placeholder)
+        PiMonitorView(provider: PiholeDataProvider.previewData(), shouldDisplayStats: false )
+            .redacted(reason: .placeholder)
     }
 }
 
 struct PiMonitorWidget: Widget {
     private let kind: String = "PiMonitorWidget"
     public var body: some WidgetConfiguration {
-        
-        IntentConfiguration(
+        let config = IntentConfiguration(
             kind: "dev.bunn.PiStatsMobile.SelectPiholeIntent",
             intent: SelectPiholeIntent.self,
             provider: PiMonitorTimelineProvider()
@@ -29,6 +28,12 @@ struct PiMonitorWidget: Widget {
         .configurationDisplayName("Pi Monitor")
         .description("Display metrics for your Raspberry Pi")
         .supportedFamilies([.systemSmall, .systemMedium])
+
+        if #available(iOSApplicationExtension 17.0, *) {
+            return config.contentMarginsDisabled()
+        } else {
+            return config
+        }
     }
 }
 
@@ -37,12 +42,15 @@ struct PiMonitorWidget_Previews: PreviewProvider {
     static var previews: some View {
         
         PiMonitorWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemSmall))
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemSmall))
 
         PiMonitorWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemMedium))
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemMedium))
         
         PlaceholderView()
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

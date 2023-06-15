@@ -24,6 +24,7 @@ struct SmallStatsItem: View {
                     .foregroundColor(.white)
                     .font(.subheadline)
                     .bold()
+                    .numericContentTransition()
             }
         }
     }

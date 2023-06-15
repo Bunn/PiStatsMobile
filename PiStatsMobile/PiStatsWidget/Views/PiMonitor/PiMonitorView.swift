@@ -61,8 +61,10 @@ struct PiMonitorView: View {
             maxWidth: .infinity,
             maxHeight: .infinity,
             alignment: .topLeading
-        ).padding()
+        )
+        .padding()
         .font(.headline)
+        .widgetBackground()
     }
     
     private func getMetricListItems(_ provider: PiholeDataProvider) -> [ListItem] {

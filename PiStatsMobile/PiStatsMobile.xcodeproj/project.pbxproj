@@ -90,6 +90,7 @@
 		31E153072523AD61008DD6CD /* PiMonitorWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */; };
 		31E153102523AD69008DD6CD /* PiMonitorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */; };
 		31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */; };
+		F4F9189A2A392B5A00CA4CDC /* BackDeployableShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F918992A392B5A00CA4CDC /* BackDeployableShims.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +210,7 @@
 		F4B4BF7A2A38AA3B00C3B9BA /* Main.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Main.xcconfig; sourceTree = "<group>"; };
 		F4B4BF7B2A38AA3B00C3B9BA /* OpenSource.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OpenSource.xcconfig; sourceTree = "<group>"; };
 		F4B4BF7C2A38AA3B00C3B9BA /* TeamID.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TeamID.xcconfig; sourceTree = "<group>"; };
+		F4F918992A392B5A00CA4CDC /* BackDeployableShims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackDeployableShims.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 				310647CD24BD115F00E2DA90 /* SmallStatsItem.swift */,
 				310647D124BD13D700E2DA90 /* MediumStatsItem.swift */,
 				310647CF24BD120600E2DA90 /* PiStatsDisplayWidgetView.swift */,
+				F4F918992A392B5A00CA4CDC /* BackDeployableShims.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				315F5ED924BA2D0C00FED38F /* APIToken.swift in Sources */,
 				310647D024BD120600E2DA90 /* PiStatsDisplayWidgetView.swift in Sources */,
 				315F5ED124BA1DF800FED38F /* StatsItemType.swift in Sources */,
+				F4F9189A2A392B5A00CA4CDC /* BackDeployableShims.swift in Sources */,
 				31E153072523AD61008DD6CD /* PiMonitorWidgetView.swift in Sources */,
 				315F5EC524BA162600FED38F /* ViewStatsWidget.swift in Sources */,
 				317636AB25265AB7005AED55 /* PiMonitorView.swift in Sources */,
@@ -910,6 +914,7 @@
 				CODE_SIGN_ENTITLEMENTS = PiStatsWidget/PiStatsWidgetExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 19;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -932,6 +937,7 @@
 				CODE_SIGN_ENTITLEMENTS = PiStatsWidget/PiStatsWidgetExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 19;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1320,6 +1326,7 @@
 				CODE_SIGN_ENTITLEMENTS = PiStatsWidget/PiStatsWidgetExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 19;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1480,6 +1487,7 @@
 				CODE_SIGN_ENTITLEMENTS = PiStatsWidget/PiStatsWidgetExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 19;
 				INFOPLIST_FILE = PiStatsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
