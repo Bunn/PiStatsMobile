@@ -25,7 +25,7 @@ struct PiStatsDisplayWidgetView : View {
                             SmallStatsItem(itemType: StatsItemType.domainsOnBlockList, value: entry.piholeDataProvider.domainsOnBlocklist)
                         }
                     }
-                    CircleBadgeStatus(dataProvider: entry.piholeDataProvider)
+                    circleBadge
                 }
             } else {
                 ZStack {
@@ -39,11 +39,23 @@ struct PiStatsDisplayWidgetView : View {
                             MediumStatsItem(contentType: .domainsOnBlockList, value: entry.piholeDataProvider.domainsOnBlocklist)
                         }
                     }
-                    CircleBadgeStatus(dataProvider: entry.piholeDataProvider)
+                    circleBadge
                 }
             }
         }
         .widgetBackground()
+    }
+
+    @ViewBuilder
+    private var circleBadge: some View {
+        if #available(iOS 17.0, *) {
+            Button(intent: RefreshWidgetIntent()) {
+                CircleBadgeStatus(dataProvider: entry.piholeDataProvider)
+            }
+            .buttonStyle(.borderless)
+        } else {
+            CircleBadgeStatus(dataProvider: entry.piholeDataProvider)
+        }
     }
 }
 
@@ -51,6 +63,7 @@ struct PiStatsDisplayWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         
         PiStatsDisplayWidgetView(entry: PiholeEntry.init(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemMedium))
+            .disableContentMarginsForPreview()
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

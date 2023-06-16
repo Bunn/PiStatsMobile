@@ -12,12 +12,14 @@ struct CircleBadgeStatus: View {
     private let circleSize: CGFloat = 30
     
     var body: some View {
-        Circle()
-            .foregroundColor(.white)
-            .frame(width: circleSize, height: circleSize)
-        
-        ViewUtils.shieldStatusImageForDataProvider(dataProvider)
-            .font(.title2)
+        ZStack {
+            Circle()
+                .foregroundColor(.white)
+                .frame(width: circleSize, height: circleSize)
+
+            ViewUtils.shieldStatusImageForDataProvider(dataProvider)
+                .font(.title2)
+        }
     }
 }
 

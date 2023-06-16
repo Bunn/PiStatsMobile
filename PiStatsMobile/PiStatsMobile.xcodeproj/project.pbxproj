@@ -90,6 +90,8 @@
 		31E153072523AD61008DD6CD /* PiMonitorWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */; };
 		31E153102523AD69008DD6CD /* PiMonitorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */; };
 		31FC1DAA24B64BA900319E6F /* PiholeDataProviderListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */; };
+		F43B16962A3BBBFB005499BD /* IntentsLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B16952A3BBBFB005499BD /* IntentsLogging.swift */; };
+		F4B920332A3BB92000254768 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B920322A3BB92000254768 /* RefreshWidgetIntent.swift */; };
 		F4F9189A2A392B5A00CA4CDC /* BackDeployableShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F918992A392B5A00CA4CDC /* BackDeployableShims.swift */; };
 /* End PBXBuildFile section */
 
@@ -207,9 +209,11 @@
 		31E152FB2523AC62008DD6CD /* PiMonitorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorWidget.swift; sourceTree = "<group>"; };
 		31E153012523AD44008DD6CD /* PiMonitorWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiMonitorWidgetView.swift; sourceTree = "<group>"; };
 		31FC1DA924B64BA900319E6F /* PiholeDataProviderListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiholeDataProviderListManager.swift; sourceTree = "<group>"; };
+		F43B16952A3BBBFB005499BD /* IntentsLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentsLogging.swift; sourceTree = "<group>"; };
 		F4B4BF7A2A38AA3B00C3B9BA /* Main.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Main.xcconfig; sourceTree = "<group>"; };
 		F4B4BF7B2A38AA3B00C3B9BA /* OpenSource.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OpenSource.xcconfig; sourceTree = "<group>"; };
 		F4B4BF7C2A38AA3B00C3B9BA /* TeamID.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TeamID.xcconfig; sourceTree = "<group>"; };
+		F4B920322A3BB92000254768 /* RefreshWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgetIntent.swift; sourceTree = "<group>"; };
 		F4F918992A392B5A00CA4CDC /* BackDeployableShims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackDeployableShims.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -305,6 +309,7 @@
 		315F5EC324BA162600FED38F /* PiStatsWidget */ = {
 			isa = PBXGroup;
 			children = (
+				F4B920312A3BB90D00254768 /* Intents */,
 				31AECCFA24C7A54900E381E0 /* Core */,
 				310647CA24BD10D600E2DA90 /* Views */,
 				315F5EC424BA162600FED38F /* ViewStatsWidget.swift */,
@@ -508,6 +513,15 @@
 				F4B4BF7C2A38AA3B00C3B9BA /* TeamID.xcconfig */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		F4B920312A3BB90D00254768 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				F43B16952A3BBBFB005499BD /* IntentsLogging.swift */,
+				F4B920322A3BB92000254768 /* RefreshWidgetIntent.swift */,
+			);
+			path = Intents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -737,6 +751,7 @@
 			files = (
 				315F5EDC24BA2D3200FED38F /* Logger.swift in Sources */,
 				31C1A585252691A900431C87 /* PiMonitorStatusHeader.swift in Sources */,
+				F43B16962A3BBBFB005499BD /* IntentsLogging.swift in Sources */,
 				315F5ED724BA2D0800FED38F /* Pihole.swift in Sources */,
 				315F5ED824BA2D0800FED38F /* PiholeDataProvider.swift in Sources */,
 				317636A3252658F5005AED55 /* ViewUtils.swift in Sources */,
@@ -744,6 +759,7 @@
 				3132CDCC252522F400542F6F /* IntentHandler.swift in Sources */,
 				313599D42527224300A12AC9 /* Constants.swift in Sources */,
 				315F5EDB24BA2D2700FED38F /* KeyChainPasswordItem.swift in Sources */,
+				F4B920332A3BB92000254768 /* RefreshWidgetIntent.swift in Sources */,
 				310647CC24BD10E900E2DA90 /* CircleBadgeStatus.swift in Sources */,
 				31AECCFE24C7A57300E381E0 /* PiholeTimelineProvider.swift in Sources */,
 				31AECCC524C7A17400E381E0 /* PiStatsWidgets.swift in Sources */,
