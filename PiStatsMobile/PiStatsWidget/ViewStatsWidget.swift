@@ -43,24 +43,29 @@ struct ViewStatsWidget: Widget {
     }
 }
 
-struct ViewStatsWidget_Previews: PreviewProvider {
-    /// NOTE: Previews do not respect `contentMarginsDisabled` from widget because they use the view directly,
-    /// so margins will not look correct in Xcode Previews.
-    static var previews: some View {
-        PiStatsDisplayWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemSmall))
-            .disableContentMarginsForPreview()
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-            .previewDisplayName("System Small")
+#if DEBUG
 
-        PiStatsDisplayWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemMedium))
-            .disableContentMarginsForPreview()
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
-            .previewDisplayName("System Medium")
-
-        PlaceholderView()
-            .disableContentMarginsForPreview()
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-            .previewDisplayName("Placeholder")
-    }
+extension PiholeEntry {
+    static let previewSmall = PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemSmall)
+    static let previewSmallAlternate = PiholeEntry(piholeDataProvider: PiholeDataProvider.previewDataAlternate(), date: Date(), widgetFamily: .systemSmall)
+    static let previewMedium = PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemMedium)
+    static let previewMediumAlternate = PiholeEntry(piholeDataProvider: PiholeDataProvider.previewDataAlternate(), date: Date(), widgetFamily: .systemMedium)
 }
 
+@available(iOS 17.0, *)
+#Preview("Small", as: .systemSmall) {
+    ViewStatsWidget()
+} timeline: {
+    PiholeEntry.previewSmall
+    PiholeEntry.previewSmallAlternate
+}
+
+@available(iOS 17.0, *)
+#Preview("Medium", as: .systemMedium) {
+    ViewStatsWidget()
+} timeline: {
+    PiholeEntry.previewMedium
+    PiholeEntry.previewMediumAlternate
+}
+
+#endif // DEBUG

@@ -14,21 +14,6 @@ import Combine
 
 class PiholeDataProvider: ObservableObject, Identifiable {
     
-    static func previewData() -> PiholeDataProvider {
-        let provider =  PiholeDataProvider.init(piholes: [Pihole.previewData()])
-        provider.totalQueries = "1245"
-        provider.queriesBlocked = "1245"
-        provider.percentBlocked = "12,3%"
-        provider.domainsOnBlocklist = "12,345"
-        provider.status = .allEnabled
-        
-        provider.temperature = "23 ºC"
-        provider.memoryUsage = "50%"
-        provider.loadAverage = "0.1, 0.3, 0.6"
-        provider.uptime = "23h 2m"
-        return provider
-    }
-    
     enum PiholeStatus {
         case allEnabled
         case allDisabled
@@ -338,4 +323,40 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         actionErrors = piholes.compactMap{ $0.actionError}
         hasErrorMessages =  pollingErrors.count != 0 || actionErrors.count != 0
     }
+}
+
+// MARK: - Preview Support
+
+extension PiholeDataProvider {
+
+    static func previewData() -> PiholeDataProvider {
+        let provider =  PiholeDataProvider.init(piholes: [Pihole.previewData()])
+        provider.totalQueries = "1245"
+        provider.queriesBlocked = "1245"
+        provider.percentBlocked = "12,3%"
+        provider.domainsOnBlocklist = "12,345"
+        provider.status = .allEnabled
+
+        provider.temperature = "23 ºC"
+        provider.memoryUsage = "50%"
+        provider.loadAverage = "0.1, 0.3, 0.6"
+        provider.uptime = "23h 2m"
+        return provider
+    }
+
+    static func previewDataAlternate() -> PiholeDataProvider {
+        let provider =  PiholeDataProvider.init(piholes: [Pihole.previewData()])
+        provider.totalQueries = "1768"
+        provider.queriesBlocked = "1524"
+        provider.percentBlocked = "11,2%"
+        provider.domainsOnBlocklist = "12,389"
+        provider.status = .allEnabled
+
+        provider.temperature = "22 ºC"
+        provider.memoryUsage = "53%"
+        provider.loadAverage = "0.1, 0.2, 0.8"
+        provider.uptime = "26h 8m"
+        return provider
+    }
+
 }

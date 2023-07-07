@@ -37,21 +37,22 @@ struct PiMonitorWidget: Widget {
     }
 }
 
+#if DEBUG
 
-struct PiMonitorWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        PiMonitorWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemSmall))
-            .disableContentMarginsForPreview()
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-
-        PiMonitorWidgetView(entry: PiholeEntry(piholeDataProvider: PiholeDataProvider.previewData(), date: Date(), widgetFamily: .systemMedium))
-            .disableContentMarginsForPreview()
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
-        
-        PlaceholderView()
-            .disableContentMarginsForPreview()
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-    }
+@available(iOS 17.0, *)
+#Preview("Small", as: .systemSmall) {
+    PiMonitorWidget()
+} timeline: {
+    PiholeEntry.previewSmall
+    PiholeEntry.previewSmallAlternate
 }
 
+@available(iOS 17.0, *)
+#Preview("Medium", as: .systemSmall) {
+    PiMonitorWidget()
+} timeline: {
+    PiholeEntry.previewMedium
+    PiholeEntry.previewMediumAlternate
+}
+
+#endif // DEBUG

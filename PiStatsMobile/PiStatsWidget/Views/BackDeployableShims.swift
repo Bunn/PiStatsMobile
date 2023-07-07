@@ -26,14 +26,4 @@ extension View {
             self
         }
     }
-
-    #if DEBUG
-    /// Workaround for WidgetKit previews using old-style PreviewProvider
-    /// not respecting the `contentMarginsDisabled()` modifier
-    /// when previewing on iOS 17 Simulator.
-    @ViewBuilder
-    func disableContentMarginsForPreview() -> some View {
-        padding(-16)
-    }
-    #endif
 }
