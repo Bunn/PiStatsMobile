@@ -36,6 +36,8 @@ class DisableTimeItem: Identifiable, Hashable {
 }
 
 class DisableDurationManager: ObservableObject {
+    static let shared = DisableDurationManager(userPreferences: .shared)
+
     private let userPreferences: UserPreferences
     @Published var items = [DisableTimeItem]()
     private var disableTimeCancellable: AnyCancellable?

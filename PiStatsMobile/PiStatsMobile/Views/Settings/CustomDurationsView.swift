@@ -22,7 +22,7 @@ private struct TimePickerRow: View {
 }
 
 struct CustomDurationsView: View {
-    @StateObject var disableDurationManager = DisableDurationManager(userPreferences: UserPreferences.shared)
+    @StateObject var disableDurationManager = DisableDurationManager.shared
     @State private var selectedItems = Set<DisableTimeItem>()
     
     var body: some View {
