@@ -411,7 +411,6 @@
 		317D481724B3ACCE00897EA9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3176C732251FB547002DF0A3 /* DisableDurationManager.swift */,
 				317D482124B3D2F000897EA9 /* CodeScannerView.swift */,
 				3182E28F24BB6DA100BF53D9 /* UserDefaultExtensions.swift */,
 				319771AB24DB24BA0005E6BF /* ScannedPihole.swift */,
@@ -508,6 +507,7 @@
 				319B082A24B53246008B3C2F /* Logger.swift */,
 				319B082624B5321C008B3C2F /* Pihole.swift */,
 				319B082724B5321C008B3C2F /* PiholeDataProvider.swift */,
+				3176C732251FB547002DF0A3 /* DisableDurationManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
