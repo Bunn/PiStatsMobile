@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-enum StatsItemType {
+public enum StatsItemType {
     case totalQueries
     case queriesBlocked
     case percentBlocked
     case domainsOnBlockList
 
-    var imageName: String {
+    public var imageName: String {
         switch self {
         case .domainsOnBlockList:
             return UIConstants.SystemImages.domainsOnBlockList
@@ -26,7 +26,7 @@ enum StatsItemType {
         }
     }
     
-    var title: String {
+    public var title: String {
         switch self {
         case .domainsOnBlockList:
             return UIConstants.Strings.blocklist
@@ -39,7 +39,7 @@ enum StatsItemType {
         }
     }
     
-    var color: Color {
+    public var color: Color {
         switch self {
         case .domainsOnBlockList:
             return UIConstants.Colors.domainsOnBlocklist

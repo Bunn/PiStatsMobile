@@ -7,8 +7,7 @@
 
 import Foundation
 
-extension UserDefaults {
-  
+public extension UserDefaults {
     static func shared() -> UserDefaults {
         return UserDefaults(suiteName: Constants.appGroup)!
     }

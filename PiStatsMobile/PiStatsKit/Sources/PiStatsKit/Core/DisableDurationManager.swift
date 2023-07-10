@@ -8,15 +8,15 @@
 import Foundation
 import Combine
 
-class DisableTimeItem: Identifiable, Hashable {
+public class DisableTimeItem: Identifiable, Hashable {
     internal init(timeInterval: TimeInterval) {
         self.timeInterval = timeInterval
     }
     
-    static func == (lhs: DisableTimeItem, rhs: DisableTimeItem) -> Bool {
+    public static func == (lhs: DisableTimeItem, rhs: DisableTimeItem) -> Bool {
         return lhs.id == rhs.id
     }
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
@@ -27,27 +27,29 @@ class DisableTimeItem: Identifiable, Hashable {
         return f
     }()
     
-    let id = UUID()
-    @Published var timeInterval: TimeInterval
-    
-    var title: String {
+    public let id = UUID()
+    @Published public var timeInterval: TimeInterval
+
+    public var title: String {
         formatter.string(from: timeInterval) ?? "-"
     }
 }
 
-class DisableDurationManager: ObservableObject {
+public final class DisableDurationManager: ObservableObject {
+    public static let shared = DisableDurationManager(userPreferences: .shared)
+
     private let userPreferences: UserPreferences
-    @Published var items = [DisableTimeItem]()
+    @Published public var items = [DisableTimeItem]()
     private var disableTimeCancellable: AnyCancellable?
     private var timeIntervalCancellables: [AnyCancellable]?
 
-    internal init(userPreferences: UserPreferences) {
+    public init(userPreferences: UserPreferences) {
         self.userPreferences = userPreferences
         self.items = userPreferences.disableTimes.map { DisableTimeItem(timeInterval: $0) }
         setupCancellables()
     }
     
-    func saveDurationTimes() {
+    public func saveDurationTimes() {
         userPreferences.disableTimes = items.map { $0.timeInterval }
         update()
     }
@@ -58,7 +60,7 @@ class DisableDurationManager: ObservableObject {
      So this is to force the UI to be refreshed once a property changes.
      I'm pretty sure there is a best way of doing this though :(
      */
-    func setupCancellables() {
+    public func setupCancellables() {
         disableTimeCancellable = $items.receive(on: DispatchQueue.main).sink { [weak self] _ in
             self?.saveDurationTimes()
         }
@@ -67,16 +69,16 @@ class DisableDurationManager: ObservableObject {
         } }
     }
     
-    func update() {
+    public func update() {
         objectWillChange.send()
     }
     
-    func addNewItem() {
+    public func addNewItem() {
         items.append(DisableTimeItem(timeInterval: 0))
         setupCancellables()
     }
     
-    func delete(at offsets: IndexSet) {
+    public func delete(at offsets: IndexSet) {
         items.remove(atOffsets: offsets)
         setupCancellables()
     }
