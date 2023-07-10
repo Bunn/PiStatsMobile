@@ -183,6 +183,14 @@ extension Pihole {
             }
         }
     }
+
+    public func disable(for seconds: Int = 0) async throws {
+        try await withCheckedThrowingContinuation { continuation in
+            disablePiHole(seconds: seconds) { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
 }
 
 // MARK: I/O Methods
