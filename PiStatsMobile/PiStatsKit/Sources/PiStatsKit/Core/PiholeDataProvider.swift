@@ -12,72 +12,72 @@ import SwiftUI
 import PiMonitor
 import Combine
 
-class PiholeDataProvider: ObservableObject, Identifiable {
-    
-    enum PiholeStatus {
+public class PiholeDataProvider: ObservableObject, Identifiable {
+
+    public enum PiholeStatus {
         case allEnabled
         case allDisabled
         case enabledAndDisabled
     }
     
-    enum PollingMode {
+    public enum PollingMode {
         case foreground
         case background
     }
     
-    private(set) var pollingTimeInterval: TimeInterval = 3
+    public private(set) var pollingTimeInterval: TimeInterval = 3
     private var timer: Timer?
-    private(set) var piholes: [Pihole]
-    let id = UUID()
-    
+    public private(set) var piholes: [Pihole]
+    public let id = UUID()
+
     private var piSummaryCancellables: [AnyCancellable]?
     private var piPollingErrorCancellables: [AnyCancellable]?
     private var piActionErrorCancellables: [AnyCancellable]?
     
-    @Published private(set) var totalQueries = ""
-    @Published private(set) var queriesBlocked = ""
-    @Published private(set) var percentBlocked = ""
-    @Published private(set) var domainsOnBlocklist = ""
-    @Published private(set) var hasErrorMessages = false
-    @Published private(set) var status: PiholeStatus = .allDisabled
-    @Published private(set) var name = ""
-    @Published private(set) var pollingErrors = [String]()
-    @Published private(set) var actionErrors = [String]()
-    @Published private(set) var offlinePiholesCount = 0
-    
-    @Published private(set) var uptime = ""
-    @Published private(set) var memoryUsage = ""
-    @Published private(set) var loadAverage = ""
-    @Published private(set) var temperature = ""
+    @Published public private(set) var totalQueries = ""
+    @Published public private(set) var queriesBlocked = ""
+    @Published public private(set) var percentBlocked = ""
+    @Published public private(set) var domainsOnBlocklist = ""
+    @Published public private(set) var hasErrorMessages = false
+    @Published public private(set) var status: PiholeStatus = .allDisabled
+    @Published public private(set) var name = ""
+    @Published public private(set) var pollingErrors = [String]()
+    @Published public private(set) var actionErrors = [String]()
+    @Published public private(set) var offlinePiholesCount = 0
 
-    var canDisplayMetrics: Bool {
+    @Published public private(set) var uptime = ""
+    @Published public private(set) var memoryUsage = ""
+    @Published public private(set) var loadAverage = ""
+    @Published public private(set) var temperature = ""
+
+    public var canDisplayMetrics: Bool {
         return piholes.allSatisfy {
             return $0.hasPiMonitor
         }
     }
 
-     var canDisplayEnableDisableButton: Bool {
+    public var canDisplayEnableDisableButton: Bool {
         return !piholes.allSatisfy {
             return $0.apiToken.isEmpty == true
         }
     }
     
     private lazy var percentageFormatter: NumberFormatter = {
-          let n = NumberFormatter()
-          n.numberStyle = .percent
-          n.minimumFractionDigits = 2
-          n.maximumFractionDigits = 2
-          return n
-      }()
-      
-      private lazy var numberFormatter: NumberFormatter = {
-          let n = NumberFormatter()
-          n.numberStyle = .decimal
-          n.maximumFractionDigits = 0
-          return n
-      }()
+        let n = NumberFormatter()
+        n.numberStyle = .percent
+        n.minimumFractionDigits = 2
+        n.maximumFractionDigits = 2
+        return n
+    }()
+
+    private lazy var numberFormatter: NumberFormatter = {
+        let n = NumberFormatter()
+        n.numberStyle = .decimal
+        n.maximumFractionDigits = 0
+        return n
+    }()
     
-    init(piholes: [Pihole]) {
+    public init(piholes: [Pihole]) {
         self.piholes = piholes
         if piholes.count > 1 {
             self.name = UIConstants.Strings.allPiholesTitle
@@ -87,7 +87,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         setupCancellables()
     }
     
-    func updatePollingMode(_ pollingMode: PollingMode) {
+    public func updatePollingMode(_ pollingMode: PollingMode) {
         switch pollingMode {
         case .background:
             pollingTimeInterval = 10
@@ -97,7 +97,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         startPolling()
     }
     
-    func startPolling() {
+    public func startPolling() {
         self.fetchSummaryData()
         self.fetchMetricsData()
         timer?.invalidate()
@@ -107,11 +107,11 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         }
     }
     
-    func stopPolling() {
+    public func stopPolling() {
         timer?.invalidate()
     }
     
-    func resetErrorMessage() {
+    public func resetErrorMessage() {
         piholes.forEach { pihole in
             pihole.actionError = nil
             pihole.pollingError = nil
@@ -119,14 +119,14 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         updateErrorMessageStatus()
     }
     
-    func add(_ pihole: Pihole) {
+    public func add(_ pihole: Pihole) {
         objectWillChange.send()
         piholes.append(pihole)
         updateStatus()
         updateErrorMessageStatus()
     }
     
-    func remove(_ pihole: Pihole) {
+    public func remove(_ pihole: Pihole) {
         objectWillChange.send()
         if let index = piholes.firstIndex(of: pihole) {
             piholes.remove(at: index)
@@ -136,8 +136,8 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         updateErrorMessageStatus()
     }
     
-    func setupCancellables() {
-      
+    public func setupCancellables() {
+
         piActionErrorCancellables = piholes.map {
             $0.$actionError.receive(on: DispatchQueue.main).sink { [weak self] value in
                 self?.updateErrorMessageStatus()
@@ -157,7 +157,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         }
     }
     
-    func disablePiHole(seconds: Int = 0) {
+    public func disablePiHole(seconds: Int = 0) {
         piholes.forEach { pihole in
             pihole.disablePiHole(seconds: seconds) { result in
                 DispatchQueue.main.async {
@@ -172,7 +172,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         }
     }
     
-    func enablePiHole() {
+    public func enablePiHole() {
         piholes.forEach { pihole in
             pihole.enablePiHole { result in
                 DispatchQueue.main.async {
@@ -240,7 +240,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         }
     }
     
-    func fetchMetricsData(completion: (() -> ())? = nil) {
+    public func fetchMetricsData(completion: (() -> ())? = nil) {
         if !canDisplayMetrics {
             completion?()
             return
@@ -261,7 +261,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
         }
     }
     
-    func fetchSummaryData(completion: (() -> ())? = nil) {
+    public func fetchSummaryData(completion: (() -> ())? = nil) {
         let dispatchGroup = DispatchGroup()
 
         piholes.forEach { pihole in
@@ -327,7 +327,7 @@ class PiholeDataProvider: ObservableObject, Identifiable {
 
 // MARK: - Preview Support
 
-extension PiholeDataProvider {
+public extension PiholeDataProvider {
 
     static func previewData() -> PiholeDataProvider {
         let provider =  PiholeDataProvider.init(piholes: [Pihole.previewData()])

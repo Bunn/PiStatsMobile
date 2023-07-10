@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+@_exported import PiStatsKit
 
 final class DataModel: ObservableObject {
     let piholeProviderListManager = PiholeDataProviderListManager()

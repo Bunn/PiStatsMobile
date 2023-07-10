@@ -19,14 +19,14 @@ private enum Keys: String {
     case didMigrateAppGroup
 }
 
-enum TemperatureScale {
+public enum TemperatureScale {
     case celsius
     case fahrenheit
 }
 
-class UserPreferences: ObservableObject {
-    static let shared = UserPreferences()
-    var temperatureScaleType: TemperatureScale {
+public final class UserPreferences: ObservableObject {
+    public static let shared = UserPreferences()
+    public var temperatureScaleType: TemperatureScale {
         get {
             if temperatureScale == 1 {
                 return .fahrenheit
@@ -35,7 +35,7 @@ class UserPreferences: ObservableObject {
         }
     }
     
-    init() {
+    public init() {
         migrateStandardUserDefaultToGroupIfNecessary()
     }
     
@@ -68,41 +68,48 @@ class UserPreferences: ObservableObject {
         UserDefaults.shared().synchronize()
     }
 
-    @AppStorage(Keys.displayAllPiholes.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var displayAllPiholes: Bool = false {
+    @AppStorage(Keys.displayAllPiholes.rawValue, store: UserDefaults(suiteName: Constants.appGroup))
+    public var displayAllPiholes: Bool = false {
         willSet {
             objectWillChange.send()
         }
     }
     
-    @AppStorage(Keys.disablePermanently.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var disablePermanently: Bool = false {
+    @AppStorage(Keys.disablePermanently.rawValue, store: UserDefaults(suiteName: Constants.appGroup))
+    public var disablePermanently: Bool = false {
         willSet {
             objectWillChange.send()
         }
     }
     
-    @AppStorage(Keys.displayStatsAsList.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var displayStatsAsList: Bool = false {
+    @AppStorage(Keys.displayStatsAsList.rawValue, store: UserDefaults(suiteName: Constants.appGroup))
+    public var displayStatsAsList: Bool = false {
         willSet {
             objectWillChange.send()
         }
     }
     
-    @AppStorage(Keys.displayStatsIcons.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var displayStatsIcons: Bool = true {
+    @AppStorage(Keys.displayStatsIcons.rawValue, store: UserDefaults(suiteName: Constants.appGroup))
+    public var displayStatsIcons: Bool = true {
         willSet {
             objectWillChange.send()
         }
     }
     
-    @Published var disableTimes: [TimeInterval] = UserDefaults.shared().object(forKey: Keys.disableTimes.rawValue) as? [TimeInterval] ?? [30, 60, 300] {
+    @Published
+    public var disableTimes: [TimeInterval] = UserDefaults.shared().object(forKey: Keys.disableTimes.rawValue) as? [TimeInterval] ?? [30, 60, 300] {
         didSet {
             UserDefaults.shared().set(disableTimes, forKey: Keys.disableTimes.rawValue)
         }
     }
     
-    @AppStorage(Keys.temperatureScale.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var temperatureScale: Int = 0 {
+    @AppStorage(Keys.temperatureScale.rawValue, store: UserDefaults(suiteName: Constants.appGroup))
+    public var temperatureScale: Int = 0 {
         willSet {
             objectWillChange.send()
         }
     }
     
-    @AppStorage(Keys.didMigrateAppGroup.rawValue, store: UserDefaults(suiteName: Constants.appGroup)) var didMigrateAppGroup: Bool = false
+    @AppStorage(Keys.didMigrateAppGroup.rawValue, store: UserDefaults(suiteName: Constants.appGroup))
+    public var didMigrateAppGroup: Bool = false
 }
