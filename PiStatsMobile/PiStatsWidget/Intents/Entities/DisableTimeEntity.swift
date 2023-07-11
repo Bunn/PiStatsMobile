@@ -1,8 +1,9 @@
 import Foundation
 import AppIntents
+import PiStatsKit
 
 @available(iOS 17.0, *)
-struct DisableTimeEntity: AppEntity {
+struct DisableTimeEntity: AppEntity, Hashable {
 
     var id: UUID
     var title: String
@@ -26,7 +27,7 @@ struct DisableTimeQuery: EntityQuery {
     func entities(for identifiers: [DisableTimeEntity.ID]) async throws -> [DisableTimeEntity] {
         guard !identifiers.isEmpty else { return DisableTimeEntity.all }
 
-        return identifiers.compactMap { id in
+        return [.indefinitely] + identifiers.compactMap { id in
             DisableDurationManager.shared.items.first(where: { $0.id == id })
                 .map(DisableTimeEntity.init)
         }
@@ -40,5 +41,7 @@ extension DisableTimeEntity {
         self.init(id: item.id, title: item.title, interval: item.timeInterval)
     }
 
-    static var all: [DisableTimeEntity] { DisableDurationManager.shared.items.map(DisableTimeEntity.init) }
+    static var all: [DisableTimeEntity] { [.indefinitely] + DisableDurationManager.shared.items.map(DisableTimeEntity.init) }
+
+    static let indefinitely = DisableTimeEntity(id: UUID(), title: UIConstants.Strings.disablePiholeOptionsPermanently, interval: 0)
 }

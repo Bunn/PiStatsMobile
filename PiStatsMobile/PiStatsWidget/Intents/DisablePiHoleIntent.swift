@@ -14,8 +14,15 @@ struct DisablePiHoleIntent: AppIntent {
     var duration: DisableTimeEntity
 
     static var parameterSummary: some ParameterSummary {
-        Summary("Disable \(\.$targetPiHole) for \(\.$duration)")
+        Summary("Disable \(\.$targetPiHole) \(\.$duration)")
     }
+
+    init(targetPiHole: PiholeEntity? = nil, duration: DisableTimeEntity) {
+        self.targetPiHole = targetPiHole
+        self.duration = duration
+    }
+
+    init() { }
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         OSLogger.intents.debug("\(String(describing: type(of: self))) Perform")
@@ -48,7 +55,11 @@ struct DisablePiHoleIntent: AppIntent {
             }
             
             if failed.isEmpty {
-                return .result(dialog: "Disabled \(piholes.count) Pi-Hole(s) for \(duration)")
+                if duration == .indefinitely {
+                    return .result(dialog: "Disabled \(piholes.count) Pi-Hole(s)")
+                } else {
+                    return .result(dialog: "Disabled \(piholes.count) Pi-Hole(s) for \(duration)")
+                }
             } else if disabled.isEmpty {
                 throw CocoaError(.xpcConnectionInvalid, userInfo: [NSLocalizedDescriptionKey: "Error disabling Pi-Hole(s)"])
             } else {
@@ -62,7 +73,11 @@ struct DisablePiHoleIntent: AppIntent {
 
             try await pihole.disable(for: Int(duration.interval))
 
-            return .result(dialog: "\(targetPiHole) disabled for \(duration)")
+            if duration == .indefinitely {
+                return .result(dialog: "\(targetPiHole) disabled")
+            } else {
+                return .result(dialog: "\(targetPiHole) disabled for \(duration)")
+            }
         }
     }
 }
