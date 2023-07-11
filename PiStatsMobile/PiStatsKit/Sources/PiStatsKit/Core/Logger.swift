@@ -8,12 +8,14 @@
 
 import os.log
 
-struct Logger {
-    func osLog(category: String) -> OSLog {
+public struct Logger {
+    public init() { }
+    
+    public func osLog(category: String) -> OSLog {
         return OSLog(subsystem: "PiStats", category: category)
     }
     
-    func osLog<Subject>(describing instance: Subject) -> OSLog {
+    public func osLog<Subject>(describing instance: Subject) -> OSLog {
         return osLog(category: String(describing: instance))
     }
 }

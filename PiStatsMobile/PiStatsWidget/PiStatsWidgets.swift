@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+@_exported import PiStatsKit
 
 @main
 struct PiStatsWidgets: WidgetBundle {

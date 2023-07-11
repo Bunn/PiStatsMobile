@@ -12,24 +12,24 @@ import PiMonitor
 import Combine
 import os.log
 
-class Pihole: Identifiable, ObservableObject {
+public class Pihole: Identifiable, ObservableObject {
     private let log = Logger().osLog(describing: Pihole.self)
-    private(set) var metrics: PiMetrics?
-    private(set) var active = false
+    public private(set) var metrics: PiMetrics?
+    public private(set) var active = false
     private lazy var keychainToken = APIToken(accountName: self.id.uuidString)
     private let servicesTimeout: TimeInterval = 10
     
-    var displayName: String?
-    var address: String
-    var piMonitorPort: Int?
-    var hasPiMonitor: Bool = false
-    let id: UUID
-    var secure: Bool
+    public var displayName: String?
+    public var address: String
+    public var piMonitorPort: Int?
+    public var hasPiMonitor: Bool = false
+    public let id: UUID
+    public var secure: Bool
 
-    @Published var actionError: String?
-    @Published var pollingError: String?
-    
-    @Published private(set) var summary: Summary? {
+    @Published public var actionError: String?
+    @Published public var pollingError: String?
+
+    @Published public private(set) var summary: Summary? {
         didSet {
             if summary?.status.lowercased() == "enabled" {
                 active = true
@@ -41,7 +41,7 @@ class Pihole: Identifiable, ObservableObject {
         }
     }
 
-    var apiToken: String {
+    public var apiToken: String {
         get {
             keychainToken.token
         }
@@ -50,15 +50,15 @@ class Pihole: Identifiable, ObservableObject {
         }
     }
     
-    var port: Int? {
+    public var port: Int? {
         getPort(address)
     }
     
-    var host: String {
+    public var host: String {
         address.components(separatedBy: ":").first ?? ""
     }
     
-    var title: String {
+    public var title: String {
         if let name = displayName {
             return name
         }
@@ -73,7 +73,7 @@ class Pihole: Identifiable, ObservableObject {
         PiMonitor(host: host, port: piMonitorPort ?? 8088, timeoutInterval: servicesTimeout, secure: secure)
     }
   
-    required init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(UUID.self, forKey: .id)
         address = try container.decode(String.self, forKey: .address)
@@ -113,7 +113,7 @@ class Pihole: Identifiable, ObservableObject {
         }
     }
     
-    static func previewData() -> Pihole {
+    public static func previewData() -> Pihole {
         let pihole = Pihole(address: "127.0.0.1")
         pihole.hasPiMonitor = true
         return pihole
@@ -217,7 +217,7 @@ extension Pihole {
         }
     }
     
-    static func restoreAll() -> [Pihole] {
+    public static func restoreAll() -> [Pihole] {
         if let piHoleList = UserDefaults.shared().object(forKey: Pihole.piHoleListKey) as? Data {
             let decoder = JSONDecoder()
             
@@ -232,24 +232,24 @@ extension Pihole {
         return [Pihole]()
     }
     
-    static func restore(_ uuid: UUID) -> Pihole? {
+    public static func restore(_ uuid: UUID) -> Pihole? {
         return Pihole.restoreAll().filter { $0.id == uuid }.first
     }
 }
 
 extension Pihole: Hashable {
-    static func == (lhs: Pihole, rhs: Pihole) -> Bool {
+    public static func == (lhs: Pihole, rhs: Pihole) -> Bool {
          return lhs.id == rhs.id
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 }
 
 extension Pihole: Codable {
     
-    enum CodingKeys: CodingKey {
+    public enum CodingKeys: CodingKey {
         case id
         case address
         case displayName
@@ -258,7 +258,7 @@ extension Pihole: Codable {
         case secure
     }
     
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(address, forKey: .address)
