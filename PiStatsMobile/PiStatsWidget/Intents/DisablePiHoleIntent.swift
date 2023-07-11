@@ -25,13 +25,44 @@ struct DisablePiHoleIntent: AppIntent {
             throw $targetPiHole.needsValueError()
         }
 
-        guard let pihole = Pihole.restore(targetPiHole.id) else {
-            OSLogger.intents.error("Couldn't find a Pi-Hole with ID \(targetPiHole.id, privacy: .public)")
-            throw CocoaError(.coderValueNotFound, userInfo: [NSLocalizedDescriptionKey: "Couldn't find the specified Pi-Hole"])
+        if targetPiHole.representsAllPiHoles {
+            let piholes = Pihole.restoreAll()
+            
+            var disabled = Set<Pihole>()
+            var failed = Set<Pihole>()
+            
+            for pihole in piholes {
+                do {
+                    OSLogger.intents.debug("Disabling \(pihole.address)")
+                    
+                    try await pihole.disable(for: Int(duration.interval))
+                    
+                    disabled.insert(pihole)
+                    
+                    OSLogger.intents.debug("\(pihole.address) disabled successfully")
+                } catch {
+                    OSLogger.intents.error("Error disabling \(pihole.address): \(error, privacy: .public)")
+                    
+                    failed.insert(pihole)
+                }
+            }
+            
+            if failed.isEmpty {
+                return .result(dialog: "Disabled \(piholes.count) Pi-Hole(s) for \(duration)")
+            } else if disabled.isEmpty {
+                throw CocoaError(.xpcConnectionInvalid, userInfo: [NSLocalizedDescriptionKey: "Error disabling Pi-Hole(s)"])
+            } else {
+                return .result(dialog: "Disabled \(disabled.count) Pi-Hole(s). \(failed.count) Pi-Hole(s) couldn't be disabled.")
+            }
+        } else {
+            guard let pihole = Pihole.restore(targetPiHole.id) else {
+                OSLogger.intents.error("Couldn't find a Pi-Hole with ID \(targetPiHole.id, privacy: .public)")
+                throw CocoaError(.coderValueNotFound, userInfo: [NSLocalizedDescriptionKey: "Couldn't find the specified Pi-Hole"])
+            }
+
+            try await pihole.disable(for: Int(duration.interval))
+
+            return .result(dialog: "\(targetPiHole) disabled for \(duration)")
         }
-
-        try await pihole.disable(for: Int(duration.interval))
-
-        return .result(dialog: "Disabling \(targetPiHole) for \(duration)")
     }
 }
